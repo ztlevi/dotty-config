@@ -81,4 +81,4 @@
 	includePullRequestsSection = false
 	includeIssuesSection = false
 [includeIf "gitdir:workplace/"]
-	path = ~/.dotty/shell/git/git-company-config
+	path = ~/.config/dotty/config/shell/git/git-company-config
