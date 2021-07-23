@@ -96,7 +96,8 @@ function update_my_repos() {
   update_git_repo $DOTTY_HOME
   (
     cd $DOTTY_HOME
-    git submodule update --remote --merge
+    git submodule update --init config
+    git submodule update --init assets
     update_topics &>/dev/null
   )
 
