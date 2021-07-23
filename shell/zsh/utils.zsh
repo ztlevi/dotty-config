@@ -97,7 +97,7 @@ function update_my_repos() {
   (
     cd $DOTTY_HOME
     git submodule update --init config
-    git submodule update --init assets
+    [[ -d $DOTTY_ASSETS_HOME ]] && git submodule update --init assets
     update_topics &>/dev/null
   )
 
