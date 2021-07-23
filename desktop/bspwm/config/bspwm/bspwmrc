@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source $HOME/.dotty/env
+source $DOTTY_CONFIG_HOME/env
 
 #
 # Essentials
@@ -118,7 +118,7 @@ bspc rule -a slack desktop=^5
 # _run launch-browser &
 # _run slack &
 
-_call $DOTTY_HOME/bin/ding startup
+_call $DOTTY_CONFIG_HOME/bin/ding startup
 
 # dunst need to use zsh to run, otherwise click function fails
 zsh -c "dunst-start &" # notifyciation daemon.

@@ -9,7 +9,7 @@
 #   It will randomly select color and powerline separator. Based on the selected color, it will set the background
 #     wallpaper.
 
-WALLPAPERS_DIR=$DOTTY_HOME/assets/wallpapers
+WALLPAPERS_DIR=$DOTTY_ASSETS_HOME/wallpapers
 CYCLE_TIME=${1:-3600}
 
 # Kill running run.sh script, use /$$/ to exclude current run.sh script

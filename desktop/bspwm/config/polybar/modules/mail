@@ -3,8 +3,8 @@
 import imaplib
 import io
 import os
-import sys
 import socket
+import sys
 from subprocess import Popen
 
 CONFIG_FILE = os.path.expanduser("~/.secrets/email")
@@ -67,7 +67,7 @@ def notify(title, message):
 
 
 def ding():
-    Popen(["{}/bin/ding".format(os.getenv("DOTTY_HOME", os.path.expanduser("~/.dotty")))])
+    Popen(["{}/bin/ding".format(os.getenv("DOTTY_CONFIG_HOME", os.path.expanduser("~/.config/dotty/config")))])
 
 #
 def main():

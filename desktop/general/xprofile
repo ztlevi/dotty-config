@@ -2,10 +2,10 @@
 # ASCII text
 # http://patorjk.com/software/taag/#p=display&f=Broadway&t=gnome
 
-DOTTY_HOME=${HOME}/.dotty
-DESKTOP=${DOTTY_HOME}/desktop/general
+DOTTY_HOME=${XDG_CONFIG_HOME}/dotty
+DESKTOP=${DOTTY_CONFIG_HOME}/desktop/general
 
-source ${DOTTY_HOME}/env
+source ${DOTTY_CONFIG_HOME}/env
 
 export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0
 
@@ -75,6 +75,6 @@ fi
     # _run rslsync &  # resilio sync
 
     sleep 1
-    [[ -e ${DOTTY_HOME}/desktop/general/xprofile_local ]] && zsh ${DOTTY_HOME}/desktop/general/xprofile_local
+    [[ -e ${DOTTY_CONFIG_HOME}/desktop/general/xprofile_local ]] && zsh ${DOTTY_CONFIG_HOME}/desktop/general/xprofile_local
   } &
 } 2>&1 >${XDG_DATA_HOME}/xsession-errors.log
