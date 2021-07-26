@@ -12,7 +12,7 @@ export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_DATA_HOME="$XDG_DATA_HOME/dotty"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 
-export APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
+alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
 
 function dotty(){
   $DOTTY_HOME/deploy $@
