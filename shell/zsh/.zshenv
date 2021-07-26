@@ -1,9 +1,5 @@
 source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
 
-if [ -d /home/linuxbrew/.linuxbrew/ ]; then
-  path=(/home/linuxbrew/.linuxbrew/bin $path)
-fi
-
 path=(/usr/local/{s,}bin $path)
 
 export LANG='en_US.UTF-8'
