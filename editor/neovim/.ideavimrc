@@ -110,8 +110,8 @@ nmap zm :action CollapseAllRegions<CR>
 " IDE actions
 " ============================================================================
 
-nmap K               :action QuickImplementations<CR>
-vmap K               :<Backspace><Backspace><Backspace><Backspace><Backspace>action QuickImplementations<CR>
+nmap K               :action QuickJavaDoc<CR>
+vmap K               :<Backspace><Backspace><Backspace><Backspace><Backspace>action QuickJavaDoc<CR>
 nmap <c-i>           :action Forward<CR>
 vmap <c-i>           :<Backspace><Backspace><Backspace><Backspace><Backspace>action Forward<CR>
 nmap <c-o>           :action Back<CR>
