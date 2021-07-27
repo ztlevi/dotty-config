@@ -189,6 +189,9 @@ nmap go              :action StepOut<CR>
 vmap go              :<Backspace><Backspace><Backspace><Backspace><Backspace>action StepOut<CR>
 nmap gs              :action StepOver<CR>
 vmap gs              :<Backspace><Backspace><Backspace><Backspace><Backspace>action StepOver<CR>
+" Camcel Case plugin, default key is alt-shift-u
+nmap g~              :action de.netnexus.camelCasePlugin.ToggleCamelCase<CR>
+vmap g~              :<Backspace><Backspace><Backspace><Backspace><Backspace>action de.netnexus.CamelCasePlugin.ToggleCamelCase<CR>
 " Use tab and S-tab to switch tabs
 nmap <M-P>           :action GotoFile<CR>
 vmap <M-P>           :<Backspace><Backspace><Backspace><Backspace><Backspace>action GotoFile<CR>
