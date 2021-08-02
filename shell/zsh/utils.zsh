@@ -94,12 +94,7 @@ function update_my_repos() {
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
   update_git_repo $DOTTY_HOME
-  (
-    cd $DOTTY_HOME
-    git submodule update --init config
-    [[ -d ${DOTTY_ASSETS_HOME}/fonts ]] && git submodule update --init assets
-    update_topics &>/dev/null
-  )
+  update_topics &>/dev/null
 
   local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   update_git_repo ${XDG_CONFIG_HOME}/doom &
