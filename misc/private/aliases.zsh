@@ -9,5 +9,5 @@ _is_callable you-get && alias yg='you-get'
 if _is_callable youtube-dl; then
   alias yd='youtube-dl --write-auto-sub --ignore-errors'
   alias yd2mp4='youtube-dl --write-auto-sub --ignore-errors --recode-video mp4'
-  alias yda='youtube-dl --extract-audio --audio-format mp3'
+  alias yda='youtube-dl -i -o "%(title)s.%(ext)s" --embed-thumbnail --extract-audio --audio-format mp3 --audio-quality 0'
 fi
