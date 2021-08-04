@@ -11,6 +11,7 @@
 	rr = rm -r --cached .
 	rv = remote -v
     smu = submodule update --remote --merge
+    smr = delete-submodule
 	cm	= commit
 	ca = commit -a -v
 	ps = push
