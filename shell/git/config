@@ -55,9 +55,6 @@
 	default = matching
 [branch]
 	autosetuprebase = always
-# Recursively pull submodule update during root repo git pull
-[submodule]
-	recurse = true
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 # Require git-remote-codecommit and aws cli installed
