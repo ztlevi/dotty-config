@@ -15,7 +15,8 @@
 - [Rofi](https://github.com/DaveDavenport/rofi) for the app launcher
 - [Compton fork](https://github.com/tryone144/compton) for the compositor (blur and animations)
 - (Optional) [Materia](https://github.com/nana-4/materia-theme) as GTK theme
-- (Optional) [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) as icon theme
+- (Optional) [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) as icon
+  theme
 
 ## Installation
 
@@ -23,8 +24,8 @@
 git clone https://github.com/PapyElGringo/material-awesome.git ~/.config/awesome
 ```
 
-> Awesome 4.3 is so new that most of the distribution didn't updated yet. If you want to install this config on Awesome
-> 4.2 (current version on depo) use the specific awesome-4.2 branch
+> Awesome 4.3 is so new that most of the distribution didn't updated yet. If you want to install
+> this config on Awesome 4.2 (current version on depo) use the specific awesome-4.2 branch
 
 ```
 git clone -b awesome-4.2 https://github.com/PapyElGringo/material-awesome.git ~/.config/awesome
