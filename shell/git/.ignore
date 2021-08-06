@@ -7,6 +7,7 @@ third_party/
 !third_party/requirements.bazel.txt
 third-party/
 
+.tags
 TAGS
 .idea
 .mypy_cache
