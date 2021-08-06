@@ -6,6 +6,6 @@ _load shell/zsh/completion.zsh
 _load shell/zsh/keybinds.zsh
 _load shell/zsh/proxy.zsh
 
-_load_all aliases.zsh
+_load_all rc.zsh
 
 _load shell/zsh/zinit-post-hook.zsh

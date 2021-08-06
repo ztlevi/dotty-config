@@ -1,4 +1,4 @@
-source $DOTTY_CONFIG_HOME/desktop/general/aliases.zsh
+source $DOTTY_CONFIG_HOME/desktop/general/rc.zsh
 
 if _is_callable xdg-open; then
   alias oo="xdg-open . >/dev/null &"
