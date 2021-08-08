@@ -3,6 +3,7 @@
 	email = ztlevi.work@gmail.com
 	signingkey = ztlevi.work@gmail.com
 [alias]
+	root = rev-parse --show-toplevel
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
