@@ -42,21 +42,21 @@ function git-bump-submodules() {
   if _is_git_submodule; then
     git_root=$git_root/..
   fi
-  pushd $git_root >/dev/null
+  pushd $git_root
   local submodules=($(git config --file .gitmodules --get-regexp path | awk '{ print $2 }'))
   local updated_submodules=()
   for submodule in ${submodules[@]}; do
-    pushd $git_root/$submodule >/dev/null
+    pushd $git_root/$submodule
     if ! (git diff --quiet); then
       git add .
       git cm -m $1
       git push
       updated_submodules+=($submodule)
     fi
-    popd >/dev/null
+    popd
     git add $submodule
   done
   git cm -m "BUMP ${updated_submodules[@]}"
   git push
-  popd >/dev/null
+  popd &>/dev/null
 }
