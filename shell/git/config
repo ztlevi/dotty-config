@@ -48,14 +48,17 @@
 	default = matching
 [branch]
 	autosetuprebase = always
+[credential]
+	helper = /usr/local/bin/git-credential-manager-core
+# Use gh for github credentials
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 # Require git-remote-codecommit and aws cli installed
 [credential "https://git-codecommit.*.amazonaws.com"]
     helper = !aws codecommit credential-helper $@
     UseHttpPath = true
-[credential]
-	helper = /usr/local/bin/git-credential-manager-core
 [http]
 	sslVerify = true
 [color]
