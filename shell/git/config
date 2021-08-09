@@ -1,7 +1,3 @@
-[user]
-	name = Ting Zhou
-	email = ztlevi.work@gmail.com
-	signingkey = ztlevi.work@gmail.com
 [alias]
 	root = rev-parse --show-toplevel
 	# Show the diff between the latest commit and the current state
@@ -40,10 +36,6 @@
 	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 [init]
 	defaultBranch = main
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
 [core]
 	editor = nvim
 	ignorecase = false
@@ -73,8 +65,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[github]
-	user = ztlevi
 [magithub]
 	cache = always
 	online = false
@@ -82,5 +72,8 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+[include]
+	path = ~/work/dots/git-user-config
+	path = ~/work/dots/git-gpg-config
 [includeIf "gitdir:workplace/"]
-	path = ~/.config/dotty/config/shell/git/git-company-config
+	path = ~/work/dots/git-company-config
