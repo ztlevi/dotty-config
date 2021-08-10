@@ -84,4 +84,9 @@ function format-all-dos2unix() {
   done
 }
 
+function format-all-shfmt() {
+  fd -x shfmt -w -ci -i 2 -ln bash {} \; --regex '_init' .
+  fd -x shfmt -w -ci -i 2 -ln bash {} \; -e zsh -e sh .
+}
+
 unalias duf 2>/dev/null

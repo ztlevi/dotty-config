@@ -21,7 +21,7 @@ dke() {
 
 dk() {
   case $(_os) in
-  linux-*) systemctl -q is-active docker || sudo systemctl start docker ;;
+    linux-*) systemctl -q is-active docker || sudo systemctl start docker ;;
   esac
   docker $@
 }

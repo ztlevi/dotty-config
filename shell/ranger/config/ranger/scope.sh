@@ -18,12 +18,12 @@ hl() {
 }
 
 case "$mimetype" in
-# Syntax highlight for text files:
-text/* | */xml)
-  try hl && {
-    dump | trim
-    exit 5
-  } || exit 2
-  ;;
+  # Syntax highlight for text files:
+  text/* | */xml)
+    try hl && {
+      dump | trim
+      exit 5
+    } || exit 2
+    ;;
 esac
 exit 1
