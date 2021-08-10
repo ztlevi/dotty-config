@@ -37,4 +37,5 @@ for submodule in ${submodules[@]}; do
   git add $submodule
 done
 git cm -m "BUMP ${updated_submodules[@]}"
+git push
 popd &>/dev/null
