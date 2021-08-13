@@ -30,6 +30,9 @@ ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Sessi
 # Ignore Amazon tools
 ignore = Name {.rde,.bemol,.suds}
 
+# Ignore for java
+ignore = Name annotation-generated-{src,tst}
+
 # Ignore rules for brazil
 ignore = BelowPath */{env,logs,out}
 ignore = BelowPath */src/*/build
@@ -51,8 +54,7 @@ ignore = Name {.log}
 ignore = Name log{,s}/*.log{,.*}
 
 # zip files
-ignore = Name {.tar,.gz,.zip,.rar}
-
+ignore = Name *.{tar,gz,zip,rar}
 
 # Ignore ~/workplace/.unison/ config dir itself
 ignore = Path .unison

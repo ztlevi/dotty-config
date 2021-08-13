@@ -26,7 +26,7 @@ local submodules=($(git config --file .gitmodules --get-regexp path | awk '{ pri
 local updated_submodules=()
 for submodule in ${submodules[@]}; do
   pushd $git_root/$submodule
-  if ! (git diff --quiet); then
+  if ! (git diff --staged --quiet); then
     echo "Commit $submodule"
     git add .
     git cm -m $1
