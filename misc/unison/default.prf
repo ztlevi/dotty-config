@@ -50,6 +50,9 @@ ignore = Name wrapper
 ignore = Name {.log}
 ignore = Name log{,s}/*.log{,.*}
 
+# zip files
+ignore = Name {.tar,.gz,.zip,.rar}
+
 
 # Ignore ~/workplace/.unison/ config dir itself
 ignore = Path .unison
