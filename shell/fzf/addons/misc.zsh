@@ -26,7 +26,9 @@ function fzf_projects() {
   local IFS=$'\n'
   selected_project=$(echo "${projects[*]}" | fzf)
 
-  cd ${selected_project}
+  if [[ -n "$selected_project" ]]; then
+    cd ${selected_project}
+  fi
 }
 alias pp=fzf_projects
 
