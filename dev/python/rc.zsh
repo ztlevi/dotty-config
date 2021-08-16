@@ -14,7 +14,8 @@ _is_callable python3 && alias py3=python3
 
 alias ipy=ipython
 alias ipylab='ipython --pylab=qt5 --no-banner'
-_is_callable jupyter && alias jp='jupyter lab --NotebookApp.iopub_data_rate_limit=10000000'
+alias jp='jupyter notebook'
+alias jpl='jupyter lab --NotebookApp.iopub_data_rate_limit=10000000'
 
 alias cda="source activate"
 alias cdd="conda deactivate || source deactivate"
