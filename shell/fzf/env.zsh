@@ -10,4 +10,5 @@ export FZF_CTRL_T_COMMAND='
 
 export FZF_COMPLETION_TRIGGER=','
 
-export FZF_DEFAULT_OPTS='--bind ctrl-v:page-down'
+# sort histroy by index, this seems enabled by default
+export FZF_CTRL_R_OPTS="--no-sort"
