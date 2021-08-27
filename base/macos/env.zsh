@@ -1,5 +1,4 @@
 export GNUPGHOME="$HOME/.gnupg"
-export BROWSER='open'
 
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
