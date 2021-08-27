@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+# menu (dmenu, rofi, fzf, etc.)
+# For dmenu: dmenu -i -p Bookmark
+menu_cmd="fzf"
+menu_cmd_options="--ansi --multi"
+
+# browser
+browser_cmd='launch-browser'
+
+if [[ -z "$1" ]]; then
+  chrome_user=Default
+else
+  chrome_user="Profile $1"
+fi
+local cols sep google_history open
+cols=$((COLUMNS / 3))
+sep='{::}'
+
+if [ "$(uname)" = "Darwin" ]; then
+  google_history="${HOME}/Library/Application Support/Google/Chrome/${chrome_user}/History"
+else
+  google_history="${HOME}/.config/google-chrome/${chrome_user}/History"
+fi
+rm -f /tmp/chrome-history
+cp -f "$google_history" /tmp/chrome-history
+sqlite3 -separator $sep /tmp/chrome-history \
+  "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b%s\x1b\n", $1, $2}' |
+  $menu_cmd $menu_cmd_option | sed 's#.*\(https*://\)#\1#' | xargs $browser_cmd >/dev/null 2>/dev/null
