@@ -2,9 +2,11 @@ source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
 
 path=(/usr/local/{s,}bin $path)
 
-export LANG='en_US.UTF-8'
+# True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
 export LC_ALL="en_US.UTF-8"
-export TERM="xterm-256color"
+export LANG='en_US.UTF-8'
+export LANGUAGE=en_US.UTF-8
+export TERM="xterm-24bit"
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
