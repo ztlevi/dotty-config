@@ -2,7 +2,6 @@ source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
 
 path=(/usr/local/{s,}bin $path)
 
-# True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
 export LC_ALL="en_US.UTF-8"
 export LANG='en_US.UTF-8'
 export LANGUAGE=en_US.UTF-8
