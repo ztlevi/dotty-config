@@ -7,7 +7,7 @@ font:
     style: Bold
   italic:
     family: CartographCF Nerd Font
-    style: Regular Italic
+    style: Italic
   bold_italic:
     family: CartographCF Nerd Font
     style: Bold Italic
