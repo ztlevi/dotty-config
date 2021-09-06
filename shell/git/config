@@ -48,6 +48,18 @@
 	default = matching
 [branch]
 	autosetuprebase = always
+[url "https://github.com/"]
+    insteadOf = gh:
+[url "git@github.com:"]
+    insteadOf = ssh+gh:
+[url "https://gitlab.com/"]
+    insteadOf = gl:
+[url "https://gist.github.com/"]
+    insteadOf = gist:
+[url "https://bitbucket.org/"]
+    insteadOf = bb:
+[url "https://git.v0.com"]
+    insteadOf = v0:
 [credential]
 	helper = /usr/local/bin/git-credential-manager-core
 # Use gh for github credentials
@@ -75,6 +87,10 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+[diff "lisp"]
+	xfuncname = "^(((;;;+ )|\\(|([ \t]+\\(((cl-|el-patch-)?def(un|var|macro|method|custom)|gb/))).*)$"
+[diff "org"]
+	xfuncname = "^(\\*+ +.*)$"
 [include]
 	path = ~/work/dots/git-user-config
 	path = ~/work/dots/git-gpg-config
