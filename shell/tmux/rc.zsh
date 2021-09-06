@@ -3,8 +3,6 @@ zinit wait lucid for \
 # OMZP::tmuxinator
 # zinit ice as"completion"; zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
 
-alias tmux='tmux -f "$TMUX_HOME/tmux.conf"'
-
 alias ta='tmux attach -t'
 alias tl='tmux ls'
 alias tksv='tmux kill-server'
