@@ -5,8 +5,14 @@ source $DOTTY_CONFIG_HOME/env
 #
 # Essentials
 #
-_run sxhkd &   # keyboard daemon
-_run compton & # perdy effects + transparency
+# Nixos start these apps automatically
+if [[ $(_os) != linux-nixos ]]; then
+  _call $DOTTY_CONFIG_HOME/bin/ding startup
+  _run sxhkd &   # keyboard daemon
+  _run picom & # perdy effects + transparency
+  # dunst need to use zsh to run, otherwise click function fails
+  zsh -c "dunst-start &" # notifyciation daemon.
+fi
 
 {
   sleep 1
@@ -117,11 +123,6 @@ bspc rule -a slack desktop=^5
 # } &
 # _run launch-browser &
 # _run slack &
-
-_call $DOTTY_CONFIG_HOME/bin/ding startup
-
-# dunst need to use zsh to run, otherwise click function fails
-zsh -c "dunst-start &" # notifyciation daemon.
 
 # set cursor
 _call xsetroot -cursor_name left_ptr &
