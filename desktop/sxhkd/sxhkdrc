@@ -33,7 +33,7 @@ super + Escape
     pkill -USR1 -x sxhkd
 
 super + ctrl + shift + p
-    ~/.config/dotty/config/wm/bspwm/config/polybar/run.sh
+    ~/.config/dotty-nix/config/desktop/polybar/run.sh
 
 ctrl + shift + .
     dunstctl context
