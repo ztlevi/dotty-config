@@ -3,7 +3,7 @@
     markup = full
     bounce_freq = 0
     browser = launch-browser
-    dmenu = /usr/bin/rofi -dmenu -p dunst:
+    dmenu = dunst-dmenu
     follow = keyboard
     font = DejaVu Sans 24
     format = "%s\n%b"
@@ -30,7 +30,7 @@
     # Align icons left/right/off
     icon_position = right
     # Paths to default icons.
-    icon_path = /usr/share/icons/hicolor/32x32/apps/:/usr/share/icons/Adwaita/32x32/actions/
+    icon_path = /usr/share/icons/hicolor/32x32/apps/:/usr/share/icons/Adwaita/32x32/actions/:/run/current-system/sw/share/icons/Flat-Remix-Blue/32x32/apps/:/run/current-system/sw/share/icons/hicolor/32x32/apps/:/run/current-system/sw/share/icons/Adwaita/32x32/actions/
     frame_width = 3
     frame_color = "#384551"
     mouse_left_click = do_action
@@ -61,4 +61,3 @@
     background = "#D95468"
     foreground = "#384551"
     timeout = 0
-
