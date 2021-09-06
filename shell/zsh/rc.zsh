@@ -89,3 +89,7 @@ function format-all-shfmt() {
 }
 
 unalias duf 2>/dev/null
+
+alias get_window_class="xprop | grep WM_CLASS"
+
+alias nr="nix repl '<nixpkgs/nixos>'"
