@@ -9,8 +9,11 @@
 #   It will randomly select color and powerline separator. Based on the selected color, it will set the background
 #     wallpaper.
 
+source $DOTTY_CONFIG_HOME/env
+
 WALLPAPERS_DIR=$DOTTY_ASSETS_HOME/wallpapers
 CYCLE_TIME=${1:-3600}
+CUR_DIR=${0:A:h}
 
 # Kill running run.sh script, use /$$/ to exclude current run.sh script
 declare -a run_script_pids
@@ -43,17 +46,17 @@ readonly DPI
 pushd ~ >/dev/null
 
 declare -a colors separators
-colors=("${(@f)$(ls ${0:A:h}/resources/colors)}")
-separators=("${(@f)$(ls ${0:A:h}/resources/separators)}")
+colors=("${(@f)$(ls ${CUR_DIR}/resources/colors)}")
+separators=("${(@f)$(ls ${CUR_DIR}/resources/separators)}")
 
 while true; do
-  killall -q polybar
+  pkill -u $UID -x polybar
 
   # Random select color and powerline separator
   selected_color=${colors[$(($RANDOM % ${#colors[@]} + 1))]}
-  source ${0:A:h}/resources/colors/${selected_color}
+  source ${CUR_DIR}/resources/colors/${selected_color}
   selected_separator=${separators[$(($RANDOM % ${#separators[@]} + 1))]}
-  source ${0:A:h}/resources/separators/${selected_separator}
+  source ${CUR_DIR}/resources/separators/${selected_separator}
   
   # Set wallpaper based on selected_color
   declare -a color_wallpapers
@@ -75,7 +78,7 @@ while true; do
   _call bspc config presel_feedback_color ${shade3}
 
   # Reload polybar
-  while _is_running polybar; do sleep 0.3; done
+  while pgrep -u $UID -x polybar >/dev/null; do sleep 0.3; done
   polybar main >$XDG_DATA_HOME/polybar.log 2>&1 &
 
   declare -x SIDE_MONITOR

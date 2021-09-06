@@ -3,8 +3,8 @@
 import imaplib
 import io
 import os
-import socket
 import sys
+import socket
 from subprocess import Popen
 
 CONFIG_FILE = os.path.expanduser("~/.secrets/email")
