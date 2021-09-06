@@ -1,4 +1,9 @@
-source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
+# NIXOS copy .zshenv to nix store, source the absolute path
+if [[ -n ${DOTTY_CONFIG_HOME} ]]; then
+  source ${DOTTY_CONFIG_HOME}/env
+else
+  source "$(cd $(dirname "${BASH_SOURCE:-${(%):-%x}}")/../.. && pwd -P)/env"
+fi
 
 path=(/usr/local/{s,}bin $path)
 

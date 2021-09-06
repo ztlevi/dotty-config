@@ -71,9 +71,13 @@ function _load() {
 }
 
 function _load_all() {
-  for file in "$DOTTY_DATA_HOME"/*.topic/"$1"; do
-    [[ -e $file ]] && source "$file"
-  done
+  mkdir -p $DOTTY_DATA_HOME
+  local topics=($(ls $DOTTY_DATA_HOME))
+  if [[ ${#topics} -gt 0 ]]; then
+    for file in "$DOTTY_DATA_HOME"/*.topic/"$1"; do
+      [[ -e $file ]] && source "$file" || break
+    done
+  fi
 }
 
 function _load_repo() {
