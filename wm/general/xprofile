@@ -16,6 +16,7 @@ if [ -z ${RESOLUTION} ]; then RESOLUTION=1920; fi
 SCREEN_SCALE=$((${RESOLUTION} / 1920))
 
 [[ -f ${DESKTOP}/Xresources ]] && xrdb -merge ${DESKTOP}/Xresources
+[[ -f ${DESKTOP}/Xresources_cursor ]] && xrdb -merge ${DESKTOP}/Xresources_cursor
 [ "${SCREEN_SCALE}" -eq 2 ] && [[ -f ${DESKTOP}/Xresources_4K ]] && xrdb -merge ${DESKTOP}/Xresources_4K
 
 # AWESOME

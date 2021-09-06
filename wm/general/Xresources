@@ -80,10 +80,6 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-! cursor
-Xcursor.theme: xcursor-breeze-snow
-Xcursor.size: 20
-
 ! emacs
 Emacs.toolBar: 0
 Emacs.menuBar: 0
