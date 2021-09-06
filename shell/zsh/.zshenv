@@ -45,3 +45,4 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # initialize enabled topics
 _load_all env.zsh
+[[ -f ${ZDOTDIR}/extra.zshenv ]] && _load ${ZDOTDIR}/extra.zshenv
