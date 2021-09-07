@@ -15,12 +15,13 @@ source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit light-mode for zinit-zsh/z-a-meta-plugins
-# Load a few important annexes, without Turbo (this is currently required for annexes)
-zinit for annexes
+# Note: Use z-a-meta-plugins to install console seems causing issue on Nixos.
+# zinit light-mode for zinit-zsh/z-a-meta-plugins
+# # Load a few important annexes, without Turbo (this is currently required for annexes)
+# zinit for annexes
+# # This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
+# zinit skip'dircolors-material jonas/tig' for console-tools
 
-# This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
-zinit skip'dircolors-material jonas/tig' for console-tools
 # zsh-users+fast does not load zdharma/fast-syntax-highlighting more lazy enough
 zinit wait lucid for \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
