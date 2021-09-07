@@ -1,5 +1,20 @@
 #!/usr/bin/env zsh
 
+# Download zhwiki pinyin dictionary
+if [[ ! -f $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml ]]; then
+  [[ ! -f $WGETRC ]] && touch $WGETRC
+  wget --no-check-certificate $(get_github_latest_release_url felixonmars/fcitx5-pinyin-zhwiki "\.dict\.yaml") \
+    -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
+fi
+
+# Install emoji
+mkdir -p /tmp/fcitx-install
+(
+  cd /tmp/fcitx-install
+  curl -fsSL https://git.io/rime-install | bash -s -- emoji
+)
+rm -rf /tmp/fcitx-install
+
 # 1. System input method
 mkdir -p $XDG_CONFIG_HOME/fcitx/rime
 
@@ -26,10 +41,3 @@ link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
 for file in ''${link_files[@]}; do
   ln -s -f $XDG_CONFIG_HOME/fcitx/rime/$file $XDG_CONFIG_HOME/fcitx/emacs-rime/
 done
-
-# Download zhwiki pinyin dictionary
-if [[ ! -f $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml ]]; then
-  [[ ! -f $WGETRC ]] && touch $WGETRC
-  wget --no-check-certificate $(get_github_latest_release_url felixonmars/fcitx5-pinyin-zhwiki "\.dict\.yaml") \
-    -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
-fi
