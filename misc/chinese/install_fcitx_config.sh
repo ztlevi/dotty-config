@@ -20,7 +20,7 @@ mkdir -p $XDG_CONFIG_HOME/fcitx/rime
 
 ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/fcitx/config $XDG_CONFIG_HOME/fcitx/config
 ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/fcitx/rime/* $XDG_CONFIG_HOME/fcitx/rime/
-ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/fcitx/pam_environment ${HOME}/.pam_environment
+ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/.pam_environment ${HOME}/.pam_environment
 
 [[ -d ${DOTTY_ASSETS_HOME}/rime-dictionaries ]] && ln -s -f $DOTTY_ASSETS_HOME/rime-dictionaries/*.dict.yaml $XDG_CONFIG_HOME/fcitx/rime/
 
