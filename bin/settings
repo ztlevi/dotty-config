@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
-if command -v gnome-control-center > /dev/null; then
-  dconf reset -f /org/gnome/control-center/ && env XDG_CURRENT_DESKTOP=GNOME gnome-control-center "$1" &
+if _is_callable unity-control-center; then
+  unity-control-center &
+elif _is_callable gnome-control-center; then
+  dconf reset -f /org/gnome/control-center/ && env XDG_CURRENT_DESKTOP=GNOME gnome-control-center &
 else
   notify-send --urgency=critical "No system settings appliation found\!"
 fi
