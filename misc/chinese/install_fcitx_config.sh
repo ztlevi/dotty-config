@@ -30,6 +30,6 @@ done
 # Download zhwiki pinyin dictionary
 if [[ ! -f $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml ]]; then
   [[ ! -f $WGETRC ]] && touch $WGETRC
-  wget -c https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.1/zhwiki-20200601.dict.yaml \
-    -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml || echo "Download zhwiki failed"
+  wget --no-check-certificate $(get_github_latest_release_url felixonmars/fcitx5-pinyin-zhwiki "\.dict\.yaml") \
+    -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
 fi
