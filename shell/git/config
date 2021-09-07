@@ -61,7 +61,7 @@
 [url "https://git.v0.com"]
     insteadOf = v0:
 [credential]
-	helper = /usr/local/bin/git-credential-manager-core
+	helper = !git-credential-manager-core
 # Use gh for github credentials
 [credential "https://github.com"]
 	helper = !gh auth git-credential
