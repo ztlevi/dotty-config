@@ -26,17 +26,26 @@ super + o
     xdg-open ~/Downloads
 
 super + grave
-    emacsclient -e '(open-scratch-frame)'
+    scratch
+
+# Open a disposable scratch buffer in a floating Emacs window, to run arbitrary
+# code or quickly note something down.
+super + shift + grave
+    emacsclient --eval "(open-scratch-frame)"
+
+# Invoke emacs-everywhere at point.
+super + e
+    emacsclient --eval "(emacs-everywhere)"
 
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
 
 super + ctrl + shift + p
-    ~/.config/dotty-nix/config/desktop/polybar/run.sh
+    ~/.config/polybar/run.sh
 
 ctrl + shift + .
-    dunstctl context
+    dunstctl history-pop
 
 #
 # bspwm hotkeys
@@ -167,32 +176,30 @@ super + alt + {Left,Down,Up,Right}
 # Media keys
 #
 
-alt + shift + {_,ctrl+} s
+alt + shift + {_,ctrl+} 4
     screenshot {clipboard,save}
-
+# screencast region to mp4
 alt + shift + r
-    rec -s ~/Pictures/Screenshots/$(date +%F-%T).mp4
+    mkdir -p ~/recordings && scrrec -s ~/recordings/$(date +%F-%T).mp4
+# screencast region to gif
+alt + ctrl + shift + r
+    mkdir -p ~/recordings && scrrec -s ~/recordings/$(date +%F-%T).gif
 
-Pause
-    mpc -q toggle   # play/pause music
-alt + {Pause,XF86Eject}
-    zzz             # sleep display
-alt + shift + Pause
-    zzz -f          # sleep computer
-Scroll_Lock
-    vol toggle
+XF86MonBrightnessUp
+	light -A 5
+XF86MonBrightnessDown
+	light -U 5
 
-# Media Keys
-XF86Audio{Play,Pause}
-    mpc -q toggle
-XF86Audio{Prev,Next}
-    mpc -q {prev,next}
-XF86Audio{LowerVolume,RaiseVolume}
-    vol {-,+}
 XF86AudioMute
-    vol toggle
+	amixer -q set Master toggle
+XF86AudioLowerVolume
+	amixer -q set Master 10%- unmute
+XF86AudioRaiseVolume
+	amixer -q set Master 10%+ unmute
 
-alt + {Down,Up}
-    vol {-,+}
-alt + {Left,Right}
-    mpc {prev,next}
+XF86Audio{Play,Pause}
+	spt-send toggle
+XF86AudioNext
+	spt-send next
+XF86AudioPrev
+	spt-send prev
