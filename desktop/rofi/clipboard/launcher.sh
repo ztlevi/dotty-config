@@ -31,7 +31,11 @@ EOF
 # Legacy greenclip command
 # rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -theme theme/clipboardmenu.rasi
 
-CM_LAUNCHER=rofi clipmenu -theme $dir/default.rasi
+if command -v clipmenu >/dev/null; then
+  CM_LAUNCHER=rofi clipmenu -theme $dir/default.rasi
+elif command -v greenclip >/dev/null; then
+  rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
+fi
 sleep 0.2
 xdotool key shift+Insert
 
