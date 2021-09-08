@@ -11,6 +11,8 @@ alias git='noglob git'
 alias g="git"
 alias gci="gh pr checks"
 alias gcpr="gh pr create --assignee ztlevi"
+alias gist="gh gist create -p"
+alias gistp="gh gist create" # secret
 
 # Use after you change your branch name from master to main
 # https://github.com/<user>/<project-name>/settings/branches
