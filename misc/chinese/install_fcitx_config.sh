@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# rm -rf $XDG_CONFIG_HOME/fcitx $XDG_CONFIG_HOME/fcitx5 $XDG_DATA_HOME/fcitx5
+
 # Download zhwiki pinyin dictionary
 if [[ ! -f $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml ]]; then
   [[ ! -f $WGETRC ]] && touch $WGETRC
