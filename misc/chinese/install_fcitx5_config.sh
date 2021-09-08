@@ -20,7 +20,7 @@ mkdir -p /tmp/fcitx-install
 rm -rf /tmp/fcitx-install
 
 # 1. System input method
-mkdir -p $XDG_CONFIG_HOME/fcitx5/themes
+mkdir -p $XDG_DATA_HOME/fcitx5/themes/
 
 ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/fcitx5/config $XDG_CONFIG_HOME/fcitx5/config
 ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/fcitx5/profile $XDG_CONFIG_HOME/fcitx5/profile
