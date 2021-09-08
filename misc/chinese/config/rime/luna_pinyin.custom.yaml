@@ -1,10 +1,5 @@
 # luna_pinyin.custom.yaml
 
-__patch:
-  # Rx: emoji:customize:schema=luna_pinyin_simp
-  - patch/+:
-      __include: emoji_suggestion:/patch
-
 patch:
   "translator/dictionary": luna_pinyin.extended
   punctuator/symbols:
