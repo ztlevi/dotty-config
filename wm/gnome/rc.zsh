@@ -10,28 +10,10 @@ fi
 
 # Dump all config: dconf dump / >~/Downloads/user.conf
 dconf-dump-gnome() {
-  dconf dump /org/gnome/shell/extensions/dash-to-dock/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/dash-to-dock.conf
-  dconf dump /org/gnome/terminal/legacy/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/gnome.conf
-  dconf dump /org/gnome/settings-daemon/plugins/media-keys/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/media-keys.conf
-  dconf dump /org/gnome/desktop/wm/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/wm.conf
-  dconf dump /org/gnome/mutter/keybindings/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/mutter-keys.conf
-  dconf dump /org/gnome/shell/extensions/gtile/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/gtile.conf
+  dconf dump /org/gnome/ >$DOTTY_CONFIG_HOME/wm/gnome/dconf/gnome.conf
 }
 
 dconf-load-gnome() {
-  # Dconf load dash-to-dock
-  dconf reset -f /org/gnome/shell/extensions/dash-to-dock/
-  dconf load /org/gnome/shell/extensions/dash-to-dock/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/dash-to-dock.conf
-  # Dconf load Gnome terminal config...
-  dconf reset -f /org/gnome/terminal/legacy/
-  dconf load /org/gnome/terminal/legacy/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/gnome.conf
-  # Dconf load Gnome keybindings...
-  dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/
-  dconf load /org/gnome/settings-daemon/plugins/media-keys/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/media-keys.conf
-  dconf reset -f /org/gnome/desktop/wm/
-  dconf load /org/gnome/desktop/wm/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/wm.conf
-  dconf reset -f /org/gnome/mutter/keybindings/
-  dconf load /org/gnome/mutter/keybindings/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/mutter-keys.conf
-  dconf reset -f /org/gnome/shell/extensions/gtile/
-  dconf load /org/gnome/shell/extensions/gtile/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/gtile.conf
+  dconf reset -f /org/gnome/
+  dconf load /org/gnome/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/gnome.conf
 }
