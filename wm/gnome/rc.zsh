@@ -14,6 +14,6 @@ dconf-dump-gnome() {
 }
 
 dconf-load-gnome() {
-  dconf reset -f /org/gnome/
+  # dconf reset -f /org/gnome/
   dconf load /org/gnome/ <$DOTTY_CONFIG_HOME/wm/gnome/dconf/gnome.conf
 }
