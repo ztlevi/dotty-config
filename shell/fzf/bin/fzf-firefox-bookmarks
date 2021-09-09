@@ -17,7 +17,7 @@ if [ -z "$bookmarks_folder" ]; then
   local firefox_folder
   case $(_os) in
     macos)
-      firefox_folder="$HOME/Library/ApplicationSupport/Firefox/Profiles/"
+      firefox_folder="$HOME/Library/Application Support/Firefox/Profiles/"
       ;;
     linux-*)
       firefox_folder="$HOME/.mozilla/firefox/"
