@@ -35,3 +35,10 @@ ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/config/rime/* $XDG_CONFIG_HOME/fcitx/em
 [[ -d $DOTTY_ASSETS_HOME/rime-dictionaries ]] && ln -s -f $DOTTY_ASSETS_HOME/rime-dictionaries/*.dict.yaml $XDG_CONFIG_HOME/fcitx/emacs-rime/
 
 ln -s -f $XDG_DATA_HOME/fcitx5/rime/zhwiki.dict.yaml $XDG_CONFIG_HOME/fcitx/emacs-rime/
+
+local link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
+for file in ${link_files[@]}; do
+  if [[ -f $XDG_DATA_HOME/fcitx5/rime/$file ]]; then
+    ln -s -f $XDG_DATA_HOME/fcitx5/rime/$file $XDG_CONFIG_HOME/fcitx/emacs-rime/
+  fi
+done
