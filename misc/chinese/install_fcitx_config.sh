@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# rm -rf $XDG_CONFIG_HOME/fcitx $XDG_CONFIG_HOME/fcitx5 $XDG_DATA_HOME/fcitx5
+# rm -rf $XDG_CONFIG_HOME/fcitx $XDG_CONFIG_HOME/fcitx5 $XDG_DATA_HOME/fcitx5 $XDG_CONFIG_HOME/fcitx/emacs-rime/
 
 mkdir -p $XDG_CONFIG_HOME/fcitx/rime
 
@@ -21,7 +21,16 @@ ln -s -f $DOTTY_CONFIG_HOME/misc/chinese/.pam_environment ${HOME}/.pam_environme
 
 case $(_os) in
   macos)
+    rm -rf ~/Library/Rime
     ln -s -f ~/.config/fcitx/rime ~/Library/Rime
+
+    # Install emoji
+    mkdir -p /tmp/fcitx-install
+    (
+      cd /tmp/fcitx-install
+      curl -fsSL https://git.io/rime-install | bash -s -- emoji
+    )
+    rm -rf /tmp/fcitx-install
     ;;
 esac
 
