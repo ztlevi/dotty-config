@@ -10,4 +10,6 @@ if [[ -d $DOTTY_ASSETS_HOME/gpgexport ]]; then
   gpg --import-ownertrust otrust.txt
   # restart agent
   gpgconf --kill gpg-agent
+else
+  echo "$DOTTY_ASSETS_HOME/gpgexport directory doesn't exist."
 fi
