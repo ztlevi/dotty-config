@@ -97,7 +97,7 @@ function update_my_repos() {
   (
     cd $DOTTY_HOME
     git submodule update --remote --merge config
-    [[ -d ${DOTTY_ASSETS_HOME}/fonts ]] && git submodule update --remote --merge assets
+    [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git pull
     update_topics &>/dev/null
   )
 
