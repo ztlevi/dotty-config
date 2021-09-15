@@ -13,6 +13,11 @@ function palette() {
   done
 }
 
+function b64() {
+  image=$(openssl base64 -in $1 | tr -d "\n")
+  echo "![img](data:image/png;base64,$image)" | pbcopy
+}
+
 function envrehash() {
   for cmd in ${env_rehash_cmds[@]}; do
     eval "$cmd"
