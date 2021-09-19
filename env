@@ -153,8 +153,8 @@ function get_github_latest_release_url() {
   fi
 
   # This token is generated in my dummy github account, but it has access to public repo
-  local token1=38b4cbd69857b6444d48
-  local token2=91e066ec9aa2db16b41d
+  local token1=ghp_SGiFgAhlUlVwp7dU
+  local token2=dbWHGjFD3C2gOW3ZzIaT
   oauth_token=$token1$token2
   local url
 
