@@ -120,13 +120,13 @@ function _os() {
 }
 
 function _cache() {
-  command -v "$1" >/dev/null || return 1
+  command -v "$2" >/dev/null || return 1
   local cache_dir="$XDG_CACHE_HOME/${SHELL##*/}"
   local cache="$cache_dir/$1"
   if [[ ! -f $cache || ! -s $cache ]]; then
     echo "Caching $1"
     mkdir -p $cache_dir
-    "$@" >$cache
+    "${@:2}" >$cache
   fi
   source $cache || rm -f $cache
 }

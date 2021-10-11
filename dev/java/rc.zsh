@@ -1,4 +1,4 @@
-_cache jenv init - --no-rehash
+_cache jenv1 jenv init - --no-rehash
 env_rehash_cmds+=("jenv rehash")
 
 _is_callable google-java-format && alias format-all-java='google-java-format -i **/*.java'

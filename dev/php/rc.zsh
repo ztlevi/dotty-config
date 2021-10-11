@@ -1,4 +1,4 @@
-_cache phpenv init - --no-rehash
+_cache phpenv1 phpenv init - --no-rehash
 env_rehash_cmds+=("phpenv rehash")
 
 alias phe='phpenv'

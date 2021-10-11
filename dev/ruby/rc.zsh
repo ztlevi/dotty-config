@@ -1,4 +1,4 @@
-_cache rbenv init - --no-rehash
+_cache rbenv1 rbenv init - --no-rehash
 env_rehash_cmds+=("rbenv rehash")
 
 zinit wait lucid for \

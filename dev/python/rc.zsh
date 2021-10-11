@@ -1,6 +1,7 @@
 # Cache in aliases because /usr/bin will be moved to top in .zshrc
-_cache pyenv init --path
-_cache pyenv init - --no-rehash
+_cache pyenv1 pyenv init --path
+_cache pyenv2 pyenv init - --no-rehash
+_cache pyenv3 pyenv virtualenv-init -
 env_rehash_cmds+=("pyenv rehash")
 
 zinit wait lucid for \
@@ -15,7 +16,7 @@ _is_callable python3 && alias py3=python3
 alias ipy=ipython
 alias ipylab='ipython --pylab=qt5 --no-banner'
 alias jp='jupyter notebook'
-alias jpl='jupyter lab --NotebookApp.iopub_data_rate_limit=10000000'
+alias jpl='jupyter-lab --NotebookApp.iopub_data_rate_limit=10000000'
 
 alias cda="source activate"
 alias cdd="conda deactivate || source deactivate"
