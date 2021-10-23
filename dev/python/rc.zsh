@@ -1,7 +1,6 @@
 # Cache in aliases because /usr/bin will be moved to top in .zshrc
 _cache pyenv1 pyenv init --path
 _cache pyenv2 pyenv init - --no-rehash
-_cache pyenv3 pyenv virtualenv-init -
 env_rehash_cmds+=("pyenv rehash")
 
 zinit wait lucid for \
