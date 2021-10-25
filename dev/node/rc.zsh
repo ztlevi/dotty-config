@@ -2,9 +2,7 @@ _cache nodenv1 nodenv init - --no-rehash
 env_rehash_cmds+=("nodenv rehash")
 
 zinit wait lucid for \
-  OMZP::node \
-  OMZP::npm \
-  OMZP::yarn
+  OMZP::npm
 # OMZP::react-native
 
 # Run locally installed bin-script, e.g. n coffee file.coffee
