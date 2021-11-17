@@ -79,7 +79,7 @@ function update_topics {
 }
 
 function update_git_repo() {
-  local ERROR_SUMMARY_FILE=/tmp/update_my_repos_error_summary
+  local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
   dir=$1
   diff_str=$(
     cd $dir
@@ -94,8 +94,8 @@ function update_git_repo() {
   fi
 }
 
-function update_my_repos() {
-  local ERROR_SUMMARY_FILE=/tmp/update_my_repos_error_summary
+function update_dotty() {
+  local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
   update_git_repo $DOTTY_HOME
@@ -107,11 +107,18 @@ function update_my_repos() {
   )
 
 
-  local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
-  update_git_repo ${XDG_CONFIG_HOME}/doom &
-  PID1=$!
+  if [[ -d ${XDG_CONFIG_HOME}/doom ]]; then
+    local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
+    update_git_repo ${XDG_CONFIG_HOME}/doom &
+    PID1=$!
+    wait ${PID1}
 
-  wait ${PID1}
+    local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
+    if [[ $cur_doom_rev != $last_doom_rev ]]; then
+      echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Doom Sync Summary' '>')"${reset_color}
+      doom sync
+    fi
+  fi
 
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
@@ -122,10 +129,6 @@ function update_my_repos() {
 
   _cache_clear
 
-  echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Doom Sync Summary' '>')"${reset_color}
-  local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
-  [[ $cur_doom_rev != $last_doom_rev ]] && doom sync
-
   echo ${fg_bold[white]}${bg[red]}"$(center_text 'Error Summary' '>')"${reset_color}
   cat ${ERROR_SUMMARY_FILE}
 
@@ -134,4 +137,4 @@ function update_my_repos() {
   # Sync uninstalled some software if we deleted on one machine
   $DOTTY_HOME/legacy_sync_script.zsh
 }
-alias uu='update_my_repos'
+alias uu='update_dotty'
