@@ -1,6 +1,7 @@
 zman() { PAGER="less -g -I -s '+/^       "$1"'" man zshall; }
 
 # aliases common to all shells
+alias src="omz reload"
 alias q=exit
 alias pv=printenv
 alias open=open_command

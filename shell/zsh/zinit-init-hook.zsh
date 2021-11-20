@@ -30,7 +30,6 @@ zinit wait lucid for \
   zsh-users/zsh-completions
 
 # ZSH
-zinit wait lucid for OMZP::zsh_reload
 zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
   agkozak/zsh-z
