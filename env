@@ -145,7 +145,7 @@ function get_github_latest_release_url() {
   # first argument: USER/REPO
   # second argument (optional): some repo's release has many assets targeting different platform. In this case,
   #   the file extension is needed to identify the asset you want.
-  #   This argument is used as a regex. For example, you can either use "deb" or "\.deb".
+  #   This argument is used as a regex. For example, you can either use "deb" or "\.deb" or ".*linux.*\.deb.
   # Example:
   # get_github_latest_release_url "wagoodman/dive" "\.deb"
 
@@ -162,7 +162,7 @@ function get_github_latest_release_url() {
   local url
 
   local repo=$1
-  local suffix=$2
+  local regex=$2
 
   if [ -z "${repo}" ]; then
     echo "No USER/REPO defined, please use something like get_github_latest_release_url \"jgm/pandoc\"."
@@ -175,7 +175,7 @@ function get_github_latest_release_url() {
 
   # Try release API
   if [[ "${assets}" != "null" ]] && [[ "${assets}" != "[]" ]]; then
-    if [ -z "${suffix}" ]; then
+    if [ -z "${regex}" ]; then
       url=$(echo "${assets}" | jq -r ".[0].browser_download_url")
     else
       local found=false
@@ -184,25 +184,25 @@ function get_github_latest_release_url() {
           echo "${row}" | base64 --decode | jq -r "${1}"
         }
         url=$(_jq ".browser_download_url")
-        if echo "${url}" | grep -qe "${suffix}$"; then
+        if echo "${url}" | grep -qe "${regex}$"; then
           found=true
           break
         fi
       done
 
       if ! "${found}"; then
-        echo "Cannot find ${repo} release's assets with ${suffix} as suffix."
+        echo "Cannot find ${repo} release's assets with ${regex} as regex."
         return 1
       fi
     fi
   # Fallback to tag API
   else
-    suffix=${suffix:-"tar.gz"}
+    regex=${regex:-"tar.gz"}
     local version
     version=$(curl -H "Authorization: token ${oauth_token}" \
       --silent "https://api.github.com/repos/$repo/tags" | jq -r ".[0].name")
     if [[ -n "${version}" ]]; then
-      local url=https://github.com/$repo/archive/$version.${suffix}
+      local url=https://github.com/$repo/archive/$version.${regex}
     fi
   fi
 
