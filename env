@@ -28,6 +28,9 @@ function dotty(){
 }
 alias D=dotty
 
+function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
+function topic-path { echo "$DOTTY_DATA_HOME/${1/\//$SEP}.topic" }
+
 for dir in "$XDG_CACHE_HOME" "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_BIN_HOME" "$DOTTY_DATA_HOME"; do
   [[ -d $dir ]] || mkdir -p "$dir"
 done
