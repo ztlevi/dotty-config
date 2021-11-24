@@ -1,2 +1,2 @@
 compdef take=mkdir
-_is_callable docker && compdef dk=docker
+topic-enabled-p misc.docker && compdef dk=docker
