@@ -1,8 +1,8 @@
 export GNUPGHOME="$HOME/.gnupg"
 export TERMINFO="$XDG_CONFIG_HOME/terminfo"
 
-if [ -d /home/linuxbrew/.linuxbrew/ ]; then
-  path=(/home/linuxbrew/.linuxbrew/bin $path)
+if [ -d /home/*/.linuxbrew/ ]; then
+  path=(/home/*/.linuxbrew/bin $path)
 fi
 
 # CUDA
