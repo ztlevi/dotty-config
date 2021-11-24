@@ -25,7 +25,7 @@ zinit for annexes
 # zsh-users+fast does not load zdharma/fast-syntax-highlighting more lazy enough
 zinit wait lucid for \
   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-  zdharma/fast-syntax-highlighting \
+  zdharma-continuum/fast-syntax-highlighting \
   blockf \
   zsh-users/zsh-completions
 
