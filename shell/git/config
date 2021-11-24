@@ -60,8 +60,6 @@
     insteadOf = bb:
 [url "https://git.v0.com"]
     insteadOf = v0:
-[credential]
-	helper = !git-credential-manager-core
 # Use gh for github credentials
 [credential "https://github.com"]
 	helper = !gh auth git-credential
@@ -71,6 +69,8 @@
 [credential "https://git-codecommit.*.amazonaws.com"]
     helper = !aws codecommit credential-helper $@
     UseHttpPath = true
+[credential]
+	helper = !git-credential-manager-core
 [http]
 	sslVerify = true
 [color]
