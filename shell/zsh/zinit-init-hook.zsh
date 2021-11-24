@@ -15,8 +15,8 @@ source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Note: Use z-a-meta-plugins to install console seems causing issue on Nixos.
-zinit light-mode for zinit-zsh/z-a-meta-plugins
+# Note: Use zinit-annex-meta-plugins to install console seems causing issue on Nixos.
+zinit light-mode for zinit-annex-meta-plugins
 # Load a few important annexes, without Turbo (this is currently required for annexes)
 zinit for annexes
 # This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
