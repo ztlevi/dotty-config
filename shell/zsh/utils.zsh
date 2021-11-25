@@ -98,10 +98,12 @@ function update_dotty() {
   local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
+  echo-info "update $DOTTY_HOME"
   update_git_repo $DOTTY_HOME
   (
     cd $DOTTY_HOME
     git submodule update --remote --merge config
+    echo-info "update ${DOTTY_ASSETS_HOME}"
     [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git pull
     update_topics &>/dev/null
   )
@@ -115,11 +117,12 @@ function update_dotty() {
 
     local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
     if [[ $cur_doom_rev != $last_doom_rev ]]; then
-      echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Doom Sync Summary' '>')"${reset_color}
+      echo-ok "Doom Sync Summary"
       doom sync
     fi
   fi
 
+  echo-info "Update TPM packages"
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/update_plugins all &
@@ -129,7 +132,7 @@ function update_dotty() {
 
   _cache_clear
 
-  echo ${fg_bold[white]}${bg[red]}"$(center_text 'Error Summary' '>')"${reset_color}
+  echo-info "Error Summary"
   cat ${ERROR_SUMMARY_FILE}
 
   rm -f ${ERROR_SUMMARY_FILE}
