@@ -11,3 +11,5 @@ export PYTHONPATH=$PYTHONPATH:.
 
 export PYTHON_VERSION=3.9.1
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+
+[[ -d $HOME/miniconda3/bin ]] && path=($path $HOME/miniconda3/bin)
