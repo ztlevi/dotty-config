@@ -13,6 +13,7 @@ alias gci="gh pr checks"
 alias gcpr="gh pr create --assignee ztlevi"
 alias gist="gh gist create -p"
 alias gistp="gh gist create" # secret
+alias git-scan-secrets="git secrets --scan-history"
 
 # Use after you change your branch name from master to main
 # https://github.com/<user>/<project-name>/settings/branches
