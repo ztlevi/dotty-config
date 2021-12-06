@@ -46,6 +46,7 @@ unalias fd 2>/dev/null
 
 alias gurl='curl --compressed'
 alias wget='wget -c' # Resume dl if possible
+alias cssh='$EDITOR $HOME/.ssh/config'
 
 alias ag="noglob ag -p $XDG_CONFIG_HOME/ag/agignore"
 alias rg='noglob rg'
