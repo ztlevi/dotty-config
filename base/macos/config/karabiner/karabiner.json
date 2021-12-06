@@ -1219,6 +1219,22 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a '/Applications/Pycharm.app' || zsh -c 'open -a \"$(fd \"^Pycharm.app$\" \"$HOME/Library/Application Support/JetBrains/Toolbox/apps/\")\"' "
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "e",
                                     "modifiers": {
                                         "mandatory": [
