@@ -19,9 +19,8 @@ function b64() {
 }
 
 function unixtime-convert {
-  # Usage: unixtime-convert 1638858888.708148250
+  # Usage: unixtime-convert 1638858888.708148250 UTC
   local TimeZone=${2:-"America/Los_Angeles"}
-  echo $TimeZone
   TZ=$TimeZone date -d @"$1" +'%Y-%m-%d %H:%M:%S %Nns'
 }
 
