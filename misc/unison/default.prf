@@ -30,6 +30,9 @@ ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Sessi
 # Ignore Amazon tools
 ignore = Name {.rde,.bemol,.suds}
 
+# Ignore AWS repo data
+ignore = Name {capture_data}
+
 # Ignore for java
 ignore = Name annotation-generated-{src,tst}
 
@@ -38,8 +41,13 @@ ignore = Name node_modules
 
 # Ignore rules for brazil
 ignore = BelowPath */{env,logs,out}
-ignore = BelowPath */src/*/build
-ignore = BelowPath */build
+ignore = BelowPath */src/*/build/*
+# In order to un-ignore it, ignore the files inside the directory instead of the directory itself
+ignore = BelowPath */build/*
+ignore = BelowPath */build_tmp/*
+
+# Ignore for C++
+ignorenot = Path */build/compile_commands.json
 
 # Ignore gradle details
 ignore = Path */src/*/buildSrc/build
