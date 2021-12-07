@@ -18,6 +18,13 @@ function b64() {
   echo "![img](data:image/png;base64,$image)" | pbcopy
 }
 
+function unixtime-convert {
+  # Usage: unixtime-convert 1638858888.708148250
+  local TimeZone=${2:-"America/Los_Angeles"}
+  echo $TimeZone
+  TZ=$TimeZone date -d @"$1" +'%Y-%m-%d %H:%M:%S %Nns'
+}
+
 function envrehash() {
   for cmd in ${env_rehash_cmds[@]}; do
     eval "$cmd"
