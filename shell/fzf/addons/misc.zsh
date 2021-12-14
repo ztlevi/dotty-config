@@ -3,8 +3,8 @@
 # Switch projects
 function fzf_projects() {
   # Each root is consist of PATH:scan_depth
-  project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${HOME}/dev:2" "${HOME}/workplace:3"
-    "${XDG_CONFIG_HOME}:1")
+  project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${XDG_CONFIG_HOME}:1"
+                 "${HOME}/dev:2" "${HOME}/dev-remote:2" "${HOME}/workplace:3")
 
   projects=()
   local project scan_depth
