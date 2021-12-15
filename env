@@ -13,6 +13,7 @@ export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 
 alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
+alias PIP3_INSTALL="pip3 install --user --upgrade"
 
 # echo helpers
 function echo-debug  { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTTY_HOME%.%g"; }
