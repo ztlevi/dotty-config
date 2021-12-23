@@ -5,6 +5,8 @@ else
   source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
 fi
 
+export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
+
 path=(/usr/local/{s,}bin $path)
 
 export LC_ALL="en_US.UTF-8"
@@ -45,4 +47,4 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # initialize enabled topics
 _load_all env.zsh
-[[ -f ${ZDOTDIR}/extra.zshenv ]] && _load ${ZDOTDIR}/extra.zshenv
+[[ -f ${ZSH_CONFIG_HOME}/extra.zshenv ]] && _load ${ZSH_CONFIG_HOME}/extra.zshenv
