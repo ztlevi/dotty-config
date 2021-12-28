@@ -64,6 +64,7 @@ config.codekit
 cmake-build-debug
 .ccls-cache
 compile_commands.json
+.lldb-*
 
 # Python #
 ##########
