@@ -10,3 +10,6 @@ function cmake-pre-build () {
 function cmake-build-all() {
   cmake --build build --config Debug --target all -j 14 --
 }
+function ctest-all() {
+  ctest -j14 -C Debug -T test --output-on-failure
+}
