@@ -4,12 +4,20 @@ if _is_callable clang-format; then
 fi
 
 function cmake-pre-build () {
-  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -S . -B build
+  cmake --no-warn-unused-cli \
+    -DCMAKE_C_COMPILER=clang \
+    -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE \
+    -DCMAKE_BUILD_TYPE:STRING=Debug \
+    -S . -B build -G Ninja
   ln -s -f build/compile_commands.json
 }
 function cmake-build-all() {
   cmake --build build --config Debug --target all -j 14 --
 }
+alias cbb="cmake-pre-build && cmake-build-all"
+alias cb="cmake-build-all"
 function ctest-all() {
   ctest -j14 -C Debug -T test --output-on-failure
 }
+alias ctt="ctest-all"
