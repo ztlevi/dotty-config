@@ -46,7 +46,7 @@ export ZVM_CURSOR_STYLE_ENABLED=false
 export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # Only changing the escape key to `jk` in insert mode, we still
 # keep using the default keybindings `^[` in other modes
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Oh My Zsh
 zinit light-mode for \

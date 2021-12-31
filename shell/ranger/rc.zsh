@@ -21,4 +21,5 @@ zle -N widget-ranger-cd
 function personal_ranger_bind_keys() {
   bindkey '^o' widget-ranger-cd
 }
+personal_ranger_bind_keys
 zvm_after_init_commands+=(personal_ranger_bind_keys)

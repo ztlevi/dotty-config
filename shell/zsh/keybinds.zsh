@@ -28,4 +28,5 @@ function personal_bind_keys() {
   # Shift + Tab
   bindkey -M viins '^[[Z' reverse-menu-complete
 }
+personal_bind_keys
 zvm_after_init_commands+=(personal_bind_keys)
