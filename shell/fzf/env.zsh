@@ -1,12 +1,9 @@
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
-
-export FZF_CTRL_T_COMMAND='
-  (rg --files ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
+if _is_callable fd; then
+  export FZF_DEFAULT_OPTS="--reverse --ansi"
+  export FZF_DEFAULT_COMMAND="fd ."
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+fi
 
 export FZF_COMPLETION_TRIGGER=','
 
