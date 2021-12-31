@@ -13,7 +13,6 @@ function personal_fzf_bind_keys() {
   bindkey '^[p' fzf-file-widget
   bindkey '^r' fzf-history-widget
 }
-personal_fzf_bind_keys
 zvm_after_init_commands+=(personal_fzf_bind_keys)
 
 for file in ${0:A:h}/addons/*.zsh; do
