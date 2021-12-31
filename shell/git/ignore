@@ -91,7 +91,6 @@ build
 .projectile
 .osync_workdir
 .node-version
-.ignore
 
 # Amazon #
 ##########
