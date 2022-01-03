@@ -48,6 +48,7 @@ ignore = BelowPath */build_tmp/*
 
 # Ignore for C++
 ignorenot = Path */build/compile_commands.json
+ignore = Name .{cache,ccls-cache}
 
 # Ignore gradle details
 ignore = Path */src/*/buildSrc/build
