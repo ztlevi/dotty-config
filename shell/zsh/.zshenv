@@ -16,7 +16,7 @@ export TERM="xterm-24bit"
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
-export MANPAGER="nvim +Man!"
+_is_callable nvim && export MANPAGER="nvim +Man!"
 
 # No github credentials
 HOMEBREW_NO_GITHUB_API=1
