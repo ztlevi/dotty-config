@@ -56,7 +56,7 @@ function rg_search() { echo $2 | rg -qS $1; }
 function vread() {
   (
     $@ > /tmp/dummy_vread_file
-    nvim -c 'set ft=man' /tmp/dummy_vread_file
+    nvim +Man! /tmp/dummy_vread_file
     rm -f /tmp/dummy_vread_file
   )
 }
