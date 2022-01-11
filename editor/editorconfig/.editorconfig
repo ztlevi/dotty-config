@@ -15,7 +15,10 @@ indent_size = 2
 [{Vagrant,Cap,Rake,Gem}file]
 indent_size = 2
 
-[*.{el,rb,cr,lua,y{a,}ml,json,toml,coffee,css,s{a,c}ss,styl,slim,jade,pug,html}]
+[*.{el,rb,cr,lua,y{a,}ml,json,toml,coffee}]
+indent_size = 2
+
+[*.{js{,x},css,s{a,c}ss,styl,slim,jade,pug,html}]
 indent_size = 2
 
 [*.{{,ba,fi,z}sh}]
