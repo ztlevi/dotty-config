@@ -61,6 +61,7 @@
     insteadOf = bb:
 [url "https://git.v0.com"]
     insteadOf = v0:
+# Check all the rules with `git config --list --show-origin`
 # Use gh for github credentials
 [credential "https://github.com"]
 	helper = !gh auth git-credential
