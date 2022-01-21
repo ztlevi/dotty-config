@@ -42,6 +42,9 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
+# ripgep
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgreprc"
+
 # added by Nix installer
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 
