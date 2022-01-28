@@ -32,6 +32,7 @@ ignore = Name {.rde,.bemol,.suds}
 
 # Ignore AWS repo data
 ignore = Name {capture_data}
+ignore = Name *.{textproto,pb,pftrace}
 
 # Ignore for java
 ignore = Name annotation-generated-{src,tst}
