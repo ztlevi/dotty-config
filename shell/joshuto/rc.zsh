@@ -10,8 +10,4 @@ function widget-joshuto-cd() {
 }
 zle -N widget-joshuto-cd
 
-# Define an init function and append to zvm_after_init_commands
-function personal_joshuto_bind_keys() {
-  bindkey '^o' widget-joshuto-cd
-}
-zvm_after_init_commands+=(personal_joshuto_bind_keys)
+bindkey '^o' widget-joshuto-cd

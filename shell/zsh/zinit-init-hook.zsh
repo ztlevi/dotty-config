@@ -39,15 +39,6 @@ zinit ice from'gh-r' as'program'
 zinit light sei40kr/fast-alias-tips-bin
 zinit light sei40kr/zsh-fast-alias-tips
 
-# VI-MODE
-zinit light jeffreytse/zsh-vi-mode
-export ZVM_CURSOR_STYLE_ENABLED=false
-# Always starting with insert mode for each command line
-export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-# Only changing the escape key to `jk` in insert mode, we still
-# keep using the default keybindings `^[` in other modes
-export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-
 # Oh My Zsh
 zinit light-mode for \
   OMZL::bzr.zsh \

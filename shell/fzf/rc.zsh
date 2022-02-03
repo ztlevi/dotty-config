@@ -7,13 +7,9 @@ zstyle ':fzf-tab:*' default-color $'\033[39m'      # change default color from w
 zstyle ':fzf-tab:*' fzf-flags '--color=hl:4,hl+:4' # see `man fzf` `--color`
 zstyle ':fzf-tab:*' switch-group ',' '.'           # switch group using `,` and `.`
 
-# Define an init function and append to zvm_after_init_commands
-function personal_fzf_bind_keys() {
-  bindkey '^[x' fzf-history-widget
-  bindkey '^[p' fzf-file-widget
-  bindkey '^r' fzf-history-widget
-}
-zvm_after_init_commands+=(personal_fzf_bind_keys)
+bindkey '^[x' fzf-history-widget
+bindkey '^[p' fzf-file-widget
+bindkey '^r' fzf-history-widget
 
 for file in ${0:A:h}/addons/*.zsh; do
   source ${file}
