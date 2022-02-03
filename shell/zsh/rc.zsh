@@ -95,3 +95,14 @@ unalias duf 2>/dev/null
 alias get_window_class="xprop | grep WM_CLASS"
 
 alias nr="nix repl '<nixpkgs/nixos>'"
+
+function sshf() {
+  # Forward ssh port
+  if [ "$#" -ne 2 ]; then
+    echo "usage: sshf 10.0.0.1 6006"
+    exit 1
+  fi
+  local host="${1}"
+  local port="${2}"
+  ssh -NfL ${port}:localhost:${port} ${host}
+}
