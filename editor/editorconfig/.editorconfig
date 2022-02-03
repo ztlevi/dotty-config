@@ -18,7 +18,7 @@ indent_size = 2
 [*.{el,rb,cr,lua,y{a,}ml,json,toml,coffee}]
 indent_size = 2
 
-[*.{js{,x},css,s{a,c}ss,styl,slim,jade,pug,html}]
+[*.{ts{,x},js{,x},css,s{a,c}ss,styl,slim,jade,pug,html}]
 indent_size = 2
 
 [*.{{,ba,fi,z}sh}]
