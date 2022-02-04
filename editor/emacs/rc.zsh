@@ -12,7 +12,7 @@ if [[ $(_os) == macos ]]; then
 else
   alias e='emacsclient -n'
 fi
-alias et="emacs -nw"
+alias et="unset SSH_TTY && emacs -nw"
 alias ec="emacsclient"
 alias e.="emacsclient ."
 alias se="sudo -E emacs"
