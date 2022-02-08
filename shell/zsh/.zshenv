@@ -19,7 +19,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 _is_callable nvim && export MANPAGER="nvim +Man!"
 
 # No github credentials
-HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_GITHUB_API=1
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=30
