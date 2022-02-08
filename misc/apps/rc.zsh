@@ -8,3 +8,4 @@ function find-app-id() {
 }
 
 alias btm="btm --color default-light"
+alias htop="btm"
