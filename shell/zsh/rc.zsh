@@ -27,6 +27,8 @@ sk9() {
 }
 alias ka=killall
 
+alias rm="trash"
+
 _is_callable dust && alias du=dust
 alias dud="du -d 1"
 
