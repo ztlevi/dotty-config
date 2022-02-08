@@ -3,7 +3,7 @@ if _is_callable clang-format; then
   alias format-all-clang="fd -x clang-format -i -style=file {} \; -e c -e cc -e cpp -e h -e hh -e hpp ."
 fi
 
-function cmake-pre-build () {
+function cmake-configure () {
   cmake --no-warn-unused-cli \
     -DCMAKE_C_COMPILER=clang \
     -DCMAKE_CXX_COMPILER=clang++ \
@@ -12,11 +12,10 @@ function cmake-pre-build () {
     -S . -B build -G Ninja
   ln -s -f build/compile_commands.json
 }
-function cmake-build-all() {
+function cmake-build() {
   cmake --build build --config Debug --target all -j 14 --
 }
-alias cbb="cmake-pre-build && cmake-build-all"
-alias cb="cmake-build-all"
+alias cbb="cmake-configure && cmake-build"
 function ctest-all() {
   ctest -j14 -C Debug -T test --output-on-failure
 }
