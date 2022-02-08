@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# ========================= PRE-COMMIT ========================
+# start templated
+ARGS=(hook-impl --config=.pre-commit-config.yaml --hook-type=pre-commit --skip-on-missing-config)
+# end templated
+
+HERE="$(cd "$(dirname "$0")" && pwd)"
+ARGS+=(--hook-dir "$HERE" -- "$@")
+
+if command -v pre-commit > /dev/null; then
+    exec pre-commit "${ARGS[@]}"
+else
+    echo '`pre-commit` not found.  Did you forget to activate your virtualenv?' 1>&2
+    exit 1
+fi
+
+# ========================= GIT-SECRETS ========================
+git secrets --pre_commit_hook -- "$@"
+
