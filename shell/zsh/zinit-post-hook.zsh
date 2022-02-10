@@ -11,3 +11,6 @@ compinit
 # via intercepting the `compdef'-calls and storing them for later
 # use with `zinit cdreplay')
 zinit cdreplay -q
+
+# Use local/bin to override
+export PATH="$HOME/.local/bin:$PATH"
