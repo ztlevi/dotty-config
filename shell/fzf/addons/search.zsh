@@ -2,7 +2,7 @@
 
 # using ripgrep combined with preview, then open with EDITOR
 # search-project - usage: sp <searchTerm>
-unalias sp 2>/dev/null
+unalias sp 2>/dev/null || true
 sp() {
   if [ ! "$#" -gt 0 ]; then
     echo "Need a string to search for!"

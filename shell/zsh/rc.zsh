@@ -30,6 +30,7 @@ alias ka=killall
 alias rm="trash"
 alias te="trash-empty -f 15"
 
+unalias cp 2>/dev/null || true
 _is_callable dust && alias du=dust
 alias dud="du -d 1"
 
@@ -42,10 +43,12 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
+alias ~='cd $HOME'
+alias /='cd /'
 
 alias ln="${aliases[ln]:-ln} -v" # verbose ln
 alias mkdir='mkdir -p'
-unalias fd 2>/dev/null
+unalias fd 2>/dev/null || true
 
 alias gurl='curl --compressed'
 alias wget='wget -c' # Resume dl if possible
@@ -96,7 +99,7 @@ function format-all-shfmt() {
   fd -x shfmt -w -ci -i 2 -ln bash {} \; -e zsh -e sh .
 }
 
-unalias duf 2>/dev/null
+unalias duf 2>/dev/null || true
 
 alias get_window_class="xprop | grep WM_CLASS"
 
