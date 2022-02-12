@@ -2,9 +2,16 @@
   "version": "0.1",
   "language": "en",
   "words": ["ztlevi", "zhot"],
-  "dictionaries": ["common-extra", "machine-learning", "python-extra", "company-terms"],
+  "dictionaries": [
+    "common-extra",
+    "linux-terms",
+    "machine-learning",
+    "python-extra",
+    "company-terms"
+  ],
   "dictionaryDefinitions": [
     { "name": "common-extra", "path": "./dict/common-extra.txt" },
+    { "name": "linux-terms", "path": "./dict/linux-terms.txt" },
     { "name": "machine-learning", "path": "./dict/machine-learning.txt" },
     { "name": "python-extra", "path": "./dict/python-extra.txt" },
     { "name": "company-terms", "path": "./dict/company-terms.txt" }
