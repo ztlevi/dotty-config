@@ -1,1 +1,3 @@
 *.js.map -diff
+third_party/**/* -diff
+third-party/**/* -diff
