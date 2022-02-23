@@ -34,3 +34,7 @@ else # From outside tmux
   # Start grouped session so I can be in two different windows in one session
   tdup() { tmux new-session -t "${1:-$(tmux display-message -p '#S')}"; }
 fi
+
+if [[ -n "$TMUX" ]] && [[ -f "$HOME/work/dots/tmux.conf" ]]; then
+  tmux source-file "$HOME/work/dots/tmux.conf"
+fi
