@@ -16,3 +16,5 @@ atol
 mldm
 tcap
 smprof
+perfetto
+cupti
