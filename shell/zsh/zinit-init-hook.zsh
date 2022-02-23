@@ -72,7 +72,7 @@ export SHOW_AWS_PROMPT=false
 zinit wait lucid for \
   OMZP::history \
   OMZP::nmap \
-  OMZP::copydir \
+  OMZP::copypath \
   OMZP::copyfile \
   OMZP::command-not-found \
   OMZP::rsync \
