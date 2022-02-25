@@ -113,5 +113,6 @@ function sshf() {
   fi
   local host="${1}"
   local port="${2}"
+  kill -9 $(sudo lsof -ti:${port})
   ssh -NfL ${port}:localhost:${port} ${host}
 }
