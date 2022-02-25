@@ -109,7 +109,7 @@ function sshf() {
   # Forward ssh port
   if [ "$#" -ne 2 ]; then
     echo "usage: sshf 10.0.0.1 6006"
-    exit 1
+    return 1
   fi
   local host="${1}"
   local port="${2}"
