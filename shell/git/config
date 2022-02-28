@@ -40,9 +40,18 @@
 [core]
 	editor = nvim
 	ignorecase = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    side-by-side = true
+    # delta --show-syntax-themes --light
+    syntax-theme = OneHalfLight
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [pull]
 	rebase = true
 [push]
