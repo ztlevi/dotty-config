@@ -31,8 +31,9 @@ ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Sessi
 ignore = Name {.rde,.bemol,.suds}
 
 # Ignore AWS repo data
-ignore = Name {capture_data}
+ignore = Name {capture_data,data}
 ignore = Name *.{textproto,pb,pftrace}
+ignore = Name buildtools
 
 # Ignore for java
 ignore = Name annotation-generated-{src,tst}
