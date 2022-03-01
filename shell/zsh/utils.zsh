@@ -84,6 +84,80 @@ function update_topics {
   done
 }
 
+function sshf() {
+  # Forward ssh port
+  if [ "$#" -ne 2 ]; then
+    echo "usage: sshf 10.0.0.1 6006"
+    return 1
+  fi
+  local host="${1}"
+  local port="${2}"
+  kill -9 $(sudo lsof -ti:${port})
+  ssh -NfL ${port}:localhost:${port} ${host}
+}
+
+# fuzzy find projects
+function ff_projects() {
+  # Each root is consist of PATH:scan_depth
+  project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${XDG_CONFIG_HOME}:1"
+                 "${HOME}/dev:2" "${HOME}/dev-remote:2" "${HOME}/workplace:3")
+
+  projects=()
+  local project scan_depth
+  for project_scan in ${project_scans[@]}; do
+    IFS=: read -r project scan_depth <<<"${project_scan}"
+    project="$(readlink $project || echo $project)"
+    if [[ -d ${project} ]]; then
+      # Suppress errors, some dirs, e.g. .Trash, sometimes are not readable
+      {
+        for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
+          if [[ -d ${dir}/.git ]]; then
+            projects+=(${dir})
+          fi
+        done
+      } 2>/dev/null
+    fi
+  done
+
+  local IFS=$'\n'
+  if _is_callable fzf; then ff_cmd="fzf"
+  elif _is_callable sk; then ff_cmd="sk"
+  else
+    echo-fail "Please fzf or skim (sk) first"
+    return 1
+  fi
+  selected_project=$(echo "${projects[*]}" | $ff_cmd)
+
+  if [[ -n "$selected_project" ]]; then
+    cd ${selected_project}
+  fi
+}
+alias pp=ff_projects
+
+# fkill - fuzzy find kill processes
+fkill() {
+  if _is_callable fzf; then ff_cmd="fzf"
+  elif _is_callable sk; then ff_cmd="sk"
+  else
+    echo-fail "Please fzf or skim (sk) first"
+    return 1
+  fi
+  pids=($(procs $(whoami) | sed '1,2d' | $ff_cmd -m | awk '{print $1}'))
+  echo-info "kill -9 ${pids[@]}"
+  kill -9 ${pids[@]} || "Failed to kill ${pids[@]}"
+}
+
+# fman - fuzzy find man page
+function fman() {
+  if _is_callable fzf; then ff_cmd="fzf"
+  elif _is_callable sk; then ff_cmd="sk"
+  else
+    echo-fail "Please fzf or skim (sk) first"
+    return 1
+  fi
+  man -k . | $ff_cmd -q "$1" --prompt='man> ' | awk -F'\(' '{print $1}' | xargs -r man
+}
+
 function update_git_repo() {
   local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
   dir=$1
@@ -140,8 +214,9 @@ function update_dotty() {
 
   echo-info "Error Summary"
   cat ${ERROR_SUMMARY_FILE}
-
   rm -f ${ERROR_SUMMARY_FILE}
+
+  zinit delete --clean -y
 
   # Sync uninstalled some software if we deleted on one machine
   $DOTTY_HOME/legacy_sync_script.zsh
