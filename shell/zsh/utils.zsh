@@ -222,3 +222,8 @@ function update_dotty() {
   $DOTTY_HOME/legacy_sync_script.zsh
 }
 alias uu='update_dotty'
+function uuh() {
+  git -C $XDG_CONFIG_HOME/dotty reset --hard HEAD
+  git -C $XDG_CONFIG_HOME/dotty/config reset --hard HEAD
+  update_dotty
+}
