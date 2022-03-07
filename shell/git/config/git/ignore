@@ -10,6 +10,7 @@
 *.un~
 Session.vim
 .netrwhist
+.nvimlog
 
 # Ignore tags (from etags and ctags)
 TAGS
