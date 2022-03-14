@@ -62,6 +62,8 @@ config.codekit
 
 # C++ #
 #######
+build
+release
 cmake-build-debug
 .ccls-cache
 compile_commands.json
@@ -79,7 +81,6 @@ __pycache__
 .settings
 .project
 .classpath
-build
 *.iml
 
 # Custom #
