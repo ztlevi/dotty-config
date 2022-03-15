@@ -1,3 +1,6 @@
 *.js.map -diff
+*.csv -diff
+*.pdf -diff
+*.ipynb -diff
 third_party/**/* -diff
 third-party/**/* -diff
