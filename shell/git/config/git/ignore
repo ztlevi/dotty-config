@@ -75,6 +75,7 @@ compile_commands.json
 __pycache__
 .ipynb_checkpoints
 .pytest_cache
+.python-version
 
 # Java #
 ########
