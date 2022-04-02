@@ -48,6 +48,7 @@ Thumbs.db
 *~
 .sass-cache
 tmp
+*.tmp
 .codekit-cache
 config.codekit
 
