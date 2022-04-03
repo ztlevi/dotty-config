@@ -1,4 +1,7 @@
-zinit pack"bgn-binary+keys" for fzf
+if _is_callable brew; then
+    source $(brew --prefix fzf)/share/zsh/site-functions/key-bindings.zsh
+    source $(brew --prefix fzf)/share/zsh/site-functions/completion.zsh 2>/dev/null
+fi
 
 # replace zsh completion with fzf
 zinit ice wait lucid atload"zicompinit; zicdreplay" blockf
