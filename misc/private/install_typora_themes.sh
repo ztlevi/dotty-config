@@ -7,12 +7,12 @@ fi
 
 case $(_os) in
     macos)
-      local typora_theme_dir="/Users/ztlevi/Library/Application Support/abnerworks.Typora/themes/"
+      local typora_theme_dir="$HOME/Library/Application Support/abnerworks.Typora/themes/"
       ;;
 esac
 
 if [[ -n "$typora_theme_dir" ]]; then
-  cp -f $DOTTY_ASSETS_HOME/typora-themes/blubook.css $typora_theme_dir
+  cp -f $DOTTY_ASSETS_HOME/typora-themes/blubook.css "$typora_theme_dir"
 fi
 
 echo-ok "Install Typora theme successfully."
