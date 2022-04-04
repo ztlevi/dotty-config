@@ -110,7 +110,7 @@
 [diff "org"]
 	xfuncname = "^(\\*+ +.*)$"
 [include]
-	path = ~/work/dev/dots/git-user-config
-	path = ~/work/dev/dots/git-gpg-config
+	path = ~/dev/work/dots/git-user-config
+	path = ~/dev/work/dots/git-gpg-config
 [includeIf "gitdir:workplace/"]
-	path = ~/work/dev/dots/git-company-config
+	path = ~/dev/work/dots/git-company-config
