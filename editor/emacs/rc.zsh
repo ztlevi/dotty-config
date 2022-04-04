@@ -1,4 +1,8 @@
 if [[ $(_os) == macos ]]; then
+  # Doom  (file-error "Creating pipe" "Too many open files")
+  # Too many open error on MacOS https://discussions.apple.com/thread/251000125
+  ulimit -n 10240
+
   _is_callable /Applications/Emacs.app/Contents/MacOS/emacs &&
     alias emacs=/Applications/Emacs.app/Contents/MacOS/emacs
 
