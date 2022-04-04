@@ -12,7 +12,7 @@ case $(_os) in
 esac
 
 if [[ -n "$typora_theme_dir" ]]; then
-  cp -f $DOTTY_ASSETS_HOME/typora-themes/blubook.css "$typora_theme_dir"
+  cp -f $DOTTY_ASSETS_HOME/typora-themes/* "$typora_theme_dir"
 fi
 
 echo-ok "Install Typora theme successfully."
