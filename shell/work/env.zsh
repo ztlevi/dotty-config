@@ -1,3 +1,3 @@
-if [[ -f $HOME/work/dots/env.zsh ]]; then
-  source $HOME/work/dots/env.zsh
+if [[ -f $HOME/dev/work/dots/env.zsh ]]; then
+  source $HOME/dev/work/dots/env.zsh
 fi

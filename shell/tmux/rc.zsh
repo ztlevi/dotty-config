@@ -35,6 +35,6 @@ else # From outside tmux
   tdup() { tmux new-session -t "${1:-$(tmux display-message -p '#S')}"; }
 fi
 
-if [[ -n "$TMUX" ]] && [[ -f "$HOME/work/dots/tmux.conf" ]]; then
-  tmux source-file "$HOME/work/dots/tmux.conf"
+if [[ -n "$TMUX" ]] && [[ -f "$HOME/dev/work/dots/tmux.conf" ]]; then
+  tmux source-file "$HOME/dev/work/dots/tmux.conf"
 fi
