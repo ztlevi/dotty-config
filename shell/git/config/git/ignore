@@ -95,6 +95,7 @@ __pycache__
 .projectile
 .osync_workdir
 .node-version
+*.parquet
 
 # Amazon #
 ##########
