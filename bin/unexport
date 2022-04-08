@@ -5,7 +5,7 @@
 
 if [ $# -lt 1 ]; then
     echo "You should give at least one argument"
-    echo "For example: unexport /home/linuxbrew/.linuxbrew/bin or eval \"\$(unexport /home/linuxbrew/.linuxbrew/bin)\""
+    echo "For example: unexport \$(brew --prefix)/bin or eval \"\$(unexport \$(brew --prefix)/bin)\""
 else
     FOLDERS_TO_REMOVE=`echo $@ | sed 's/ /|/g'`
 
