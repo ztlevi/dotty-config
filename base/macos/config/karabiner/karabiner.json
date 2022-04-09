@@ -1187,7 +1187,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "x",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
@@ -1203,22 +1203,6 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a '/Applications/IntelliJ IDEA.app' || zsh -c 'open -a \"$(fd \"^IntelliJ IDEA.app$\" \"$HOME/Library/Application Support/JetBrains/Toolbox/apps/\")\"' "
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "p",
                                     "modifiers": {
                                         "mandatory": [
@@ -1228,7 +1212,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Pycharm.app' || zsh -c 'open -a \"$(fd \"^Pycharm.app$\" \"$HOME/Library/Application Support/JetBrains/Toolbox/apps/\")\"' "
+                                        "shell_command": "open -a '/Applications/Typora.app'"
                                     }
                                 ],
                                 "type": "basic"
