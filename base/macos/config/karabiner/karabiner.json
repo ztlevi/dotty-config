@@ -1203,7 +1203,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
