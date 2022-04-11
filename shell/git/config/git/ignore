@@ -85,6 +85,10 @@ __pycache__
 .classpath
 *.iml
 
+# Go #
+######
+__debug_bin
+
 # Custom #
 ##########
 .idea
