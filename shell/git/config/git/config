@@ -55,9 +55,7 @@
 [pull]
 	rebase = true
 [push]
-	default = matching
-[branch]
-	autosetuprebase = always
+	default = simple
 [url "https://github.com/"]
     insteadOf = gh:
 [url "git@github.com:"]
