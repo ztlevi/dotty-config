@@ -1,12 +1,4 @@
 {
   "printWidth": 100,
-  "trailingComma": "es5",
-  "overrides": [
-    {
-      "files": "*.md",
-      "options": {
-        "proseWrap": "always"
-      }
-    }
-  ]
+  "trailingComma": "es5"
 }
