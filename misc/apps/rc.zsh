@@ -1,6 +1,5 @@
 _is_callable tensorboard && alias tb="tensorboard"
 _is_callable bandwhich && alias bandwhich="sudo $(which bandwhich)"
-_is_callable code && alias c.="code ."
 
 # used for mas
 function find-app-id() {
