@@ -57,10 +57,7 @@ alias cssh='$EDITOR $HOME/.ssh/config'
 
 alias ag="noglob ag -p $XDG_CONFIG_HOME/ag/agignore"
 alias rg='noglob rg'
-if _is_callable procs; then
-  alias ps="procs"
-fi
-alias prg="/bin/ps aux | rg -i"
+function prg() {ps aux | rg -i $@}
 function grep_search() { echo $2 | grep -qiP $1; }
 function rg_search() { echo $2 | rg -qS $1; }
 function vread() {
