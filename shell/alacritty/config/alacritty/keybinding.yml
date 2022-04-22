@@ -15,29 +15,49 @@ key_bindings:
   - { key: N, mods: Command, action: CreateNewWindow }
   - { key: H, mods: Command, action: Minimize }
   # Map command+* to alt+*
-  - { key: W, mods: Command, chars: "\x1bw" }
-  - { key: E, mods: Command, chars: "\x1be" }
-  - { key: R, mods: Command, chars: "\x1br" }
-  - { key: T, mods: Command, chars: "\x1bt" }
-  - { key: Y, mods: Command, chars: "\x1by" }
   - { key: A, mods: Command, chars: "\x1ba" }
-  - { key: S, mods: Command, chars: "\x1bs" }
+  - { key: A, mods: Command|Shift, chars: "\x1bA" }
+  - { key: B, mods: Command, chars: "\x1bb" }
+  - { key: B, mods: Command|Shift, chars: "\x1bB" }
   - { key: D, mods: Command, chars: "\x1bd" }
-  - { key: I, mods: Command, chars: "\x1bi" }
   - { key: D, mods: Command|Shift, chars: "\x1bD" }
+  - { key: E, mods: Command, chars: "\x1be" }
+  - { key: E, mods: Command|Shift, chars: "\x1bE" }
   - { key: F, mods: Command, chars: "\x1bf" }
+  - { key: F, mods: Command|Shift, chars: "\x1bF" }
+  - { key: G, mods: Command, chars: "\x1bg" }
+  - { key: G, mods: Command|Shift, chars: "\x1bG" }
   - { key: H, mods: Command|Shift, chars: "\x1bH" }
+  - { key: I, mods: Command, chars: "\x1bi" }
+  - { key: I, mods: Command|Shift, chars: "\x1bI" }
   - { key: J, mods: Command, chars: "\x1bj" }
   - { key: J, mods: Command|Shift, chars: "\x1bJ" }
   - { key: K, mods: Command, chars: "\x1bk" }
   - { key: K, mods: Command|Shift, chars: "\x1bK" }
+  - { key: L, mods: Command, chars: "\x1bl" }
   - { key: L, mods: Command|Shift, chars: "\x1bL" }
+  - { key: M, mods: Command, chars: "\x1bm" }
+  - { key: M, mods: Command|Shift, chars: "\x1bM" }
+  - { key: O, mods: Command, chars: "\x1bo" }
+  - { key: O, mods: Command|Shift, chars: "\x1bO" }
   - { key: P, mods: Command, chars: "\x1bp" }
   - { key: P, mods: Command|Shift, chars: "\x1bP" }
+  - { key: R, mods: Command, chars: "\x1br" }
+  - { key: R, mods: Command|Shift, chars: "\x1bR" }
+  - { key: S, mods: Command, chars: "\x1bs" }
+  - { key: S, mods: Command|Shift, chars: "\x1bS" }
+  - { key: T, mods: Command, chars: "\x1bt" }
+  - { key: T, mods: Command|Shift, chars: "\x1bT" }
   - { key: U, mods: Command, chars: "\x1bu" }
-  - { key: Z, mods: Command, chars: "\x1bz" }
+  - { key: U, mods: Command|Shift, chars: "\x1bU" }
+  - { key: W, mods: Command, chars: "\x1bw" }
+  - { key: W, mods: Command|Shift, chars: "\x1bW" }
   - { key: X, mods: Command, chars: "\x1bx" }
-  - { key: M, mods: Command, chars: "\x1bm" }
+  - { key: X, mods: Command|Shift, chars: "\x1bX" }
+  - { key: Y, mods: Command, chars: "\x1by" }
+  - { key: Y, mods: Command|Shift, chars: "\x1bY" }
+  - { key: Z, mods: Command, chars: "\x1bz" }
+  - { key: Z, mods: Command|Shift, chars: "\x1bZ" }
   - { key: LBracket, mods: Command, chars: "\x1b[" }
   - { key: RBracket, mods: Command, chars: "\x1b]" }
   - { key: Semicolon, mods: Command, chars: "\x1b;" }
