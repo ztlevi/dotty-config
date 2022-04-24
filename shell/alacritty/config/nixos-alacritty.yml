@@ -97,7 +97,7 @@ key_bindings:
   - { key: Key0, mods: Alt, action: ResetFontSize }
 
   # Macos key
-  - { key: N, mods: Command, action: CreateNewWindow }
+  - { key: N, mods: Command, action: SpawnNewInstance }
   - { key: H, mods: Command, action: Minimize }
   # Map command+* to alt+*
   - { key: A, mods: Command, chars: "\x1ba" }
