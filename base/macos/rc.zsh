@@ -22,11 +22,6 @@ _is_callable sha1sum || alias sha1sum="shasum"
 
 _is_callable ggrep && alias grep="ggrep"
 
-if [ -d '/Applications/ForkLift.app' ]; then
-  alias oo="open -a ForkLift ."
-  alias soo="sudo open -a ForkLift ."
-else
-  alias oo="open ."
-fi
+alias oo="open ."
 
 alias cdicloud="cd '$HOME/Library/Mobile Documents/com~apple~CloudDocs'"
