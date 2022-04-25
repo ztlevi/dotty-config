@@ -143,8 +143,6 @@ key_bindings:
   - { key: Y, mods: Command|Shift, chars: "\x1bY" }
   - { key: Z, mods: Command, chars: "\x1bz" }
   - { key: Z, mods: Command|Shift, chars: "\x1bZ" }
-  - { key: LBracket, mods: Command, chars: "\x1b[" }
-  - { key: RBracket, mods: Command, chars: "\x1b]" }
   - { key: Semicolon, mods: Command, chars: "\x1b;" }
   - { key: Colon, mods: Command, chars: "\x1b:" }
   - { key: Comma, mods: Command, chars: "\x1b," }
