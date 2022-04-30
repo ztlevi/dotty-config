@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 
 """
-Usage: ec2 -s --instances i-XXXXXXXXXXXXXXXXX --hosts <host-in-ssh-config>
+Usage: ec2 -s --instances i-XXXXXXXXXXXXXXXXX --hosts aws-host-1
+
+This will create/modify an entry in ssh config to this:
+
+Host aws-host-1
+  HostName <public-hostname-of-i-XXXXXXXXXXXXXXXXX>
 """
 
 import argparse
