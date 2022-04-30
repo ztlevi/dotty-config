@@ -540,11 +540,13 @@ def start_ec2_instances(instances: Sequence[str]) -> None:
     )
     time.sleep(10)
 
+
 def stop_ec2_instances(instances: Sequence[str]) -> None:
     logging.info(f"Stopping instances {instances}...")
     subprocess.check_output(
         f"aws ec2 stop-instances --instance-ids {' '.join(instances)}", shell=True
     )
+
 
 def get_ec2_instances_pubic_hostname(
     instances: Sequence[str], hosts: Sequence[str]
@@ -569,7 +571,7 @@ def write_ssh_config(ssh_config: SshConfig, hosts: Sequence[str], hosts_dict: Ma
     ssh_config.save()
 
 
-if __name__ == "__main__"   :
+if __name__ == "__main__":
     logging.getLogger().setLevel(logging.INFO)
     parser = argparse.ArgumentParser()
 
@@ -593,8 +595,10 @@ if __name__ == "__main__"   :
 
         ssh_config = read_ssh_config(os.path.expanduser("~/.ssh/config"))
         write_ssh_config(ssh_config, args.hosts, hosts_dict)
+        with open("~/.ssh/config", "r") as f:
+            print(f.read())
 
-    if args.stop:
+    if args.end:
         if not args.instances:
             logging.error("Ivalid hosts and instances arguments!")
             exit(1)
