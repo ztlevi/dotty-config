@@ -11,20 +11,19 @@ Host aws-host-1
 
 import argparse
 import subprocess
-import pathlib
-from sys import stdout
 import logging
 import json
 import time
-import io
 import os
 import re
 import glob
-from multiprocessing.pool import ThreadPool
 from collections import defaultdict, Counter
-from typing import Sequence, Union, IO, Any, Dict, Mapping
+from typing import Sequence, Dict, Mapping
+from shutil import which
 
 
+# ================================== SSH CONFIG ==============================
+# Copied from https://github.com/sorend/sshconf
 # taken from "man ssh"
 KNOWN_PARAMS = (
     "AddKeysToAgent",
@@ -538,8 +537,61 @@ class SshConfig(object):
             c.write(p)
 
 
+# ================================== LOGGING ==============================
+BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
+
+# The background is set with 40 plus the number of the color, and the foreground with 30
+
+# These are the sequences need to get colored ouput
+RESET_SEQ = "\033[0m"
+COLOR_SEQ = "\033[1;%dm"
+BOLD_SEQ = "\033[1m"
+
+
+def formatter_message(message, use_color=True):
+    if use_color:
+        message = message.replace("$RESET", RESET_SEQ).replace("$BOLD", BOLD_SEQ)
+    else:
+        message = message.replace("$RESET", "").replace("$BOLD", "")
+    return message
+
+
+COLORS = {"WARNING": YELLOW, "INFO": WHITE, "DEBUG": BLUE, "CRITICAL": YELLOW, "ERROR": RED}
+
+
+class ColoredFormatter(logging.Formatter):
+    def __init__(self, msg, use_color=True):
+        logging.Formatter.__init__(self, msg)
+        self.use_color = use_color
+
+    def format(self, record):
+        levelname = record.levelname
+        if self.use_color and levelname in COLORS:
+            levelname_color = COLOR_SEQ % (30 + COLORS[levelname]) + levelname + RESET_SEQ
+            record.levelname = levelname_color
+        return logging.Formatter.format(self, record)
+
+
+# Custom logger class with multiple destinations
+class ColoredLogger(logging.Logger):
+    FORMAT = "[$BOLD%(name)-5s$RESET][%(levelname)-18s]  %(message)s ($BOLD%(filename)s$RESET:%(lineno)d)"
+    COLOR_FORMAT = formatter_message(FORMAT, True)
+
+    def __init__(self, name):
+        logging.Logger.__init__(self, name, logging.DEBUG)
+
+        color_formatter = ColoredFormatter(self.COLOR_FORMAT)
+
+        console = logging.StreamHandler()
+        console.setFormatter(color_formatter)
+
+        self.addHandler(console)
+        return
+
+
+# ================================== EC2 ==============================
 def start_ec2_instances(instances: Sequence[str]) -> None:
-    logging.info(f"Staring instances {instances}...")
+    logger.info(f"Staring instances {instances}...")
     subprocess.check_output(
         f"aws ec2 start-instances --instance-ids {' '.join(instances)}", shell=True
     )
@@ -547,7 +599,7 @@ def start_ec2_instances(instances: Sequence[str]) -> None:
 
 
 def stop_ec2_instances(instances: Sequence[str]) -> None:
-    logging.info(f"Stopping instances {instances}...")
+    logger.info(f"Stopping instances {instances}...")
     subprocess.check_output(
         f"aws ec2 stop-instances --instance-ids {' '.join(instances)}", shell=True
     )
@@ -577,7 +629,9 @@ def write_ssh_config(ssh_config: SshConfig, hosts: Sequence[str], hosts_dict: Ma
 
 
 if __name__ == "__main__":
-    logging.getLogger().setLevel(logging.INFO)
+    logging.setLoggerClass(ColoredLogger)
+    logger = logging.getLogger("ec2")
+    logger.setLevel(logging.INFO)
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-s", "--start", action="store_true")
@@ -590,21 +644,27 @@ if __name__ == "__main__":
         help="Custom host names, this will write as hostname in ssh config.",
     )
     args = parser.parse_args()
+    if which("aws") is None:
+        logger.error("aws cli doesn't not exist. Please install aws cli first!")
+        exit(1)
+
+    local_ssh_config_path = os.path.expanduser("~/.ssh/config")
 
     if args.start:
         if not args.instances or not args.hosts or len(args.hosts) != len(args.instances):
-            logging.error("Ivalid hosts and instances arguments!")
+            logger.error("Ivalid hosts and instances arguments!")
             exit(1)
         start_ec2_instances(args.instances)
         hosts_dict = get_ec2_instances_pubic_hostname(args.instances, args.hosts)
 
-        ssh_config = read_ssh_config(os.path.expanduser("~/.ssh/config"))
+        ssh_config = read_ssh_config(local_ssh_config_path)
         write_ssh_config(ssh_config, args.hosts, hosts_dict)
-        with open("~/.ssh/config", "r") as f:
-            print(f.read())
+        logger.info(f"{local_ssh_config_path} is modified with the updated hostnames:")
+        for host in args.hosts:
+            print(f"{host}: {ssh_config.host(host)}")
 
     if args.end:
         if not args.instances:
-            logging.error("Ivalid hosts and instances arguments!")
+            logger.error("Ivalid hosts and instances arguments!")
             exit(1)
         stop_ec2_instances(args.instances)
