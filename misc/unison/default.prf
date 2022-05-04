@@ -46,6 +46,7 @@ ignore = Name .python-version
 
 # In order to un-ignore it, ignore the files inside the directory instead of the directory itself
 ignore = Name build{,_tmp}
+ignore = Name release
 ignore = Name out
 
 # Ignore for C++
