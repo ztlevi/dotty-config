@@ -14,6 +14,9 @@ logfile = unison.log
 #   if your path is multilevel (i.e. has a slash in it), you will need to adjust (ex: */*/.idea), since the * will not match a path separator!
 #path = workspace_name
 
+# Ignore rules for git
+ignore = Name {.git/index.lock}
+
 # Ignore rules for macOS
 ignore = Name {.DS_Store,.Spotlight-V100,.fseventsd,.Trash*,.DocumentRevisions*,.TemporaryItems}
 
