@@ -48,8 +48,8 @@
     side-by-side = true
     # delta --show-syntax-themes --light
     syntax-theme = OneHalfLight
-[merge]
-    conflictstyle = diff3
+# [merge]
+#     conflictstyle = diff3
 [diff]
     colorMoved = default
 [pull]

@@ -1,13 +1,12 @@
-# Exclude files for diff
-*.js.map -diff
-*.csv -diff
-*.parquet -diff
-*.ipynb -diff
-third_party/**/* -diff
-third-party/**/* -diff
 # General reference: https://git-scm.com/docs/gitattributes
 # [attr]lfs filter=lfs diff=lfs merge=lfs -text -diff
 [attr]lfs -text -diff
+*.js.map lfs
+*.csv lfs
+*.parquet lfs
+# *.ipynb lfs
+third_party/**/* lfs
+third-party/**/* lfs
 *.a   lfs
 *.bin lfs
 *.bit lfs
