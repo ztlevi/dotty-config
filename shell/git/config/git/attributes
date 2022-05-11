@@ -4,7 +4,7 @@
 *.js.map lfs
 *.csv lfs
 *.parquet lfs
-# *.ipynb lfs
+*.ipynb lfs
 third_party/**/* lfs
 third-party/**/* lfs
 *.a   lfs
