@@ -53,7 +53,7 @@
 [diff]
     colorMoved = default
 [pull]
-	rebase = true
+	rebase = false
 [push]
 	default = simple
 [url "https://github.com/"]
