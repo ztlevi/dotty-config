@@ -1,9 +1,9 @@
 zinit wait lucid for \
   OMZP::git \
-  OMZP::gitignore
+  OMZP::gitignore \
+  wfxr/forgit
 # OMZP::gh
 # OMZP::git-extras
-# wfxr/forgit
 # TODO: https://github.com/zdharma/zinit/issues/477
 # zinit ice svn wait lucid; zinit snippet OMZP::gitfast
 
