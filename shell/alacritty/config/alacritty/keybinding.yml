@@ -11,6 +11,7 @@ key_bindings:
   - { key: Minus, mods: Alt, action: DecreaseFontSize }
   - { key: Key0, mods: Alt, action: ResetFontSize }
 
+  # https://github.com/alacritty/alacritty/issues/62
   # Macos key
   - { key: N, mods: Command, action: CreateNewWindow }
   - { key: H, mods: Command, action: Minimize }
@@ -59,6 +60,7 @@ key_bindings:
   - { key: Z, mods: Command, chars: "\x1bz" }
   - { key: Z, mods: Command|Shift, chars: "\x1bZ" }
   - { key: Semicolon, mods: Command, chars: "\x1b;" }
+  - { key: Return,  mods: Command,  chars: "\x1b\x0d"   }
   - { key: Colon, mods: Command, chars: "\x1b:" }
   - { key: Comma, mods: Command, chars: "\x1b," }
   - { key: Slash, mods: Command, chars: "\x1b/" }
