@@ -88,18 +88,18 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
   direnv/direnv
 
 # THEME
-zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
-zinit load starship/starship
-export SPACESHIP_TIME_SHOW=true
+# zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
+# zinit load starship/starship
+# export SPACESHIP_TIME_SHOW=true
 
 # zinit light caiogondim/bullet-train-oh-my-zsh-theme
 # export BULLETTRAIN_CUSTOM_FG=white
 # export BULLETTRAIN_CONTEXT_FG=white
 
-# zinit ice depth"1" # git clone depth
-# zinit light romkatv/powerlevel10k
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zinit snippet OMZT::jispwoso
 # zinit snippet OMZT::bureau
