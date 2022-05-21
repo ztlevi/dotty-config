@@ -5,6 +5,7 @@ audio_default	= [
 ]
 
 image_default	= [
+	{ command = "open"},
 	{ command = "qimgv", args = [ "--" ], fork = true, silent = true },
 	{ command = "krita", args = [ "--" ], fork = true, silent = true },
 	{ command = "exiftool", confirm_exit = true },
@@ -18,9 +19,8 @@ video_default	= [
 ]
 
 text_default	= [
-	{ command = "micro" },
-	{ command = "gedit", fork = true, silent = true },
-	{ command = "bat", args = [ "--paging=always" ] },
+	{ command = "nvim"},
+	{ command = "bat", args = [ "--theme=OneHalfLight", "--paging=always" ] },
 ]
 
 reader_default	= [
