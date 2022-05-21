@@ -10,8 +10,8 @@ alias rb="ruby"
 alias rbe="rbenv"
 alias rdb="pry -r"
 
-alias rk="noglob ${aliases[rk]:-rake}"
-alias rkg="noglob ${aliases[rkg]:-rake -g}"
+alias rk="${aliases[rk]:-rake}"
+alias rkg="${aliases[rkg]:-rake -g}"
 
 alias bu="bundle"
 alias bue="bundle exec"

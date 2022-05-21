@@ -6,7 +6,6 @@ alias q=exit
 alias pv=printenv
 alias open=open_command
 alias clr=clear
-alias sudo='sudo '
 unalias unexport
 k9() {
   # Usage: k9 22234 1213 or k9 chrome
@@ -28,8 +27,6 @@ sk9() {
 }
 alias ka=killall
 
-alias rm="trash"
-alias srm="sudo /bin/rm"
 alias te="trash-empty -f 15"
 
 unalias cp 2>/dev/null || true
@@ -55,8 +52,7 @@ alias gurl='curl --compressed'
 alias wget='wget -c' # Resume dl if possible
 alias cssh='$EDITOR $HOME/.ssh/config'
 
-alias ag="noglob ag -p $XDG_CONFIG_HOME/ag/agignore"
-alias rg='noglob rg'
+alias ag="ag -p $XDG_CONFIG_HOME/ag/agignore"
 function prg() {ps aux | rg -i $@}
 function grep_search() { echo $2 | grep -qiP $1; }
 function rg_search() { echo $2 | rg -qS $1; }
