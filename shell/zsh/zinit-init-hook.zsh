@@ -96,6 +96,7 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
 # export BULLETTRAIN_CUSTOM_FG=white
 # export BULLETTRAIN_CONTEXT_FG=white
 
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
