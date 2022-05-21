@@ -22,3 +22,13 @@ function git-rename-master-to-main() {
   git branch -u origin/main main
   git remote set-head origin -a
 }
+
+function git-copy-hooks() {
+  if [[ -d ".git" ]]; then
+    rm -rf ".git/hooks"
+    cp -R $DOTTY_CONFIG_HOME/shell/git/template/hooks .git/
+    echo-info "Overrided .git/hooks directory."
+  else
+    echo-fail "This is not a git dir."
+  fi
+}
