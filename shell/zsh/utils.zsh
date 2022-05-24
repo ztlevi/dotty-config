@@ -120,8 +120,8 @@ function ff_projects() {
   done
 
   local IFS=$'\n'
-  if _is_callable fzf; then ff_cmd="fzf"
-  elif _is_callable sk; then ff_cmd="sk"
+  if _is_callable sk; then ff_cmd="sk"
+  elif _is_callable fzf; then ff_cmd="fzf"
   else
     echo-fail "Please fzf or skim (sk) first"
     return 1
@@ -136,8 +136,8 @@ alias pp=ff_projects
 
 # fkill - fuzzy find kill processes
 fkill() {
-  if _is_callable fzf; then ff_cmd="fzf"
-  elif _is_callable sk; then ff_cmd="sk"
+  if _is_callable sk; then ff_cmd="sk"
+  elif _is_callable fzf; then ff_cmd="fzf"
   else
     echo-fail "Please fzf or skim (sk) first"
     return 1
@@ -149,8 +149,8 @@ fkill() {
 
 # fman - fuzzy find man page
 function fman() {
-  if _is_callable fzf; then ff_cmd="fzf"
-  elif _is_callable sk; then ff_cmd="sk"
+  if _is_callable sk; then ff_cmd="sk"
+  elif _is_callable fzf; then ff_cmd="fzf"
   else
     echo-fail "Please fzf or skim (sk) first"
     return 1
