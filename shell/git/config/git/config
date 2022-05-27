@@ -45,7 +45,7 @@
 	diffFilter = delta --color-only
 [delta]
     navigate = true  # use n and N to move between diff sections
-    side-by-side = true
+    # side-by-side = true
     # delta --show-syntax-themes --light
     syntax-theme = OneHalfLight
 # [merge]
