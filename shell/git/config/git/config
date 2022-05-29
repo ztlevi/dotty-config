@@ -23,9 +23,8 @@
 	sm	= submodule
     smr = delete-submodule
     smd = submodule deinit -f .
-    smi = submodule update --init --recursive -j8
+    smi = submodule update --init --recursive -j 8
     smu = submodule update --remote --merge
-    # Typically to start submodule from stratch, git smd -> git clf -> git smi
 	clf	= clean -fdx -f
 	unst = reset HEAD
 	throw	= reset --hard HEAD

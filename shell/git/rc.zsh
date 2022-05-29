@@ -32,3 +32,10 @@ function git-copy-hooks() {
     echo-fail "This is not a git dir."
   fi
 }
+
+function git-reset-submodules () {
+  git submodule deinit -f .
+  git clean -fdx -f
+  git submodule update --init --recursive -j 8
+
+}
