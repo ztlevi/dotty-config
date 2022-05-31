@@ -1,4 +1,10 @@
 function joshuto-cd() {
+  # TODO: remove this once nixos joshuto version updated
+  if [[ $(_os) == 'linux-nixos' ]]; then
+    joshuto
+    return 1
+  fi
+
   ID="$$"
   mkdir -p /tmp/$USER
   OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
