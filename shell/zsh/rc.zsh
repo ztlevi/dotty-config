@@ -97,4 +97,4 @@ unalias duf 2>/dev/null || true
 
 alias get_window_class="xprop | grep WM_CLASS"
 
-alias nr="nix repl '<nixpkgs/nixos>'"
+alias nr="nix repl '<nixpkgs>'" # input `pkgs.vscode`
