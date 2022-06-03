@@ -5,6 +5,3 @@ _is_callable bandwhich && alias bandwhich="sudo $(which bandwhich)"
 function find-app-id() {
   /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/"$1".app/Contents/Info.plist
 }
-
-alias btm="btm --color default-light"
-alias htop="btm"
