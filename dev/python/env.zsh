@@ -9,3 +9,8 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 export PYTHONPATH=$PYTHONPATH:.
+
+# Linux miniconda
+[[ -d $HOME/miniconda/bin ]] && path=($path $HOME/miniconda/bin)
+# MacOS miniconda
+[[ -d /usr/local/Caskroom/miniconda/base/bin ]] && path=($path /usr/local/Caskroom/miniconda/base/bin)
