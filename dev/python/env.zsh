@@ -9,5 +9,3 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 export PYTHONPATH=$PYTHONPATH:.
-
-[[ -d $HOME/miniconda3/bin ]] && path=($path $HOME/miniconda3/bin)
