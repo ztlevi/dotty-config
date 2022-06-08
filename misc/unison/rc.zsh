@@ -12,8 +12,9 @@ function unison-sync() {
 
   if ! pgrep unison >/dev/null; then
     while :; do
-      echo "Kill remote unison process... " $(date)
+      echo "Kill local and remote unison process... " $(date)
       ssh $2 "killall unison" && sleep 1 || true
+      killall unison && sleep 1 || true
       echo "Starting unison process... " $(date)
       unison -ui text default.prf $1 $remote_arg
       echo "Unison process exited.  Sleeping before restarting.  ^C to exit. " $(date)
