@@ -20,7 +20,7 @@ function doom() {
   # Doom  (file-error "Creating pipe" "Too many open files")
   # Too many open error on MacOS https://discussions.apple.com/thread/251000125
   # `ulimit -a` to display all
-  ulimit -n 16384
+  ulimit -n 8192
   env doom "$@"
   ulimit -n 1024
 }
