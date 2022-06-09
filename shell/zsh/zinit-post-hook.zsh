@@ -13,4 +13,4 @@ compinit
 zinit cdreplay -q
 
 # Use local/bin to override
-export PATH="$HOME/.local/bin:$PATH"
+path=(/usr/local/{,s}bin $path)
