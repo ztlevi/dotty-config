@@ -50,7 +50,7 @@
     light = true
     # side-by-side = true
     # delta --show-syntax-themes --light
-    syntax-theme = Github
+    syntax-theme = GitHub
 # [merge]
 #     conflictstyle = diff3
 [diff]
