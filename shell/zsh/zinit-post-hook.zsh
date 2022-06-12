@@ -12,5 +12,5 @@ compinit
 # use with `zinit cdreplay')
 zinit cdreplay -q
 
-# Use local/bin to override
-path=(/usr/local/{,s}bin $path)
+# Prioritize brew bin path
+path=( $(brew --prefix)/{,s}bin $path )
