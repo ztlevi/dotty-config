@@ -6,7 +6,7 @@ export ADB_VENDOR_KEYS="$ANDROID_SDK_HOME/.android"
 path=($ANDROID_SDK_HOME/bin $path)
 
 # if [[ -f /usr/libexec/java_home ]]; then
-#   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 1.8 or 11
+#   export JAVA_HOME=$(/usr/libexec/java_home -v 11) # 1.8 or 11
 # elif [[ -f /usr/bin/javac ]]; then
 #   export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
 # fi
