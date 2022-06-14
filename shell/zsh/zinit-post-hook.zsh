@@ -11,6 +11,3 @@ compinit
 # via intercepting the `compdef'-calls and storing them for later
 # use with `zinit cdreplay')
 zinit cdreplay -q
-
-# Prioritize brew bin path
-path=( $(brew --prefix)/{,s}bin $path )

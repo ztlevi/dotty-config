@@ -49,3 +49,6 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # initialize enabled topics
 _load_all env.zsh
 [[ -f ${ZSH_CONFIG_HOME}/extra.zshenv ]] && _load ${ZSH_CONFIG_HOME}/extra.zshenv
+
+# Prioritize brew bin path
+path=( $(brew --prefix)/{,s}bin $path )
