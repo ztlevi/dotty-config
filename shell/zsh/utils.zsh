@@ -211,6 +211,7 @@ function update_dotty() {
   fi
 
   _cache_clear
+  envrehash
 
   echo-info "Error Summary"
   cat ${ERROR_SUMMARY_FILE}
