@@ -51,4 +51,11 @@ _load_all env.zsh
 [[ -f ${ZSH_CONFIG_HOME}/extra.zshenv ]] && _load ${ZSH_CONFIG_HOME}/extra.zshenv
 
 # Prioritize brew bin path
-path=( $(brew --prefix)/{,s}bin $path )
+case $(_os) in
+    macos)
+        path=( /usr/local/{,s}bin $path )
+        ;;
+    linux-*)
+        path=( /home/linuxbrew/.linuxbrew/{,s}bin $path )
+        ;;
+esac
