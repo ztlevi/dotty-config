@@ -11,19 +11,19 @@ k9() {
   # Usage: k9 22234 1213 or k9 chrome
   if echo $@ | rg -q "[\d\s\t]+"; then
     process_ids=("${(@f)}$@")
+    kill -9 ${process_ids[@]} || "no process found by searching $@"
   else
-    process_ids=("${(@f)$(pgrep -i $1)}")
+    pkill -9 -f $@
   fi
-  kill -9 ${process_ids[@]} || "no process found by searching $@"
 }
 sk9() {
   # Usage: k9 22234 1213 or k9 chrome
   if echo $@ | rg -q "[\d\s\t]+"; then
     process_ids=("${(@f)}$@")
+    sudo kill -9 ${process_ids[@]} || "no process found by searching $@"
   else
-    process_ids=("${(@f)$(pgrep -i $1)}")
+    sudo pkill -9 -f $@
   fi
-  sudo kill -9 ${process_ids[@]} || "no process found by searching $@"
 }
 alias ka=killall
 
