@@ -5,6 +5,7 @@ keymap = [
 	{ keys = [ "alt+t" ],		command = "new_tab" },
 	{ keys = [ "W" ],		command = "close_tab" },
 	{ keys = [ "alt+w" ],		command = "close_tab" },
+	{ keys = [ "ctrl+g" ],		command = "quit --output-current-directory" },
 	{ keys = [ "q" ],		command = "quit --output-current-directory" },
 	{ keys = [ "Q" ],		command = "quit --output-selected-files" },
 
@@ -123,6 +124,7 @@ keymap = [
 
 	{ keys = [ "w" ],		command = "show_tasks" },
 	{ keys = [ "escape" ],		command = "show_tasks" },
+	{ keys = [ "ctrl+g" ],		command = "show_tasks" },
 ]
 
 [help_view]
@@ -142,4 +144,5 @@ keymap = [
 
 	{ keys = [ "w" ],		command = "show_tasks" },
 	{ keys = [ "escape" ],		command = "show_tasks" },
+	{ keys = [ "ctrl+g" ],		command = "show_tasks" },
 ]
