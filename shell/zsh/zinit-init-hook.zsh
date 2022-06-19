@@ -3,6 +3,9 @@
 # https://zdharma.github.io/zinit/wiki/INTRODUCTION/
 # https://github.com/seagle0128/dotfiles/blob/master/.zshrc
 
+# Prioritize brew bin path
+path=( $(brew --prefix)/{,s}bin $path )
+
 ### Install zinit
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
