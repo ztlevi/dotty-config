@@ -99,7 +99,6 @@ __debug_bin
 .flycheck_*
 .projectile
 .osync_workdir
-.node-version
 *.parquet
 
 # Amazon #

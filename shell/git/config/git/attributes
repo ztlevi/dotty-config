@@ -1,6 +1,7 @@
 # General reference: https://git-scm.com/docs/gitattributes
 # [attr]lfs filter=lfs diff=lfs merge=lfs -text -diff
 [attr]lfs -text -diff
+package-lock.json lfs
 *.js.map lfs
 *.csv lfs
 *.parquet lfs
