@@ -1020,8 +1020,8 @@
 
   ##########[ nodenv: node.js version from nodenv (https://github.com/nodenv/nodenv) ]##########
   # Nodenv color.
-  typeset -g POWERLEVEL9K_NODENV_FOREGROUND=2
-  typeset -g POWERLEVEL9K_NODENV_BACKGROUND=0
+  typeset -g POWERLEVEL9K_NODENV_FOREGROUND=0
+  typeset -g POWERLEVEL9K_NODENV_BACKGROUND=2
   # Hide node version if it doesn't come from one of these sources.
   typeset -g POWERLEVEL9K_NODENV_SOURCES=(shell local global)
   # If set to false, hide node version if it's the same as global:
@@ -1041,8 +1041,8 @@
 
   ############[ nodeenv: node.js environment (https://github.com/ekalinin/nodeenv) ]############
   # Nodeenv color.
-  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND=2
-  typeset -g POWERLEVEL9K_NODEENV_BACKGROUND=0
+  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND=0
+  typeset -g POWERLEVEL9K_NODEENV_BACKGROUND=2
   # Don't show Node version next to the environment name.
   typeset -g POWERLEVEL9K_NODEENV_SHOW_NODE_VERSION=false
   # Separate environment name from Node version only with a space.
@@ -1559,8 +1559,8 @@
 
   ###############################[ public_ip: public IP address ]###############################
   # Public IP color.
-  typeset -g POWERLEVEL9K_PUBLIC_IP_FOREGROUND=7
-  typeset -g POWERLEVEL9K_PUBLIC_IP_BACKGROUND=0
+  typeset -g POWERLEVEL9K_PUBLIC_IP_FOREGROUND=0
+  typeset -g POWERLEVEL9K_PUBLIC_IP_BACKGROUND=7
   # Custom icon.
   # typeset -g POWERLEVEL9K_PUBLIC_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1606,8 +1606,8 @@
 
   #########################[ proxy: system-wide http/https/ftp proxy ]##########################
   # Proxy color.
-  typeset -g POWERLEVEL9K_PROXY_FOREGROUND=4
-  typeset -g POWERLEVEL9K_PROXY_BACKGROUND=0
+  typeset -g POWERLEVEL9K_PROXY_FOREGROUND=0
+  typeset -g POWERLEVEL9K_PROXY_BACKGROUND=4
   # Custom icon.
   # typeset -g POWERLEVEL9K_PROXY_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
