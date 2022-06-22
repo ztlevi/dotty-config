@@ -22,3 +22,7 @@ function unison-sync() {
     done
   fi
 }
+
+function unison-clean() {
+   fd -H "\.unison\..*\.unison.tmp" | xargs rm -rf {}
+}
