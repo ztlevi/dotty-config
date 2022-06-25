@@ -30,7 +30,7 @@ alias ka=killall
 alias te="trash-empty -f 15"
 
 unalias cp 2>/dev/null || true
-_is_callable dust && alias du=dust
+_is_callable ds && alias du=ds
 alias dud="du -d 1"
 
 _is_callable exa && alias ls="exa --color=auto --group-directories-first"
