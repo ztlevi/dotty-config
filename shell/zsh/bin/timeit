@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+case $(_os) in
+    macos)
+        /usr/bin/time -al $@
+        ;;
+    linux-*)
+        /usr/bin/time -v $@
+        ;;
+esac
