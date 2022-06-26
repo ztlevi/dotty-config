@@ -3,6 +3,7 @@
 [attr]lfs -text -diff
 package-lock.json* lfs
 poetry.lock* lfs
+pnpm-lock.yaml* lfs
 *.js.map lfs
 *.csv lfs
 *.parquet lfs
