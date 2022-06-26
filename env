@@ -33,6 +33,7 @@ function dotty(){
 }
 alias D=dotty
 
+local SEP='.'
 function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
 function topic-path { echo "$DOTTY_DATA_HOME/${1/\//$SEP}.topic" }
 
