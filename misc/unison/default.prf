@@ -34,7 +34,7 @@ ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Sessi
 ignore = Name {.rde,.bemol,.suds}
 
 # Ignore AWS repo data
-ignore = Name {capture_data,data}
+ignore = Name {capture_data,data,influxdb-docker-data-volume}
 ignore = Name *.{textproto,pb,pftrace}
 ignore = Name buildtools
 
