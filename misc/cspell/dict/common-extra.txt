@@ -61,3 +61,7 @@ pkg
 pkgs
 osascript
 fstype
+vnode
+utid
+upid
+flamegraph
