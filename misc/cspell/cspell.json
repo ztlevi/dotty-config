@@ -14,6 +14,7 @@
     { "name": "linux-terms", "path": "./dict/linux-terms.txt" },
     { "name": "machine-learning", "path": "./dict/machine-learning.txt" },
     { "name": "python-extra", "path": "./dict/python-extra.txt" },
+    { "name": "js-extra", "path": "./dict/js-extra.txt" },
     { "name": "company-terms", "path": "./dict/company-terms.txt" }
   ],
   "ignorePaths": ["node_modules/**", "cmake-build-debug/**"],
