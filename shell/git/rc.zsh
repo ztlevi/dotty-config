@@ -9,7 +9,7 @@ zinit wait lucid for \
 
 alias g="git"
 alias gci="gh pr checks"
-alias gcpr="gh pr create --assignee ztlevi"
+alias gcpr="gh pr create --assignee @me"
 alias gist="gh gist create -p"
 alias gistp="gh gist create" # secret
 alias git-scan-secrets="git secrets --scan-history"
