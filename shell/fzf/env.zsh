@@ -8,7 +8,7 @@ export FZF_DEFAULT_OPTS="--reverse --ansi"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=fg:4,bg:7,hl:3
  --color=fg+:7,bg+:4,hl+:3
- --color=info:5,prompt:5,pointer:5
+ --color=info:5,prompt:5,pointer:7
  --color=marker:5,spinner:5,header:5'
 
 export FZF_COMPLETION_TRIGGER=','
