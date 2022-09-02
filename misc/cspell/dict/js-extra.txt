@@ -5,3 +5,4 @@ vnodes
 oncreate
 onremove
 onupdate
+omnibox
