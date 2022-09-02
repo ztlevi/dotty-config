@@ -7,16 +7,25 @@ menu_cmd_options="--ansi"
 
 # browser
 browser_cmd='launch-browser'
+browser=$1
 
-if [[ -z "$1" ]]; then
-  chrome_user=Default
+if [[ -z "$2" ]]; then
+  user=Default
 else
-  chrome_user="Profile $1"
+  user="Profile $2"
 fi
 if [ "$(uname)" = "Darwin" ]; then
-  bookmarks_path="${HOME}/Library/Application Support/Google/Chrome/${chrome_user}/Bookmarks"
+  if [[ $browser == "chrome" ]]; then
+    bookmarks_path="${HOME}/Library/Application Support/Google/Chrome/${user}/Bookmarks"
+  else
+    bookmarks_path="${HOME}/Library/Application Support/Microsoft Edge/${user}/Bookmarks"
+  fi
 else
-  bookmarks_path=$XDG_CONFIG_HOME/google-chrome/${chrome_user}/Bookmarks
+  if [[ $browser == "chrome" ]]; then
+    bookmarks_path=$XDG_CONFIG_HOME/google-chrome/${user}/Bookmarks
+  else
+    bookmarks_path=$XDG_CONFIG_HOME/microsoft-edge/${user}/Bookmarks
+  fi
 fi
 
 jq_script='
