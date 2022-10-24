@@ -219,7 +219,7 @@ function get_github_latest_release_url() {
           echo "${row}" | base64 --decode | jq -r "${1}"
         }
         url=$(_jq ".browser_download_url")
-        if echo "${url}" | grep -qe "${regex}$"; then
+        if echo "${url}" | rg -qe "${regex}$"; then
           found=true
           break
         fi
