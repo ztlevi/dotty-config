@@ -1,4 +1,4 @@
-zinit wait lucid for \
+zinit light-mode for \
   OMZP::tmux
 # OMZP::tmuxinator
 # zinit ice as"completion"; zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh

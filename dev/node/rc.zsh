@@ -1,7 +1,6 @@
-zinit wait lucid for \
-  OMZP::npm \
-  OMZP::nvm
+zinit wait lucid for OMZP::npm
 # OMZP::react-native
+zinit light-mode OMZP::nvm
 
 # Run locally installed bin-script, e.g. n coffee file.coffee
 alias n='PATH="$(npm bin):$PATH"'
