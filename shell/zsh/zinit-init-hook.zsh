@@ -58,7 +58,6 @@ zinit light-mode for \
   OMZL::history.zsh \
   OMZL::key-bindings.zsh \
   OMZL::misc.zsh \
-  OMZL::nvm.zsh \
   OMZL::prompt_info_functions.zsh \
   OMZL::spectrum.zsh \
   OMZL::termsupport.zsh \
@@ -91,17 +90,15 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
   direnv/direnv
 
 # THEME
-if [[ $ZSH_THEME == "starship" ]]; then
-  ! _is_callable starship && brew install starship
-  eval $(starship init zsh)
-  export SPACESHIP_TIME_SHOW=true
-else
-  export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-  zinit ice depth"1" # git clone depth
-  zinit light romkatv/powerlevel10k
-  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fi
+! _is_callable starship && brew install starship
+eval $(starship init zsh)
+export SPACESHIP_TIME_SHOW=true
+
+#   export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+#   zinit ice depth"1" # git clone depth
+#   zinit light romkatv/powerlevel10k
+#   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zinit light caiogondim/bullet-train-oh-my-zsh-theme
 # export BULLETTRAIN_CUSTOM_FG=white
