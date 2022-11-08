@@ -3,8 +3,8 @@ env_rehash_cmds+=("rbenv rehash")
 
 zinit wait lucid for \
   OMZP::ruby \
+  OMZP::rbenv \
   OMZP::gem
-zinit light-mode for OMZP::rbenv
 
 alias rb="ruby"
 alias rbe="rbenv"
