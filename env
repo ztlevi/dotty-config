@@ -18,12 +18,12 @@ alias PIP3_INSTALL="pip3 install --user --upgrade"
 # echo helpers
 function echo-debug  { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTTY_HOME%.%g"; }
 function echo-info   { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
-function echo-info-b { echo ${fg[white]}${bg[blue]}"[INFO] $*"${reset_color} }
 function echo-skip   { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
-function echo-skip-b { echo ${fg[white]}${bg[black]}"[INFO] $*"${reset_color} }
 function echo-ok     { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
-function echo-ok-b   { echo ${fg[white]}${bg[green]}"[INFO] $*"${reset_color} }
 function echo-fail   { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
+function echo-info-b { echo ${fg[white]}${bg[blue]}"[info] $*"${reset_color} }
+function echo-skip-b { echo ${fg[white]}${bg[black]}"[info] $*"${reset_color} }
+function echo-ok-b   { echo ${fg[white]}${bg[green]}"[INFO] $*"${reset_color} }
 function echo-fail-b { echo ${fg[white]}${bg[red]}"[INFO] $*"${reset_color} }
 
 function dotty(){
