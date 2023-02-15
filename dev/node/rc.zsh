@@ -1,10 +1,6 @@
-# load nvm lazily will make the first zsh prompt not rendering
-# the right node version if nvm enbled in that directory.
-# But not affecting the usage of right node version.
-zinit wait lucid for \
-  OMZP::npm \
-  OMZP::nvm
-# OMZP::react-native
+zinit wait lucid for OMZP::npm
+# version plugins cannot be loaded lazily
+zinit light-mode for OMZP::nvm
 
 # Run locally installed bin-script, e.g. n coffee file.coffee
 alias n='PATH="$(npm bin):$PATH"'
