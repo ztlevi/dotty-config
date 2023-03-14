@@ -43,7 +43,7 @@ ignore = Name buildtools
 ignore = Name annotation-generated-{src,tst}
 
 # Ignore for node
-ignore = Name {node_modules,.pnpm-store,.parcel-cache,dist}
+ignore = Name {node_modules,.pnpm-store,.parcel-cache,dist,__image_snapshots__,__snapshots__}
 
 # Ignore for python
 ignore = Name {.python-version,pyrightconfig.json}
