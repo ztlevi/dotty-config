@@ -31,7 +31,7 @@ ignore = Path */.idea
 ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim,Sessionx.vim}
 
 # Ignore Amazon tools
-ignore = Name {.rde,.bemol,.suds}
+ignore = Name {.rde,.bemol,.suds,release-info}
 
 # Ignore AWS repo data, workspace/env
 ignore = Name {capture_data,data,influxdb-docker-data-volume,influx_tmp_space,sdk_build}
