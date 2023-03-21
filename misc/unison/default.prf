@@ -70,6 +70,7 @@ ignore = Name wrapper
 # Log files, in general
 ignore = Name {.log}
 ignore = Name log{,s}/*.log{,.*}
+ignore = Name log{,s}/*/*.log{,.*}
 
 # zip files
 ignore = Name *.{tar,gz,zip,rar}
