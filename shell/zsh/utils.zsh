@@ -92,7 +92,8 @@ function sshf() {
   fi
   local host="${1}"
   local port="${2}"
-  kill -9 $(sudo lsof -ti:${port})
+  local process_id="$(lsof -ti:${port})"
+  [[ -n $process_id ]] && kill -9 $process_id
   ssh -NfL ${port}:localhost:${port} ${host}
 }
 
