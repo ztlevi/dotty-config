@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if [[ -z $(pgrep emacs) ]]; then
+	emacs
+else
+	wmctrl -a emacs
+fi
