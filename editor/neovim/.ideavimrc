@@ -179,8 +179,8 @@ nmap gR              :action Resume<CR>
 vmap gR              :<Backspace><Backspace><Backspace><Backspace><Backspace>action Resume<CR>
 nmap gd              :action GotoDeclaration<CR>
 vmap gd              :<Backspace><Backspace><Backspace><Backspace><Backspace>action GotoDeclaration<CR>
-nmap gD              :action FindUsages<CR>
-vmap gD              :<Backspace><Backspace><Backspace><Backspace><Backspace>action FindUsages<CR>
+nmap gr              :action FindUsages<CR>
+vmap gr              :<Backspace><Backspace><Backspace><Backspace><Backspace>action FindUsages<CR>
 nmap ge              :action EvaluateExpression<CR>
 vmap ge              :<Backspace><Backspace><Backspace><Backspace><Backspace>action EvaluateExpression<CR>
 nmap gi              :action StepInto<CR>
