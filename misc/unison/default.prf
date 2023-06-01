@@ -38,6 +38,7 @@ ignore = Name {capture_data,data,influxdb-docker-data-volume,influx_tmp_space,sd
 ignore = Path */env/*
 ignore = Name *.{textproto,pb,pftrace}
 ignore = Name buildtools
+ignore = Name *-1.0-*
 
 # Ignore for java
 ignore = Name annotation-generated-{src,tst}
@@ -46,7 +47,7 @@ ignore = Name annotation-generated-{src,tst}
 ignore = Name {node_modules,.pnpm-store,.parcel-cache,dist,__image_snapshots__,__snapshots__}
 
 # Ignore for python
-ignore = Name {.python-version,pyrightconfig.json}
+ignore = Name {.mypy_cache,__pycache__,.ipynb_checkpoints,.pytest_cache,.python-version,pyrightconfig.json}
 
 # In order to un-ignore it, ignore the files inside the directory instead of the directory itself
 ignore = Name build{,_tmp}
