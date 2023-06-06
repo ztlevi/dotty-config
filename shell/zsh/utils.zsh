@@ -111,7 +111,12 @@ function ff_projects() {
     if [[ -d ${project} ]]; then
       # Suppress errors, some dirs, e.g. .Trash, sometimes are not readable
       {
-        for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
+        if _is_callable fd; then
+          dirs=($(fd --max-depth ${scan_depth} -t d . ${project}))
+        else
+          dirs=($(find ${project} -maxdepth ${scan_depth} -type d))
+        fi
+        for dir in ${dirs[@]}; do
           if [[ -d ${dir}/.git ]]; then
             projects+=(${dir})
           fi
