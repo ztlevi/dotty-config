@@ -21,7 +21,7 @@ colors:
     blue: "0x4078f2"
     magenta: "0xa626a4"
     cyan: "0x0184bc"
-    white: "0xd8e4fc"
+    white: "0xb4cbf9"
 
   # Bright colors
   bright:
@@ -32,7 +32,7 @@ colors:
     blue: "0x4078f2"
     magenta: "0xa626a4"
     cyan: "0x0184bc"
-    white: "0xd8e4fc"
+    white: "0xb4cbf9"
 
   # Dim colors
   #
