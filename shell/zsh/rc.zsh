@@ -16,7 +16,7 @@ k9() {
     process_ids=("${(@f)}$@")
     kill -9 ${process_ids[@]} || "no process found by searching $@"
   else
-    pkill -9 -f $@
+    ps -ef | grep $@ | grep -v grep | awk '{print $2}' | xargs -r kill -9
   fi
 }
 sk9() {
