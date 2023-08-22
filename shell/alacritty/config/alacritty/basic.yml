@@ -8,3 +8,7 @@ cursor:
   style: Block
 # Live config reload (changes require restart)
 live_config_reload: true
+
+window:
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
