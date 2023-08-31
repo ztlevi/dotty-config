@@ -50,7 +50,7 @@ ignore = Name {node_modules,.pnpm-store,.parcel-cache,dist,__image_snapshots__,_
 ignore = Name {.mypy_cache,__pycache__,.ipynb_checkpoints,.pytest_cache,.python-version,pyrightconfig.json}
 
 # In order to un-ignore it, ignore the files inside the directory instead of the directory itself
-ignore = Name build{,_tmp}
+ignore = Name build{,_tmp,_pkg}
 ignore = Name release
 ignore = Name out
 
