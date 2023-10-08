@@ -1,5 +1,4 @@
 zinit ice as"completion"
-zinit snippet OMZ::plugins/docker/_docker
 
 zinit wait lucid for \
   OMZP::docker-compose
