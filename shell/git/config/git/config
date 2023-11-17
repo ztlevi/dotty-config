@@ -87,7 +87,7 @@
     helper = !aws codecommit credential-helper $@
     UseHttpPath = true
 [credential]
-	helper = !git-credential-manager-core
+	helper = !git-credential-manager
 [secrets]
 	providers = git secrets --aws-provider
 	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
