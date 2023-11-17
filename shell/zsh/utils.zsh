@@ -24,12 +24,6 @@ function unixtime-convert {
   TZ=$TimeZone date -d @"$1" +'%Y-%m-%d %H:%M:%S %Nns'
 }
 
-function envrehash() {
-  for cmd in ${env_rehash_cmds[@]}; do
-    eval "$cmd"
-  done
-}
-
 center_text() {
   # Function "center_text": center the text with a surrounding border
 

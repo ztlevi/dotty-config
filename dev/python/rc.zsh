@@ -13,6 +13,7 @@ alias ipylab='ipython --pylab=qt5 --no-banner'
 alias jp='jupyter notebook'
 alias jpl='jupyter-lab --NotebookApp.iopub_data_rate_limit=10000000'
 
+# Use "source activate" instead of "conda activate" so that you don't need to do "conda init zsh"
 alias cda="source activate"
 alias cdd="conda deactivate || source deactivate"
 alias cdl="conda info --envs"
