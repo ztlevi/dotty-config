@@ -79,6 +79,7 @@
 # Use gh for github credentials
 [credential "https://github.com"]
 	helper = !gh auth git-credential
+	username = ztlevi
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 # Require git-remote-codecommit and aws cli installed
