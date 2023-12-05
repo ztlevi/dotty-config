@@ -4,15 +4,15 @@
 
 IFS=$'\n\t'
 
-LOG_STREAM_NAME=$1
-LOG_GROUP_NAME=$2
+LOG_GROUP_NAME=$1
+LOG_STREAM_NAME=$2
 OUTPUT_FILE=$3
 REGION=$4
 PROFILE=$5
 
 rm -f ${OUTPUT_FILE}
 
-jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M UTC")), .message] | @csv'
+jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), .message] | @csv'
 
 result=$(aws logs get-log-events \
     --start-from-head \
