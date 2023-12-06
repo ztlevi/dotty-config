@@ -37,6 +37,7 @@ _is_callable ds && alias du=ds
 alias dud="du -d 1"
 
 _is_callable exa && alias ls="exa --color=auto --group-directories-first"
+alias rgf="rg --files --hidden --no-ignore --follow"
 alias ll="ls -lgh"
 alias la='ls -laFh'
 
