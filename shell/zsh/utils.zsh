@@ -159,19 +159,14 @@ function fman() {
 }
 
 function update_git_repo() {
-  local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
   dir=$1
   diff_str=$(
     cd $dir
     git diff
   )
-  if [[ -d ${dir} && -z ${diff_str} ]]; then
-    for repo in $@; do
-      (cd ${repo} && git pull)
-    done
-  else
-    echo "${dir} repo is dirty..." >>${ERROR_SUMMARY_FILE}
-  fi
+  for repo in $@; do
+    (cd ${repo} && git-safe-pull)
+  done
 }
 
 function update_dotty() {
@@ -184,10 +179,9 @@ function update_dotty() {
     cd $DOTTY_HOME
     git submodule update --remote --merge config
     echo-info "update ${DOTTY_ASSETS_HOME}"
-    [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git pull
+    [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git-safe-pull
     update_topics &>/dev/null
   )
-
 
   if [[ -d ${XDG_CONFIG_HOME}/doom ]]; then
     local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
