@@ -32,11 +32,12 @@ video_default = [
 ]
 
 text_default = [
-  { command = "micro" },
-  { command = "gedit", fork = true, silent = true },
+  { command = "nvim" },
+  { command = "vim" },
   { command = "bat", args = [
-    "--paging=always",
+    "--theme=OneHalfLight", "--paging=always",
   ] },
+  { command = "gedit", fork = true, silent = true },
 ]
 
 reader_default = [{ command = "evince", fork = true, silent = true }]
