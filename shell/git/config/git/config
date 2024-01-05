@@ -86,8 +86,9 @@
 [credential "https://git-codecommit.*.amazonaws.com"]
     helper = !aws codecommit credential-helper $@
     UseHttpPath = true
+# Cache credentials in memory for one week
 [credential]
-	helper = !git-credential-manager
+	helper = cache --timeout=604800
 [secrets]
 	providers = git secrets --aws-provider
 	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
