@@ -62,7 +62,7 @@ keymap = [
 	{ keys = [ "y", "d" ],		command = "copy_dirpath" },
 
 	{ keys = ["delete"], commands = ["delete_files"] },
-	{ keys = ["d", "D"], commands = ["delete_files"] },
+	{ keys = ["D"], commands = ["delete_files"] },
 
 	{ keys = [ "a" ],		command = "rename_append" },
 	{ keys = [ "A" ],		command = "rename_prepend" },
