@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# This script convert HEIC images to jpg and compress all images under the current folder
+
+! _is_callable magick && echo "Please install magick first"
+! _is_callable fd && echo "Please insatll fd first"
+
+for f in $(fd -e heic); do
+    magick mogrify -monitor -format jpg $f
+done
+
+rm -rf compressed
+mkdir -p compressed
+for f in $(fd -e jpg -e jpeg -e png); do
+    convert -strip -interlace Plane -gaussian-blur 0.05 -quality 60% -adaptive-resize 60% $f compressed/$f
+done
