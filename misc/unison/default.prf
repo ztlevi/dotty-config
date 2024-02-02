@@ -39,6 +39,7 @@ ignore = Path */env/*
 ignore = Name *.{textproto,pb,pftrace}
 ignore = Name buildtools
 ignore = Name *-1.0-*
+ignore = Name slurm-*.out
 
 # Ignore for java
 ignore = Name annotation-generated-{src,tst}
