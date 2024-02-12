@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-status=$(git stash)
+local stash_status=$(git stash)
 git pull
-if [[ "$status" != "No local changes to save" ]]; then
+if [[ "$stash_status" != "No local changes to save" ]]; then
     echo-info "Git repo has changes stashed. Poping changes now."
     git stash pop
 fi
