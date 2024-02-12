@@ -11,5 +11,9 @@ vicmd_symbol = "[](bold blue)"
 style_user = "blue bold"
 format = "[   $user]($style) in "
 
+[time]
+disabled = false
+format = '🕙[\[ $time \]]($style) '
+
 [aws]
 symbol = " "

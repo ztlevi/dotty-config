@@ -92,7 +92,6 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
 # THEME
 ! _is_callable starship && brew install starship
 eval $(starship init zsh)
-export SPACESHIP_TIME_SHOW=true
 
 #   export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 #   zinit ice depth"1" # git clone depth
@@ -107,3 +106,4 @@ export SPACESHIP_TIME_SHOW=true
 # zinit snippet OMZT::jispwoso
 # zinit snippet OMZT::bureau
 # zinit light denysdovhan/spaceship-prompt
+# export SPACESHIP_TIME_SHOW=true
