@@ -176,9 +176,7 @@ function update_dotty() {
   echo-info "update $DOTTY_HOME"
   update_git_repo $DOTTY_HOME
   (
-    cd $DOTTY_CONFIG_HOME
-    git remote add origin https://github.com/ztlevi/dotty-config.git || true
-    git-safe-pull
+    cd $DOTTY_CONFIG_HOME && git checkout main && git-safe-pull
     cd $DOTTY_HOME && git-safe-pull
     echo-info "update ${DOTTY_ASSETS_HOME}"
     [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git-safe-pull
