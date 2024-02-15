@@ -1,3 +1,9 @@
+# Doom  (file-error "Creating pipe" "Too many open files")
+# Too many open error on MacOS https://discussions.apple.com/thread/251000125
+# `ulimit -a` to display all
+# Make it execute by default when zsh starts since ulimit will not be persistent after reboot
+ulimit -n 10240
+
 if [[ $(_os) == macos ]]; then
   _is_callable /Applications/Emacs.app/Contents/MacOS/emacs &&
     alias emacs=/Applications/Emacs.app/Contents/MacOS/emacs
@@ -19,12 +25,7 @@ alias ec="emacsclient"
 alias e.="emacsclient ."
 alias se="sudo -E emacs"
 function doom() {
-  # Doom  (file-error "Creating pipe" "Too many open files")
-  # Too many open error on MacOS https://discussions.apple.com/thread/251000125
-  # `ulimit -a` to display all
-  ulimit -n 8192
   env doom "$@"
-  ulimit -n 1024
 }
 alias magit="emacsclient -n -e \(magit-status\)"
 alias ke="pkill -SIGUSR2 -i emacs"
