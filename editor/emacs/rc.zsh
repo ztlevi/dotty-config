@@ -2,7 +2,7 @@
 # Too many open error on MacOS https://discussions.apple.com/thread/251000125
 # `ulimit -a` to display all
 # Make it execute by default when zsh starts since ulimit will not be persistent after reboot
-ulimit -n 10240
+ulimit -n 102400
 
 if [[ $(_os) == macos ]]; then
   _is_callable /Applications/Emacs.app/Contents/MacOS/emacs &&
