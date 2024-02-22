@@ -1,5 +1,49 @@
+# https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap.toml
 [manager]
-
 prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = [ "<Tab>" ], exec = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = [ "y", "y" ],         exec = "yank",                       desc = "Copy the selected files" },
+	{ on = [ "d", "d" ],         exec = "yank --cut",                 desc = "Cut the selected files" },
+	{ on = [ "D" ],         exec = "remove",                     desc = "Move the files to the trash" },
+	{ on = [ "p", "p" ],         exec = "paste",                      desc = "Paste the files" },
+	{ on = [ "f" ],         exec = "create",                     desc = "Create a file or directory (ends with / for directories)" },
+  { on = [ "R" ],         exec = "rename --cursor=before_ext", desc = "Rename a file or directory" },
+	{ on = [ "<A-p>" ],         exec = "search fd",                  desc = "Search files by name using fd" },
+	{ on = [ "F" ], exec = "filter --smart", desc = "Filter the files" },
+	{ on = [ "y", "p" ], exec = "copy path",             desc = "Copy the absolute path" },
+	{ on = [ "y", "d" ], exec = "copy dirname",          desc = "Copy the path of the parent directory" },
+	{ on = [ "y", "n" ], exec = "copy filename",         desc = "Copy the name of the file" },
+]
+
+[tasks]
+prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
+]
+
+[select]
+prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
+]
+
+
+[input]
+prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
+]
+
+[completion]
+prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
+]
+
+[help]
+prepend_keymap = [
+	{ on = [ "?" ], exec = "help", desc = "Open help" },
+	{ on = [ "<C-g>" ], exec = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 ]

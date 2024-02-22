@@ -1,0 +1,4 @@
+[opener]
+play = [
+	{ exec = 'open "$@"', orphan = true, for = "unix" },
+]
