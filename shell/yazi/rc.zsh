@@ -6,3 +6,11 @@ function ya() {
   fi
   rm -f -- "$tmp"
 }
+
+function widget-yazi-cd() {
+  BUFFER="ya"
+  zle accept-line
+}
+zle -N widget-yazi-cd
+
+bindkey '^o' widget-yazi-cd
