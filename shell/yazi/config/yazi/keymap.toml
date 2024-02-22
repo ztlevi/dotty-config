@@ -1,0 +1,5 @@
+[manager]
+
+prepend_keymap = [
+	{ on = [ "<Tab>" ], exec = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+]
