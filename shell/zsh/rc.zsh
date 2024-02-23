@@ -79,7 +79,7 @@ if _is_callable bat; then
 fi
 _is_callable neofetch && alias nf="neofetch"
 _is_callable cmatrix && alias cm="cmatrix -C red"
-_id_callable direnv && alias da="direnv allow"
+_is_callable direnv && alias da="direnv allow"
 
 take() { mkdir "$1" && cd "$1"; }
 hex() { echo -n $@ | xxd -psdu; }
