@@ -91,7 +91,7 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
 
 # THEME
 ! _is_callable starship && brew install starship
-eval $(starship init zsh)
+eval "$(starship init zsh)"
 
 #   export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 #   zinit ice depth"1" # git clone depth
