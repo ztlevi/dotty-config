@@ -36,7 +36,7 @@ unalias cp 2>/dev/null || true
 _is_callable ds && alias du=ds
 alias dud="du -d 1"
 
-_is_callable exa && alias ls="exa --color=auto --group-directories-first"
+_is_callable eza && alias ls="eza --color=auto --group-directories-first"
 alias rgf="rg --files --hidden --no-ignore --follow . | rg"
 alias ll="ls -lgh"
 alias la='ls -laFh'
