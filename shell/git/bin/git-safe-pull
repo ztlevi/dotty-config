@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 local stash_status=$(git stash)
+echo-info "Safe git pulling repo $(pwd)"
 git pull
 if [[ "$stash_status" != "No local changes to save" ]]; then
     echo-info "Git repo has changes stashed. Poping changes now."
