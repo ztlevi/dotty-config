@@ -18,3 +18,4 @@ tcap
 smprof
 perfetto
 cupti
+scuderia
