@@ -19,6 +19,9 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 # No github credentials
 export HOMEBREW_NO_GITHUB_API=1
 
+# Do not upgrade outdated packages after brew install
+export HOMEBREW_NO_INSTALL_UPGRADE=1
+
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=30
 
