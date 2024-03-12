@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+key_code=$1
+
+case $key_code in
+    1) run_cmd="open -a '/Applications/Emacs.app'" ;;
+    2) run_cmd="open -a '/Applications/Alacritty.app'" ;;
+    3) run_cmd="$HOME/.config/dotty/config/base/macos/bin/toggle_finder" ;;
+    4) run_cmd="$HOME/.config/dotty/config/bin/launch-browser" ;;
+    s) run_cmd="open -a '/Applications/Slack.app'" ;;
+    k) run_cmd="open -a '/Applications/Visual Studio Code.app'" ;;
+    m) run_cmd="open -a '/Applications/Typora.app'" ;;
+    comma) run_cmd="open -a '/Applications/TickTick.app'" ;;
+    e) run_cmd="open -a '/Applications/Emacs.app'" ;;
+    c) run_cmd="open -a '/Applications/Amazon Chime.app'" ;;
+    i) run_cmd="open -a '/Applications/Intellij Idea.app'" ;;
+    o) run_cmd="open -a '/Applications/Microsoft Outlook.app'" ;;
+esac
+eval ${run_cmd} || osascript -e "display notification \"Karabiner Execution Error $run_cmd\""

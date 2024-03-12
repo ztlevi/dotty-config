@@ -1118,7 +1118,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Emacs.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps 1"
                                     }
                                 ],
                                 "type": "basic"
@@ -1134,7 +1134,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Alacritty.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps 2"
                                     }
                                 ],
                                 "type": "basic"
@@ -1150,7 +1150,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Alacritty.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps j"
                                     }
                                 ],
                                 "type": "basic"
@@ -1166,7 +1166,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/toggle_finder"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps 3"
                                     }
                                 ],
                                 "type": "basic"
@@ -1182,7 +1182,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/.config/dotty/config/bin/launch-browser"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps 4"
                                     }
                                 ],
                                 "type": "basic"
@@ -1198,7 +1198,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Slack.app' || open -a '/Applications/Safari.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps s"
                                     }
                                 ],
                                 "type": "basic"
@@ -1214,7 +1214,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Visual Studio Code.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps k"
                                     }
                                 ],
                                 "type": "basic"
@@ -1230,7 +1230,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Typora.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps m"
                                     }
                                 ],
                                 "type": "basic"
@@ -1246,7 +1246,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/TickTick.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps comma"
                                     }
                                 ],
                                 "type": "basic"
@@ -1262,7 +1262,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Eudic.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps e"
                                     }
                                 ],
                                 "type": "basic"
@@ -1278,7 +1278,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Amazon Chime.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps c"
                                     }
                                 ],
                                 "type": "basic"
@@ -1294,7 +1294,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Intellij Idea.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps i"
                                     }
                                 ],
                                 "type": "basic"
@@ -1310,7 +1310,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/Obsidian.app'"
+                                        "shell_command": "$HOME/dev/work/bin/open_apps o"
                                     }
                                 ],
                                 "type": "basic"
@@ -1792,6 +1792,111 @@
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 591,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "caps_lock"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_option"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "delete_or_backspace"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "backslash"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "backslash"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "delete_or_backspace"
+                                }
+                            ]
+                        }
+                    ],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 45108,
+                        "vendor_id": 1133
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
                     "mouse_flip_horizontal_wheel": false,
                     "mouse_flip_vertical_wheel": false,
                     "mouse_flip_x": false,
