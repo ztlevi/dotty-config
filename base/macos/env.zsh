@@ -1,3 +1,8 @@
+# for app silicon
+if [ -d /opt/homebrew/ ]; then
+  path=(/opt/homebrew/bin $path)
+fi
+
 export GNUPGHOME="$HOME/.gnupg"
 
 # export CC=/usr/bin/clang
