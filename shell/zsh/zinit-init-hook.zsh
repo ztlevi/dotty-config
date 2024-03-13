@@ -4,7 +4,7 @@
 # https://github.com/seagle0128/dotfiles/blob/master/.zshrc
 
 # Prioritize brew bin path
-path=( $(brew --prefix)/{,s}bin $path )
+eval "$(brew shellenv)"
 
 ### Install zinit
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
