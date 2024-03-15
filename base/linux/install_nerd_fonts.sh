@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# Install nerd fonts
+# Install nerd fonts for Linux
 mkdir -p $XDG_DATA_HOME/fonts/
 local nerd_fonts_version="2.1.0"
 (
@@ -22,3 +22,4 @@ local nerd_fonts_version="2.1.0"
   curl -fLo "UbuntuMono Bold Italic Nerd Font Complete.ttf" \
     https://github.com/ryanoasis/nerd-fonts/raw/$nerd_fonts_version/patched-fonts/UbuntuMono/Bold-Italic/complete/Ubuntu%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
 )
+fc-cache -f -v
