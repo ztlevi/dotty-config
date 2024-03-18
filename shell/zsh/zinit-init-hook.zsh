@@ -84,9 +84,8 @@ zinit wait lucid for \
 # OMZP::mosh
 # OMZP::colored-man-pages
 
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-  atclone'chmod +x ./direnv && ./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-  pick"direnv" src="zhook.zsh" wait lucid for \
+zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+  atpull'%atclone' pick"direnv" src"zhook.zsh" for \
   direnv/direnv
 
 # THEME
