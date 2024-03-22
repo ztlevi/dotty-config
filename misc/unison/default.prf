@@ -68,6 +68,7 @@ ignore = Name gradlew.bat
 ignore = Name wrapper
 # Uncomment to sync `package/build` contents. Doing so may confuse BrazilCLI2.0 and/or your IDE
 #ignorenot = Path */src/*/build/generated-src
+ignore = Name .brazil
 
 # Log files, in general
 ignore = Name {.log}

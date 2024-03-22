@@ -4,3 +4,4 @@ if [ -d '/usr/local/opt/emacs-plus' ]; then
 else
   path=(/usr/local/opt/emacs-mac/bin $path)
 fi
+export LSP_USE_PLISTS=true
