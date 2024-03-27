@@ -1189,6 +1189,22 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "$HOME/dev/work/bin/open_apps 5"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
