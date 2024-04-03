@@ -1,2 +1,3 @@
 envs_dirs:
   - $HOME/.conda/envs
+auto_activate_base: false
