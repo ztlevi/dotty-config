@@ -61,11 +61,7 @@ ignore = Name .{cache,ccls-cache}
 # Ignore gradle details
 ignore = Path */src/*/buildSrc/build
 ignore = Path */src/*/buildSrc/.gradle
-ignore = Name .gradle
-ignore = Name gradle
-ignore = Name gradlew
-ignore = Name gradlew.bat
-ignore = Name wrapper
+ignore = Name {.gradle,gradle,gradlew,gradlew.bat}
 # Uncomment to sync `package/build` contents. Doing so may confuse BrazilCLI2.0 and/or your IDE
 #ignorenot = Path */src/*/build/generated-src
 ignore = Name .brazil
