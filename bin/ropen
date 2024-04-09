@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+# Open remote file
+# Usage: ropen <ssh-ip:file-path>
+
+rm -rf /tmp/ropen_temp_dir/
+
+remote_file_path=$1
+rsync -avz --progress -h $remote_file_path /tmp/ropen_temp_dir/
+
+for f in /tmp/ropen_temp_dir/*; do
+    open $f
+    break
+done
+
