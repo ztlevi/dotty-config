@@ -80,13 +80,10 @@ zinit wait lucid for \
   OMZP::rsync \
   OMZP::extract \
   OMZP::fancy-ctrl-z \
+  OMZP::direnv \
   OMZP::jira
 # OMZP::mosh
 # OMZP::colored-man-pages
-
-zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-  atpull'%atclone' pick"direnv" src"zhook.zsh" for \
-  direnv/direnv
 
 # THEME
 ! _is_callable starship && brew install starship
