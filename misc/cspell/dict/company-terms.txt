@@ -19,3 +19,5 @@ smprof
 perfetto
 cupti
 scuderia
+dataplane
+controlplane
