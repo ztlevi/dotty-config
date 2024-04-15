@@ -24,5 +24,5 @@ function unison-sync() {
 }
 
 function unison-clean() {
-   fd -H "\.unison\..*\.unison.tmp" | xargs rm -rf {}
+   fd -H --no-ignore "\.unison*" | xargs rm -rf {}
 }
