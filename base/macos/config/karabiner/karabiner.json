@@ -1118,7 +1118,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps 1"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps 1"
                                     }
                                 ],
                                 "type": "basic"
@@ -1134,7 +1134,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps 2"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps 2"
                                     }
                                 ],
                                 "type": "basic"
@@ -1150,7 +1150,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps j"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps j"
                                     }
                                 ],
                                 "type": "basic"
@@ -1166,7 +1166,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps 3"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps 3"
                                     }
                                 ],
                                 "type": "basic"
@@ -1182,7 +1182,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps 4"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps 4"
                                     }
                                 ],
                                 "type": "basic"
@@ -1198,7 +1198,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps 5"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps 5"
                                     }
                                 ],
                                 "type": "basic"
@@ -1214,7 +1214,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps s"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps s"
                                     }
                                 ],
                                 "type": "basic"
@@ -1230,7 +1230,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps k"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps k"
                                     }
                                 ],
                                 "type": "basic"
@@ -1246,7 +1246,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps m"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps m"
                                     }
                                 ],
                                 "type": "basic"
@@ -1262,7 +1262,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps comma"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps comma"
                                     }
                                 ],
                                 "type": "basic"
@@ -1278,7 +1278,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps e"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps e"
                                     }
                                 ],
                                 "type": "basic"
@@ -1294,7 +1294,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps c"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps c"
                                     }
                                 ],
                                 "type": "basic"
@@ -1310,11 +1310,27 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps i"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps i"
                                     }
                                 ],
                                 "type": "basic"
                             },
+                            {
+                                "from": {
+                                    "key_code": "O",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps O"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
                             {
                                 "from": {
                                     "key_code": "o",
@@ -1326,7 +1342,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/dev/work/bin/open_apps o"
+                                        "shell_command": "$HOME/.config/dotty/config/base/macos/bin/open_apps o"
                                     }
                                 ],
                                 "type": "basic"
