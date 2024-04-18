@@ -1,4 +1,4 @@
-fpath+=( $ZSH_CONFIG_HOME/completions )
+fpath+=( $ZSH_CONFIG_HOME/completions $HOMEBREW_PREFIX/share/zsh/site-functions )
 
 # Don't offer history completion; we have fzf, C-r, and
 # zsh-history-substring-search for that.
