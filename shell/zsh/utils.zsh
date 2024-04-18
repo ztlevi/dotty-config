@@ -211,6 +211,8 @@ function update_dotty() {
   rm -f ${ERROR_SUMMARY_FILE}
 
   zinit delete --clean -y
+  # clean up local snippets
+  rm -rf ~/.zinit/snippets/*--dotty*
 
   # Sync uninstalled some software if we deleted on one machine
   $DOTTY_HOME/legacy_sync_script.zsh
