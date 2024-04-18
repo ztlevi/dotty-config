@@ -80,10 +80,11 @@ zinit wait lucid for \
   OMZP::rsync \
   OMZP::extract \
   OMZP::fancy-ctrl-z \
-  OMZP::direnv \
   OMZP::jira
 # OMZP::mosh
 # OMZP::colored-man-pages
+zinit light-mode for \
+  OMZP::direnv
 
 # THEME
 ! _is_callable starship && brew install starship
