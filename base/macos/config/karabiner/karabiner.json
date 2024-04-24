@@ -1330,7 +1330,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
+                            },
                             {
                                 "from": {
                                     "key_code": "o",
