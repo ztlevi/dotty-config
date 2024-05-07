@@ -16,8 +16,8 @@ rm -f ${OUTPUT_FILE}
 jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), .message] | @csv'
 result=$(aws logs get-log-events \
     --start-from-head \
-    --log-group-name=${LOG_GROUP_NAME} \
-    --log-stream-name=${LOG_STREAM_NAME} \
+    --log-group-name="${LOG_GROUP_NAME}" \
+    --log-stream-name="${LOG_STREAM_NAME}" \
     --profile ${PROFILE} \
     --region=${REGION})
 echo ${result} | jq -r ${jq_query}  >> ${OUTPUT_FILE}
@@ -25,8 +25,8 @@ echo ${result} | jq -r ${jq_query}  >> ${OUTPUT_FILE}
 nextToken=$(echo $result | jq -r .nextForwardToken)
 if [[ -n "$nextToken" ]]; then
     result=$(aws logs get-log-events \
-        --log-group-name=${LOG_GROUP_NAME} \
-        --log-stream-name=${LOG_STREAM_NAME} \
+        --log-group-name="${LOG_GROUP_NAME}" \
+        --log-stream-name="${LOG_STREAM_NAME}" \
         --profile ${PROFILE} \
         --region=${REGION})
     echo ${result} | jq -r ${jq_query} >> ${OUTPUT_FILE}

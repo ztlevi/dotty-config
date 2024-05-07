@@ -16,8 +16,8 @@ jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), 
 
 result=$(aws logs get-log-events \
     --start-from-head \
-    --log-group-name=${LOG_GROUP_NAME} \
-    --log-stream-name=${LOG_STREAM_NAME} \
+    --log-group-name="${LOG_GROUP_NAME}" \
+    --log-stream-name="${LOG_STREAM_NAME}" \
     --profile ${PROFILE} \
     --region=${REGION})
 echo ${result} | jq -r ${jq_query} >> ${OUTPUT_FILE}
@@ -26,8 +26,8 @@ nextToken=$(echo $result | jq -r .nextForwardToken)
 while [ -n "$nextToken" ]; do
     result=$(aws logs get-log-events \
         --start-from-head \
-        --log-group-name=${LOG_GROUP_NAME} \
-        --log-stream-name=${LOG_STREAM_NAME} \
+        --log-group-name="${LOG_GROUP_NAME}" \
+        --log-stream-name="${LOG_STREAM_NAME}" \
         --region=${REGION} \
         --profile=${PROFILE} \
         --next-token="${nextToken}")
