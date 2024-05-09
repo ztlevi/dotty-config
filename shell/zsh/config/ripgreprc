@@ -3,12 +3,12 @@
 web:*.{html,css,js}*
 
 --type-add
-test:*test*.*
+test:*{test,Test}*.*
 
 --type-add
-ctest:*test*.{cc,cpp,c,cxx}
+ctest:*{test,Test}*.{cc,cpp,c,cxx}
 
 --type-add
-pytest:*test*.py
+pytest:*{test,Test}*.py
 
 # --type-add='src:include:cpp,py,md' --type-add='src:*.foo'
