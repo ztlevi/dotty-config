@@ -37,11 +37,6 @@ zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
   agkozak/zsh-z
 
-# Explain aliases
-zinit ice from'gh-r' as'program'
-zinit light sei40kr/fast-alias-tips-bin
-zinit light sei40kr/zsh-fast-alias-tips
-
 # Oh My Zsh
 zinit light-mode for \
   OMZL::bzr.zsh \
