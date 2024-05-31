@@ -65,3 +65,5 @@ vnode
 utid
 upid
 flamegraph
+integ
+autobuild
