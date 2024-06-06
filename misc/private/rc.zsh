@@ -7,6 +7,7 @@ if _is_callable reveal-md; then
 fi
 
 if _is_callable yt-dlp; then
+  alias yt-dlp="yt-dlp --cookies-from-browser chrome"
   alias yd='yt-dlp --write-auto-sub --ignore-errors'
   alias yd2mp4='yt-dlp --write-auto-sub --ignore-errors --recode-video mp4'
   alias yda='yt-dlp -i -o "%(title)s.%(ext)s" --embed-thumbnail --extract-audio --audio-format mp3 --audio-quality 0'
