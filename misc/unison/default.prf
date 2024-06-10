@@ -30,6 +30,9 @@ ignore = Path */.idea
 # Ignore rules for vim
 ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim,Sessionx.vim}
 
+# Ignore rules for vscode
+ignore = Name {__debug_bin*}
+
 # Ignore Amazon tools
 ignore = Name {.rde,.bemol,.suds,release-info}
 
