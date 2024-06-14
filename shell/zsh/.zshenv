@@ -29,7 +29,6 @@ export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 
 # paths
 typeset -gU cdpath fpath mailpath path
-path=( $XDG_BIN_HOME $DOTTY_CONFIG_HOME/bin $DOTTY_DATA_HOME/*.topic/bin(N) $path )
 fpath=( $XDG_BIN_HOME $fpath )
 
 # envvars

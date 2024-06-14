@@ -1,3 +1,6 @@
+# Prioritize my bins in the PATH
+path=( $XDG_BIN_HOME $DOTTY_CONFIG_HOME/bin $DOTTY_DATA_HOME/*.topic/bin(N) $path )
+
 # Add Compdef
 zinit snippet ${0:A:h}/compdef.zsh
 
