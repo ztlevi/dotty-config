@@ -26,3 +26,5 @@ confs
 tensorrt
 pred
 preds
+nccl
+dcgm

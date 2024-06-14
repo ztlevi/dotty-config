@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+cspell --config $XDG_CONFIG_HOME/cspell/cspell.json $@

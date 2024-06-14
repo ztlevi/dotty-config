@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "words": ["ztlevi", "zhot"],
+  "dictionaries": [
+    "common-extra",
+    "linux-terms",
+    "machine-learning",
+    "python-extra",
+    "js-extra",
+    "go-extra",
+    "company-terms"
+  ],
+  "dictionaryDefinitions": [
+    { "name": "common-extra", "path": "./dict/common-extra.txt", "addWords": true },
+    { "name": "linux-terms", "path": "./dict/linux-terms.txt", "addWords": true },
+    { "name": "machine-learning", "path": "./dict/machine-learning.txt", "addWords": true },
+    { "name": "python-extra", "path": "./dict/python-extra.txt", "addWords": true },
+    { "name": "js-extra", "path": "./dict/js-extra.txt", "addWords": true },
+    { "name": "go-extra", "path": "./dict/go-extra.txt", "addWords": true },
+    { "name": "company-terms", "path": "./dict/company-terms.txt", "addWords": true }
+  ],
+  "ignorePaths": ["node_modules", "cmake-build-debug", "build"],
+  "flagWords": ["hte"]
+}

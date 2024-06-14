@@ -10,3 +10,5 @@ scuderia
 dataplane
 controlplane
 hyperpod
+trainium
+burnin
