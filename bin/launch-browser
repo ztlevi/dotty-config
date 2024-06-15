@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-local default_browser=$(default-browser)
+local default_browser=$($HOME/.config/dotty/config/bin/default-browser)
 
 case $(_os) in
   macos)
