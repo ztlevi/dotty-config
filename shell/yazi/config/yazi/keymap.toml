@@ -4,6 +4,7 @@ prepend_keymap = [
 	{ on = [ "?" ], run = "help", desc = "Open help" },
 	{ on = [ "<C-g>" ], run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = [ "<Tab>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
 	{ on = [ "y", "y" ],         run = "yank",                       desc = "Copy the selected files" },
 	{ on = [ "d", "d" ],         run = "yank --cut",                 desc = "Cut the selected files" },
 	{ on = [ "D" ],         run = "remove",                     desc = "Move the files to the trash" },
