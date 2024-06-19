@@ -1,4 +1,9 @@
 set smartcase
+
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ }
+colorscheme one
 set background=light
 
 " Enable global clipboard
