@@ -60,3 +60,16 @@ cnoremap <C-e> <End>
 nmap <A-s> :wa<cr>
 vmap <A-s> :wa<cr>
 imap <A-s> <Esc>:wa<cr>a
+
+" Tmux navigator
+let g:tmux_navigator_no_mappings = 1
+map <c-t>h :TmuxNavigateLeft<CR>
+map <c-t>l :TmuxNavigateRight<CR>
+map <c-t>k :TmuxNavigateUp<CR>
+map <c-t>j :TmuxNavigateDown<CR>
+map <c-t>\ :TmuxNavigatePrevious<CR>
+map <c-t><c-h> :TmuxNavigateLeft<CR>
+map <c-t><c-l> :TmuxNavigateRight<CR>
+map <c-t><c-k> :TmuxNavigateUp<CR>
+map <c-t><c-j> :TmuxNavigateDown<CR>
+map <c-t><c-\> :TmuxNavigatePrevious<CR>
