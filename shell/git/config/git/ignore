@@ -90,6 +90,7 @@ pyrightconfig.json
 # Go #
 ######
 __debug_bin
+breakpoints.dlv
 
 # Custom #
 ##########
