@@ -74,7 +74,6 @@ alias xmap="xargs -n1"
 # Convenience
 alias mk=make
 if _is_callable bat; then
-  alias bat="bat --theme OneHalfLight"
   alias cat=bat
 fi
 _is_callable neofetch && alias nf="neofetch"

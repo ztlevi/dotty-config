@@ -19,6 +19,10 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 # No github credentials
 export HOMEBREW_NO_GITHUB_API=1
 
+# Bat
+export BAT_THEME="OneHalfLight"
+export BAT_STYLE="header,grid"
+
 # Do not upgrade outdated packages after brew install
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
