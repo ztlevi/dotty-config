@@ -4,6 +4,10 @@ key_bindings:
   - { key: V, mods: Alt, action: Paste }
   - { key: L, mods: Control, action: ClearHistory }
   - { key: L, mods: Control, chars: "\x0c" }
+  # C-h is bind to backspace in zsh. In Tmux, C-t C-h is not working.
+  # Remap backsapce key to C-h in alacritty.
+  # In zsh, C-h key is bind to `autopair-delete`, check it with `bindkey "^H"`
+  - { key: Backspace, chars: "\x08" }
   - { key: G, mods: Control, chars: "\x07" }
   - { key: Delete, chars: "\x04" }
   - { key: Space, mods: Control, chars: "\x00" }
