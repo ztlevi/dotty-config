@@ -91,6 +91,7 @@ pyrightconfig.json
 ######
 __debug_bin
 breakpoints.dlv
+debug.test*
 
 # Custom #
 ##########
