@@ -61,6 +61,9 @@ ignore = Name out
 # Ignore for C++
 ignore = Name .{cache,ccls-cache}
 
+# Ignore for Go
+ignore = Name {gocache,gomodcache}
+
 # Ignore gradle details
 ignore = Path */src/*/buildSrc/build
 ignore = Path */src/*/buildSrc/.gradle
