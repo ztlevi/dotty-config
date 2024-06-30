@@ -13,7 +13,7 @@ export LANGUAGE=en_US.UTF-8
 export TERM="xterm-24bit"
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="$HOMEBREW_PREFIX/man:$MANPATH"
 _is_callable nvim && export MANPAGER="nvim +Man!"
 
 # No github credentials

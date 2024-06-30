@@ -13,4 +13,4 @@ export PYTHONPATH=$PYTHONPATH:.
 # Linux miniconda
 [[ -d $HOME/.miniconda/bin ]] && path=($path $HOME/.miniconda/bin)
 # MacOS miniconda
-[[ -d /usr/local/Caskroom/miniconda/base/bin ]] && path=($path /usr/local/Caskroom/miniconda/base/bin)
+[[ -d $HOMEBREW_PREFIX/Caskroom/miniconda/base/bin ]] && path=($path $HOMEBREW_PREFIX/Caskroom/miniconda/base/bin)
