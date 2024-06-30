@@ -13,7 +13,7 @@ export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 
 alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
-alias PIP3_INSTALL="pip3 install --user --upgrade"
+alias PIP3_INSTALL="pip3 install --user --upgrade --break-system-packages"
 
 # echo helpers
 function echo-info   { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
