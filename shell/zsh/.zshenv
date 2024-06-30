@@ -19,6 +19,9 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 # No github credentials
 export HOMEBREW_NO_GITHUB_API=1
 
+# HOMEBREW_PREFIX is set in .zprofile, load it in .zshenv
+source $HOME/.zprofile
+
 # Bat
 export BAT_THEME="OneHalfLight"
 export BAT_STYLE="header,grid"
