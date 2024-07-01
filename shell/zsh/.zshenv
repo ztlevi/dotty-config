@@ -20,6 +20,9 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 export HOMEBREW_NO_GITHUB_API=1
 
 # HOMEBREW_PREFIX is set in .zprofile, load it in .zshenv
+if [[ ! -f $HOME/.zprofile ]]; then
+  echo "$(brew shellenv)" >> $HOME/.zprofile
+fi
 source $HOME/.zprofile
 
 # Bat
