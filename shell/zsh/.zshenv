@@ -19,7 +19,16 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 # No github credentials
 export HOMEBREW_NO_GITHUB_API=1
 
-eval "$(brew shellenv)"
+# Load homebrew env more eagerly here. Make sure HOMEBREW_PREFIX is set before `_load_all env.zsh`
+if [[ $(_os) = "macos" ]]; then
+  if [[ -d /opt/homebrew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+elif [[ $(_os) = "linux-*" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Bat
 export BAT_THEME="OneHalfLight"
