@@ -11,6 +11,8 @@ export DOTTY_HOME="$(cd $(dirname "${BASH_SOURCE:-${(%):-%x}}")/.. && pwd -P)"
 export DOTTY_DATA_HOME="$XDG_DATA_HOME/dotty"
 export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
+export DOTTY_UPDATE_LOG=/tmp/dotty_update_log
+
 
 alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
 alias PIP3_INSTALL="pip3 install --user --upgrade --break-system-packages"

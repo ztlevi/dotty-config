@@ -170,8 +170,7 @@ function update_git_repo() {
 }
 
 function update_dotty() {
-  local ERROR_SUMMARY_FILE=/tmp/update_dotty_error_summary
-  rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
+  rm -f ${DOTTY_UPDATE_LOG} && touch ${DOTTY_UPDATE_LOG}
 
   echo-info "update $DOTTY_HOME"
   update_git_repo $DOTTY_HOME
@@ -205,17 +204,16 @@ function update_dotty() {
   fi
 
   _cache_clear
-
-  echo-info "Error Summary"
-  cat ${ERROR_SUMMARY_FILE}
-  rm -f ${ERROR_SUMMARY_FILE}
-
   zinit delete --clean -y
   # clean up local snippets
   rm -rf ~/.zinit/snippets/*--dotty*
 
   # Sync uninstalled some software if we deleted on one machine
   $DOTTY_HOME/legacy_sync_script.zsh
+
+  echo-info "Dotty update log"
+  cat ${DOTTY_UPDATE_LOG}
+  rm -f ${DOTTY_UPDATE_LOG}
 }
 alias uu='update_dotty'
 function uuh() {
