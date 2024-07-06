@@ -25,9 +25,9 @@ esac
 alias cda="conda activate"
 alias cdd="conda deactivate || source deactivate"
 alias cdl="conda info --envs"
-
-# Pipenv
-alias pt="poetry"
+# uv
+alias sva="source .venv/bin/activate"
+alias svd="deactivate"
 
 _is_callable black && alias format-all-black='black -q **/*.py'
 _is_callable autoflake && alias remove-py-imports="git diff --name-only origin/develop | xargs -I{} autoflake --in-place --remove-all-unused-imports {}"

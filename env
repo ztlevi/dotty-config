@@ -15,8 +15,6 @@ export DOTTY_UPDATE_LOG=/tmp/dotty_update_log
 
 
 alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
-alias PIP3_INSTALL="pip3 install --user --upgrade --break-system-packages"
-alias PIP3_UNINSTALL="pip3 uninstall --break-system-packages"
 
 # echo helpers
 function echo-info   { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
