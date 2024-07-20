@@ -47,4 +47,4 @@ os.environ["AWS_REGION"] = region
 run_command(
     f"ada credentials update --account={aws_account} --provider=isengard --role Admin --once --profile {aws_account}"
 )
-run_command(f"get-full-cloudwatch-log {log_group} {log_stream} {output_file}")
+run_command(f"get-cloudwatch-log {log_group} {log_stream} {output_file}")
