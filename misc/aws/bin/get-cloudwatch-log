@@ -1,33 +1,42 @@
 #!/usr/bin/env bash
-# Get first and last batch of logs under Cloudwatch log group
-# Usage: get-cloudwatch-log <log-group-name> <log-stream-name> <output-file> <AWS_REGION> <AWS_PROFILE>
+# Get full logs under Cloudwatch log group
+# Usage: get-full-cloudwatch-log <LOG_GROUP_NAME> <LOG_STREAM_NAME> <OUTPUT_FILE>
+# Recommend to use https://github.com/bensadeh/tailspin to review the log
 
-set -e
 IFS=$'\n\t'
 
 LOG_GROUP_NAME=$1
 LOG_STREAM_NAME=$2
 OUTPUT_FILE=$3
-REGION=$4
-PROFILE=$5
 
 rm -f ${OUTPUT_FILE}
+mkdir -p $(dirname ${OUTPUT_FILE})
+touch ${OUTPUT_FILE}
 
-jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), .message] | @csv'
-result=$(aws logs get-log-events \
-    --start-from-head \
-    --log-group-name="${LOG_GROUP_NAME}" \
-    --log-stream-name="${LOG_STREAM_NAME}" \
-    --profile ${PROFILE} \
-    --region=${REGION})
-echo ${result} | jq -r ${jq_query}  >> ${OUTPUT_FILE}
+jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), try (.message | fromjson | .level) catch "", .message] | @tsv'
 
-nextToken=$(echo $result | jq -r .nextForwardToken)
-if [[ -n "$nextToken" ]]; then
-    result=$(aws logs get-log-events \
-        --log-group-name="${LOG_GROUP_NAME}" \
-        --log-stream-name="${LOG_STREAM_NAME}" \
-        --profile ${PROFILE} \
-        --region=${REGION})
+nextToken=""
+
+            # --start-from-head \
+while true; do
+    if [[ -z "$nextToken" ]]; then
+        result=$(aws logs get-log-events \
+            --limit 10000 \
+            --log-group-name="${LOG_GROUP_NAME}" \
+            --log-stream-name="${LOG_STREAM_NAME}")
+    else
+        result=$(aws logs get-log-events \
+            --limit 10000 \
+            --log-group-name="${LOG_GROUP_NAME}" \
+            --log-stream-name="${LOG_STREAM_NAME}" \
+            --next-token="${nextToken}")
+    fi
     echo ${result} | jq -r ${jq_query} >> ${OUTPUT_FILE}
-fi
+    echo "Fetching next page log..."
+
+    if [ "$(echo "$result" | jq -r '.events | length')" -eq 0 ]; then
+        break
+    fi
+done
+
+echo "Logs have been saved to ${OUTPUT_FILE}"
