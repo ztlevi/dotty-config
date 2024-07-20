@@ -17,16 +17,13 @@ jq_query='.events[] | [(.timestamp / 1000 | strftime("%Y-%m-%d %H:%M:%S UTC")), 
 
 nextToken=""
 
-            # --start-from-head \
 while true; do
     if [[ -z "$nextToken" ]]; then
-        result=$(aws logs get-log-events \
-            --limit 10000 \
+        result=$(aws logs get-log-events --limit 10000 --start-from-head \
             --log-group-name="${LOG_GROUP_NAME}" \
             --log-stream-name="${LOG_STREAM_NAME}")
     else
-        result=$(aws logs get-log-events \
-            --limit 10000 \
+        result=$(aws logs get-log-events --limit 10000  --start-from-head \
             --log-group-name="${LOG_GROUP_NAME}" \
             --log-stream-name="${LOG_STREAM_NAME}" \
             --next-token="${nextToken}")
@@ -37,6 +34,7 @@ while true; do
     if [ "$(echo "$result" | jq -r '.events | length')" -eq 0 ]; then
         break
     fi
+    nextToken=$(echo $result | jq -r .nextForwardToken)
 done
 
 echo "Logs have been saved to ${OUTPUT_FILE}"
