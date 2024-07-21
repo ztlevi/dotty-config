@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Get full logs under Cloudwatch log group
-# Usage: get-full-cloudwatch-log <LOG_GROUP_NAME> <LOG_STREAM_NAME> <OUTPUT_FILE>
+# Usage: aws-cw-get-log <LOG_GROUP_NAME> <LOG_STREAM_NAME> <OUTPUT_FILE>
 # Recommend to use https://github.com/bensadeh/tailspin to review the log
 
 IFS=$'\n\t'
