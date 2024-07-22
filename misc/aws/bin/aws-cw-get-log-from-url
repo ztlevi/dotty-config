@@ -38,7 +38,9 @@ log_stream_encoded = parts[-1]
 log_group = unquote(log_group_encoded.replace("$25", "%"))
 log_stream = unquote(log_stream_encoded.replace("$25", "%"))
 
-output_file = Path(__file__).parent.parent / f"logs/{log_group_encoded}/{log_stream_encoded}"
+Path.mkdir(Path.home() / "logs", exist_ok=True)
+
+output_file = Path.home() / f"logs/{log_group_encoded}/{log_stream_encoded}"
 
 os.environ["AWS_PROFILE"] = aws_account
 os.environ["AWS_DEFAULT_REGION"] = region
