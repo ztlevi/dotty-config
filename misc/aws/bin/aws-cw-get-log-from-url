@@ -37,6 +37,9 @@ log_stream_encoded = parts[-1]
 # Decode the log group and log stream
 log_group = unquote(log_group_encoded.replace("$25", "%"))
 log_stream = unquote(log_stream_encoded.replace("$25", "%"))
+pattern_index = log_stream.find("$3FfilterPattern")
+if pattern_index > 0:
+    log_stream = log_stream[:pattern_index]
 
 Path.mkdir(Path.home() / "logs", exist_ok=True)
 
