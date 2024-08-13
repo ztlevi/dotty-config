@@ -51,6 +51,7 @@ alias /='cd /'
 alias ln="${aliases[ln]:-ln} -v" # verbose ln
 alias mkdir='mkdir -p'
 unalias fd 2>/dev/null || true
+alias fd-all="fd -H --no-ignore"
 
 alias gurl='curl --compressed'
 alias wget='wget -c' # Resume dl if possible
