@@ -2,13 +2,13 @@
 font:
   normal:
     family: OperatorMono Nerd Font
-    style: Book
+    style: Regular
   bold:
     family: OperatorMono Nerd Font
     style: Medium
   italic:
     family: OperatorMono Nerd Font
-    style: Book Italic
+    style: Italic
   bold_italic:
     family: OperatorMono Nerd Font
     style: Medium Italic
