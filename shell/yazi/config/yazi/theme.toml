@@ -1,0 +1,4 @@
+[icon]
+exts = [
+	{ name = "md", text = "", fg_dark = "blue", fg_light = "blue" },
+]
