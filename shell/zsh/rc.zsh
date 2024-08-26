@@ -77,7 +77,7 @@ alias mk=make
 if _is_callable bat; then
   alias cat=bat
 fi
-_is_callable neofetch && alias nf="neofetch"
+_is_callable fastfetch && alias ff="fastfetch"
 _is_callable cmatrix && alias cm="cmatrix -C red"
 _is_callable direnv && alias da="direnv allow"
 
