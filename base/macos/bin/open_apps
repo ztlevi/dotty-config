@@ -3,19 +3,39 @@
 key_code=$1
 
 case $key_code in
-    1) run_cmd="open -a '/Applications/Emacs.app'" ;;
-    2) run_cmd="open -a '/Applications/Alacritty.app'" ;;
+    1) app="Emacs" ;;
+    2) app="Alacritty" ;;
     3) run_cmd="$HOME/.config/dotty/config/base/macos/bin/toggle_finder" ;;
     4) run_cmd="$HOME/.config/dotty/config/bin/launch-browser" ;;
-    5) run_cmd="open -a '/Applications/Firefox.app'" ;;
-    s) run_cmd="open -a '/Applications/Slack.app'" ;;
-    k) run_cmd="open -a '/Applications/Visual Studio Code.app'" ;;
-    m) run_cmd="open -a '/Applications/Typora.app'" ;;
-    comma) run_cmd="open -a '/Applications/TickTick.app'" ;;
-    e) run_cmd="open -a '/Applications/Emacs.app'" ;;
-    c) run_cmd="open -a '/Applications/Amazon Chime.app'" ;;
+    5) app="Firefox" ;;
+    s) app="Slack" ;;
+    k) app="Visual Studio Code" ;;
+    m) app="Typora" ;;
+    comma) app="TickTick" ;;
+    e) app="Emacs" ;;
+    c) app="Amazon Chime" ;;
     i) run_cmd="$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts/idea" ;;
-    o) run_cmd="open -a '/Applications/Microsoft Outlook.app'" ;;
-    O) run_cmd="open -a '/Applications/Obsidian.app'" ;;
+    o) app="Microsoft Outlook" ;;
+    O) app="Obsidian" ;;
 esac
-eval ${run_cmd} || osascript -e "display notification \"Karabiner Execution Error $run_cmd\""
+
+if [[ -z "$run_cmd" ]]; then
+    run_cmd="osascript -e '
+try
+    tell application \"System Events\"
+        if exists application process \"$app\" then
+            tell application \"$app\" to activate
+        else
+            try
+                tell application \"$app\" to launch
+            on error
+                display notification \"$app is not installed on this system.\" with title \"$app Not Found\"
+            end try
+        end if
+    end tell
+on error
+    display notification \"An unexpected error occurred.\" with title \"Script Error\"
+end try
+'"
+fi
+eval ${run_cmd}
