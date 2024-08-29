@@ -219,9 +219,10 @@ run = 'move-node-to-workspace S'
 if.app-id = 'com.tencent.xinWeChat'
 run = 'move-node-to-workspace S'
 
-[[on-window-detected]]
-if.app-id = 'com.amazon.Amazon-Chime'
-run = 'move-node-to-workspace C'
+# TODO: seems have some problem
+# [[on-window-detected]]
+# if.app-id = 'com.amazon.Amazon-Chime'
+# run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
