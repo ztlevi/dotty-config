@@ -11,5 +11,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=info:5,prompt:5,pointer:7
  --color=marker:5,spinner:5,header:5'
 
+# Default is **, it can be used for telnet, ssh, kill, unset, unalias, export.
+# https://github.com/junegunn/fzf/blob/c423c49/shell/completion.zsh#L261
 export FZF_COMPLETION_TRIGGER=','
 export FZF_CTRL_R_OPTS="--no-sort"
