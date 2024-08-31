@@ -5,3 +5,4 @@ else
   path=($HOMEBREW_PREFIX/opt/emacs-mac/bin $path)
 fi
 export LSP_USE_PLISTS=true
+export EMACSDIR="$XDG_CONFIG_HOME/emacs"
