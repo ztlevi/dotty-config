@@ -217,7 +217,7 @@ run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
 if.app-id = 'com.tencent.xinWeChat'
-run = 'move-node-to-workspace S'
+run = ['layout floating', 'move-node-to-workspace S']
 
 # TODO: seems have some problem
 # [[on-window-detected]]
