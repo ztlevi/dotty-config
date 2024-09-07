@@ -31,7 +31,11 @@ elif [[ $(_os) = "linux-*" ]]; then
 fi
 
 # Bat
-export BAT_THEME="OneHalfLight"
+if [[ $DOTTY_THEME == "dark" ]]; then
+    export BAT_THEME="OneHalfDark"
+else
+    export BAT_THEME="OneHalfLight"
+fi
 export BAT_STYLE="header,grid"
 
 # Do not upgrade outdated packages after brew install

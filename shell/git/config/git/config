@@ -47,10 +47,10 @@
 	diffFilter = delta --color-only
 [delta]
     navigate = true  # use n and N to move between diff sections
-    light = true
     # side-by-side = true
     # delta --show-syntax-themes --light
-    syntax-theme = GitHub
+    # light = true
+    # syntax-theme = OneHalfLight
 # [merge]
 #     conflictstyle = diff3
 [diff]
