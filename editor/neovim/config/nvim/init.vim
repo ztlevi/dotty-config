@@ -4,7 +4,13 @@ let g:lightline = {
       \ 'colorscheme': 'PaperColor',
       \ }
 colorscheme one
-set background=light
+let theme=getenv('DOTTY_THEME')
+if theme == 'dark'
+    set background=dark
+else
+    set background=light
+endif
+
 
 " Enable global clipboard
 set clipboard+=unnamedplus
