@@ -2,8 +2,6 @@
 # env -- envvars & standard library for dotty; don't symlink me!
 # Can be sourced by zsh/bash scripts
 
-export DOTTY_THEME=light
-
 export XDG_CACHE_HOME=~/.cache
 export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.local/share
@@ -14,7 +12,10 @@ export DOTTY_DATA_HOME="$XDG_DATA_HOME/dotty"
 export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 export DOTTY_UPDATE_LOG=/tmp/dotty_update_log
+export DOTTY_WORK_HOME=$HOME/dev/work
 
+export DOTTY_THEME=light
+[[ -f $DOTTY_WORK_HOME/dots/theme.zsh ]] && source $DOTTY_WORK_HOME/dots/theme.zsh
 
 alias APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
 
