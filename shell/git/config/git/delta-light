@@ -1,0 +1,5 @@
+[delta]
+    minus-emph-style = syntax bold "#ffc0c0"
+    minus-style = syntax "#ffe0e0"
+    plus-emph-style = syntax bold "#a0efa0"
+    plus-style = syntax "#d0ffd0"

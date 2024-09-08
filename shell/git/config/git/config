@@ -47,14 +47,17 @@
 	diffFilter = delta --color-only
 [delta]
     navigate = true  # use n and N to move between diff sections
-    # side-by-side = true
+    # side-by-side = false
     # delta --show-syntax-themes --light
     # light = true
-    # syntax-theme = OneHalfLight
+    # https://github.com/dandavison/delta/blob/main/themes.gitconfig
+    # delta --show-themes
 # [merge]
 #     conflictstyle = diff3
 [diff]
     colorMoved = default
+[color]
+	ui = auto
 [pull]
 	rebase = true
 [fetch]
@@ -98,8 +101,6 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [http]
 	sslVerify = true
-[color]
-	ui = auto
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -119,5 +120,7 @@
 [include]
 	path = ~/dev/work/dots/git-user-config
 	path = ~/dev/work/dots/git-gpg-config
+    path = ~/dev/work/dots/delta-light
+    path = ~/dev/work/dots/delta-dark
 [includeIf "gitdir:workplace/"]
 	path = ~/dev/work/dots/git-company-config
