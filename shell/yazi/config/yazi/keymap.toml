@@ -17,6 +17,17 @@ prepend_keymap = [
 	{ on = [ "y", "p" ], run = "copy path",             desc = "Copy the absolute path" },
 	{ on = [ "y", "d" ], run = "copy dirname",          desc = "Copy the path of the parent directory" },
 	{ on = [ "y", "n" ], run = "copy filename",         desc = "Copy the name of the file" },
+
+	# Goto
+	{ on = [ "b", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
+	{ on = [ "b", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
+	{ on = [ "b", "d" ],       run = "cd ~/dev",     desc = "Go to the dev directory" },
+	{ on = [ "b", "w" ],       run = "cd ~/dev/work",     desc = "Go to the work directory" },
+	{ on = [ "b", "D" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "b", "l" ],       run = "cd ~/dev-local",   desc = "Go to the dev-local directory" },
+	{ on = [ "b", "e" ],       run = "cd ~/.config/doom",   desc = "Go to the doom directory" },
+	{ on = [ "b", "E" ],       run = "cd ~/.config/emacs",   desc = "Go to the emacs directory" },
+	{ on = [ "b", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 ]
 
 [tasks]
