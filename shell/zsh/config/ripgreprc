@@ -2,6 +2,7 @@
 --type-add
 web:*.{html,css,js}*
 
+# use -t to filter type. --type-not is short for -T
 --type-add
 test:*{test,Test}*.*
 
