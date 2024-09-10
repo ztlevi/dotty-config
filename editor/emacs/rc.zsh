@@ -18,8 +18,8 @@ if [[ $(_os) == macos ]]; then
 else
   alias e='emacsclient -n'
 fi
-# if encounter Permission denied, /dev/pts/3, try `unset SSH_TTY` or kill ssh in client machine
-# https://github.com/spudlyo/clipetty/issues/20
+# if encounter Permission denied, /dev/pts/3, try `unset SSH_TTY`, kill ssh in client machine
+# or ssc restart sshd in remote machine. https://github.com/spudlyo/clipetty/issues/20
 alias et="emacs -nw"
 alias ec="emacsclient"
 alias e.="emacsclient ."
