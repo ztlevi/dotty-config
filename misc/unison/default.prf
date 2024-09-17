@@ -82,6 +82,7 @@ ignore = Name *.{tar,gz,zip,rar}
 
 # Ignore ~/workplace/.unison/ config dir itself
 ignore = Path .unison
+ignore = Name .attach_pid*
 
 # Establish case-sensitivity
 ignorecase = false
