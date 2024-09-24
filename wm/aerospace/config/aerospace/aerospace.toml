@@ -226,6 +226,10 @@ if.app-id = 'com.amazon.Amazon-Chime'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.cisco.anyconnect.gui'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
 run = 'move-node-to-workspace O'
 
