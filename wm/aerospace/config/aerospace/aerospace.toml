@@ -199,6 +199,7 @@ alt-shift-l = ['join-with right', 'mode main']
 # App management
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 # Use `mdls -name kMDItemCFBundleIdentifier /Application/xxx.app` to get app id
+# List apps with `aerospace list-apps`. List windows with `aerospace list-windows --all`
 [[on-window-detected]]
 if.app-name-regex-substring = 'Emacs'
 run = 'move-node-to-workspace 1'
@@ -219,10 +220,10 @@ run = 'move-node-to-workspace S'
 if.app-id = 'com.tencent.xinWeChat'
 run = ['layout floating', 'move-node-to-workspace S']
 
-# TODO: seems have some problem
-# [[on-window-detected]]
-# if.app-id = 'com.amazon.Amazon-Chime'
-# run = 'move-node-to-workspace C'
+# Chime seems have some problem, fallback to floating to avoid problem
+[[on-window-detected]]
+if.app-id = 'com.amazon.Amazon-Chime'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
