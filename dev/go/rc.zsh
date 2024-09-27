@@ -5,6 +5,5 @@ if _is_callable go; then
   export GOPATH="$XDG_DATA_HOME/go"
   export GOROOT="$(brew --prefix go)/libexec"
 
-  # Adds $GOPATH/bin's to PATH
-  path=( `printf '%s/bin\n' ${(@s/:/)GOPATH}` $path )
+  path=( "$GOPATH/bin" $path )
 fi
