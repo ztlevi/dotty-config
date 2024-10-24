@@ -1,0 +1,54 @@
+colors:
+  # Default colors
+  primary:
+    background: "0xf5f5f9"
+    foreground: "0x0F1019"
+
+  cursor:
+    text: "0xf0f0f0"
+    cursor: "0x1F55A0"
+
+  selection:
+    text: "0xfafafa"
+    background: "0xa0bcf8"
+
+  # Normal colors
+  normal:
+    black: "0x1E1E33"
+    red: "0xD70000"
+    green: "0x005F00"
+    yellow: "0xAF8700"
+    blue: "0x1F55A0"
+    magenta: "0xAF005F"
+    cyan: "0x007687"
+    white: "0xABC6EE"
+
+  # Bright colors
+  bright:
+    black: "0x1E1E33"
+    red: "0xD70000"
+    green: "0x005F00"
+    yellow: "0xAF8700"
+    blue: "0x1F55A0"
+    magenta: "0xAF005F"
+    cyan: "0x007687"
+    white: "0xABC6EE"
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  # dim:
+  #   black: "0x000000"
+  #   red: "0x8c3336"
+  #   green: "0x7a8530"
+  #   yellow: "0x97822e"
+  #   blue: "0x506d8f"
+  #   magenta: "0x80638e"
+  #   cyan: "0x497e7a"
+  #   white: "0x9a9a9a"
+# Background opacity
+#
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+#background_opacity: 1.0
