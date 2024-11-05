@@ -31,7 +31,7 @@ while true; do
     echo ${result} | jq -r ${jq_query} >> ${OUTPUT_FILE}
     echo "Fetching next page log..."
 
-    if [ "$(echo "$result" | jq -r '.events | length')" -eq 0 ]; then
+    if [[ "$(echo "$result" | jq -r '.events | length')" -eq 0 ]]; then
         break
     fi
     nextToken=$(echo $result | jq -r .nextForwardToken)
