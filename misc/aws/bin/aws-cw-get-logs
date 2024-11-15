@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+from typing import Sequence
+from urllib.parse import urlparse, parse_qs, unquote, quote
+from datetime import datetime, timezone, UTC
+import logging
+import time
+import json
+import boto3
+import subprocess
+import os
+import sys
+from pathlib import Path
+
+ACCOUNT = ""
+URL = ""
+# e.g. 2024-11-09T00:10:50.000Z
+START_TIME = ""
+END_TIME = ""
+
+def run_command(cmd):
+    process = subprocess.Popen(
+        cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    )
+    while True:
+        out = process.stdout.read(1)
+        if process.poll() is not None:
+            break
+        if out != "":
+            sys.stdout.buffer.write(out)
+            sys.stdout.flush()
+
+
+def auth(aws_account: str, region: str):
+    os.environ["AWS_PROFILE"] = aws_account
+    os.environ["AWS_DEFAULT_REGION"] = region
+    os.environ["AWS_REGION"] = region
+    run_command(
+        f"ada credentials update --account={aws_account} --provider=isengard --role ReadOnly --once --profile {aws_account}"
+    )
+
+
+def parse_aws_cloudwatch_url(url: str) -> Sequence[str]:
+    # Parse the URL and extract the fragment part
+    url = url.replace("$", "%")
+    url = unquote(unquote(url))
+    parsed_url = urlparse(url)
+    fragment = parsed_url.fragment
+    region = parsed_url.hostname.split(".")[0]
+
+    # Initialize variables
+    log_group = None
+    log_stream = None
+    start_time = ""
+    end_time = ""
+
+    # Split fragment by ':' and parse for specific values
+    if "logsV2" in fragment:
+        parts = fragment.split(":")
+        if len(parts) > 1 and parts[1].startswith("log-groups/log-group/"):
+            # Extract log group
+            log_group_part = parts[1].replace("log-groups/log-group/", "")
+            log_group = log_group_part.split("/log-events/")[0]
+
+            # Extract log stream if available
+            log_stream_part = log_group_part.split("/log-events/")
+            if len(log_stream_part) > 1:
+                log_stream = log_stream_part[1].split("?")[0]
+
+    # Parse query parameters
+    query_params = parse_qs(parsed_url.query)
+    fragment_params = parse_qs(fragment.split("?")[1])
+
+    # Extract start and end time from fragment parameters if present
+    if "start" in fragment_params:
+        start_time = fragment_params["start"][0]
+    if "end" in fragment_params:
+        end_time = fragment_params["end"][0]
+    return log_group, log_stream, region, start_time, end_time
+
+
+def strptime(datetime_string: str) -> int:
+    parsed_datetime = datetime.strptime(datetime_string, "%Y-%m-%dT%H:%M:%S.%fZ")
+    utc_datetime = parsed_datetime.replace(tzinfo=timezone.utc)
+    return int(utc_datetime.timestamp()) * 1000
+
+
+def strftime(timestamp_ms: int) -> str:
+    return datetime.fromtimestamp(timestamp_ms / 1000, UTC).strftime(
+        "%Y-%m-%d %H:%M:%S UTC"
+    )
+
+
+def main():
+    log_group, log_stream, region, start_time, end_time = parse_aws_cloudwatch_url(URL)
+    encoded_log_group = quote(log_group, safe="")
+    encoded_log_stream = quote(log_stream, safe="")
+
+    Path.mkdir(Path.home() / f"logs/{encoded_log_group}", exist_ok=True)
+    output_file = Path.home() / f"logs/{encoded_log_group}/{encoded_log_stream}"
+
+    params = {
+        "logGroupName": log_group,
+        "logStreamName": log_stream,
+    }
+    if START_TIME:
+        params["startTime"] = strptime(START_TIME)
+    else:
+        if start_time:
+            if int(start_time) < 0:
+                current_unix_time_ms = int(time.time()) * 1000
+                params["startTime"] = current_unix_time_ms + int(start_time)
+            else:
+                params["startTime"] = int(start_time)
+    if END_TIME:
+        params["endTime"] = strptime(END_TIME)
+    else:
+        if end_time:
+            params["endTime"] = int(end_time)
+
+    logging.info(params)
+    auth(ACCOUNT, region)
+    client = boto3.client("logs", region_name=region)
+    with open(output_file, "w") as file:
+        # Paginate through the log events
+        next_token = ""
+        while True:
+            if next_token:
+                params["nextToken"] = next_token
+
+            # Fetch log events
+            response = client.get_log_events(**params)
+
+            # Process the log events
+            for event in response["events"]:
+                ts = strftime(event["timestamp"])
+                try:
+                    msg = json.loads(event["message"])
+                    level = "INFO"
+                    if "level" in msg:
+                        level = msg["level"]
+                    if "status" in msg:
+                        level = msg["status"]
+                    msg_str = json.dumps(msg, indent=4)
+                    file.write(f"{ts}\t{level}\t{msg_str}\n")
+                except Exception as e:
+                    msg = event["message"].replace("\n", "\n\t")
+                    file.write(f"{ts}\t{msg}\n")
+
+            # If there's a next token, paginate; otherwise, stop
+            next_token = response.get("nextToken")
+            if not next_token:
+                break
+
+
+if __name__ == "__main__":
+    main()
