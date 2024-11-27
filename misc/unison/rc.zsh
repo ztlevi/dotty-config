@@ -21,6 +21,7 @@ function unison-sync() {
       echo "Unison process exited.  Sleeping before restarting.  ^C to exit. " $(date)
       sleep 30
     done
+    echo "unison is running..."
   fi
 }
 
