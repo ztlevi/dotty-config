@@ -5,7 +5,7 @@ key_code=$1
 case $key_code in
     1) app="Alacritty" ;;
     2) app="Alacritty" ;;
-    3) run_cmd="$HOME/.config/dotty/config/base/macos/bin/toggle_finder" ;;
+    3) app="Finder" ;;
     4) run_cmd="$HOME/.config/dotty/config/bin/launch-browser" ;;
     5) app="Firefox" ;;
     s) app="Slack" ;;
@@ -14,7 +14,7 @@ case $key_code in
     comma) app="TickTick" ;;
     e) app="Emacs" ;;
     c) app="Amazon Chime" ;;
-    i) run_cmd="$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts/idea" ;;
+    i) app="IntelliJ IDEA" ;;
     o) app="Microsoft Outlook" ;;
     O) app="Obsidian" ;;
 esac
