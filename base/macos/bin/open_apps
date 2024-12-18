@@ -3,7 +3,7 @@
 key_code=$1
 
 case $key_code in
-    1) app="Emacs" ;;
+    1) app="Alacritty" ;;
     2) app="Alacritty" ;;
     3) run_cmd="$HOME/.config/dotty/config/base/macos/bin/toggle_finder" ;;
     4) run_cmd="$HOME/.config/dotty/config/bin/launch-browser" ;;
