@@ -1,4 +1,4 @@
-function unison-sync() {
+unison-sync() {
   # Usage:
   # unison-sync <local-workplace> <username>@<remote-hostname> <remote-workplace>
   # e.g. unison-sync /workplace ztlevi@kuro /workplace
@@ -10,21 +10,31 @@ function unison-sync() {
   fi
   local remote_arg="ssh://$2/$3"
 
-  if ! pgrep unison >/dev/null; then
-    while :; do
-      echo "Kill local and remote unison process... " $(date)
-      ssh $2 "killall unison" && sleep 1 || true
-      killall unison && sleep 1 || true
-      killall unison-fsmonitor && sleep 1 || true
-      echo "Starting unison process... " $(date)
-      unison -ui text default.prf $1 $remote_arg
-      echo "Unison process exited.  Sleeping before restarting.  ^C to exit. " $(date)
-      sleep 30
-    done
-    echo "unison is running..."
-  fi
+  (
+    if ! pgrep unison >/dev/null; then
+      while :; do
+        echo "Kill local and remote unison process... " $(date)
+        ssh $2 "killall unison" && sleep 1 || true
+        killall unison && sleep 1 || true
+        killall unison-fsmonitor && sleep 1 || true
+        echo "Starting unison process... " $(date)
+        unison -ui text default.prf $1 $remote_arg
+        echo "Unison process exited.  Sleeping before restarting.  ^C to exit. " $(date)
+        sleep 30
+      done
+      echo "unison is running..."
+    fi
+  ) &
+  pid=$! # Capture the background process ID
+
+  # Wait for up to 16h for the block to complete
+  sleep 16h && kill "$pid" 2>/dev/null &
+  watcher=$!
+  wait "$pid" 2>/dev/null && kill "$watcher" 2>/dev/null
+  killall unison && sleep 1 || true
+  killall unison-fsmonitor && sleep 1 || true
 }
 
-function unison-clean() {
-   fd -H --no-ignore "\.unison*" | xargs rm -rf {}
+unison-clean() {
+  fd -H --no-ignore "\.unison*" | xargs rm -rf {}
 }
