@@ -13,8 +13,8 @@ nobrew () {
 k9() {
   # Usage: k9 22234 1213 or k9 chrome
   if echo $@ | rg -q "[\d\s\t]+"; then
-    process_ids=("${(@f)}$@")
-    kill -9 ${process_ids[@]} || "no process found by searching $@"
+    process_ids=(${(@f)}$@)
+    kill -9 "${process_ids[@]}" || "no process found by searching $@"
   else
     ps -ef | grep $@ | grep -v grep | awk '{print $2}' | xargs -r kill -9
   fi
@@ -22,8 +22,8 @@ k9() {
 sk9() {
   # Usage: k9 22234 1213 or k9 chrome
   if echo $@ | rg -q "[\d\s\t]+"; then
-    process_ids=("${(@f)}$@")
-    sudo kill -9 ${process_ids[@]} || "no process found by searching $@"
+    process_ids=(${(@f)}$@)
+    sudo kill -9 "${process_ids[@]}" || "no process found by searching $@"
   else
     sudo pkill -9 -f $@
   fi
