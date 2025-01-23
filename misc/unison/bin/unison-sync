@@ -38,7 +38,7 @@ cleanup_unison() {
 trap cleanup_unison EXIT INT TERM
 
 # Timeout for 16 h  to kill the process
-sleep 10s && kill "$pid" 2>/dev/null &
+sleep 16h && kill "$pid" 2>/dev/null &
 
 # Wait for the background process to complete
 wait "$pid"
