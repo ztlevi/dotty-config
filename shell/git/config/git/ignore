@@ -105,6 +105,7 @@ debug.test*
 *.parquet
 mybin
 .attach_pid*
+.aider*
 
 # Amazon #
 ##########
