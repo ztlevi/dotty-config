@@ -39,3 +39,9 @@ function git-reset-submodules () {
   git submodule update --init --recursive -j 8
 
 }
+
+function gitz () {
+  git config user.name "Ting Zhou"
+  git config user.email "ztlevi.work@gmail.com"
+
+}
