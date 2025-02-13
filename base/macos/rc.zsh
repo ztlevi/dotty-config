@@ -25,3 +25,5 @@ _is_callable ggrep && alias grep="ggrep"
 alias oo="open ."
 
 alias cdicloud="cd '$HOME/Library/Mobile Documents/com~apple~CloudDocs'"
+
+alias bss="brew services"
