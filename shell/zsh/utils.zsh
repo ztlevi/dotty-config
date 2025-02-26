@@ -1,10 +1,10 @@
-function string_join() {
+string_join() {
   local IFS="$1"
   shift
   echo "$*"
 }
 
-function color-palette() {
+color-palette() {
   for i in {0..255} ; do
     printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
     if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
@@ -13,7 +13,7 @@ function color-palette() {
   done
 }
 
-function b64() {
+b64() {
   image=$(openssl base64 -in $1 | tr -d "\n")
   echo "![img](data:image/png;base64,$image)" | pbcopy
 }
@@ -70,7 +70,7 @@ center_text() {
   printf "${left_border}${spacing}${text}${spacing}${right_border}\n"
 }
 
-function update_topics {
+update_topics() {
   declare -a topics
   topics=( "$DOTTY_DATA_HOME"/*.topic(N) )
   for topic in ${${${topics[@]#$DOTTY_DATA_HOME/}%.topic}/.//}; do
@@ -78,7 +78,7 @@ function update_topics {
   done
 }
 
-function sshf() {
+sshf() {
   # Forward ssh port
   if [ "$#" -ne 2 ]; then
     echo "usage: sshf 10.0.0.1 6006"
@@ -92,7 +92,7 @@ function sshf() {
 }
 
 # fuzzy find projects
-function ff_projects() {
+ff_projects() {
   # Each root is consist of PATH:scan_depth
   project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${XDG_CONFIG_HOME}:1"
                  "${HOME}/dev:3" "${HOME}/dev-local:2" "${HOME}/git:2")
@@ -148,7 +148,7 @@ fkill() {
 }
 
 # fman - fuzzy find man page
-function fman() {
+fman() {
   if _is_callable sk; then ff_cmd="sk"
   elif _is_callable fzf; then ff_cmd="fzf"
   else
@@ -158,7 +158,7 @@ function fman() {
   man -k . | $ff_cmd -q "$1" --prompt='man> ' | awk -F'\(' '{print $1}' | xargs -r man
 }
 
-function update_git_repo() {
+update_git_repo() {
   dir=$1
   diff_str=$(
     cd $dir
@@ -169,46 +169,40 @@ function update_git_repo() {
   done
 }
 
-function update_dotty() {
+update_dotty() {
   rm -f ${DOTTY_UPDATE_LOG} && touch ${DOTTY_UPDATE_LOG}
 
-  echo-info "update $DOTTY_HOME"
-  update_git_repo $DOTTY_HOME
-  (
-    cd $DOTTY_CONFIG_HOME && git checkout main && git-safe-pull
-    cd $DOTTY_HOME && git-safe-pull
-    echo-info "update ${DOTTY_ASSETS_HOME}"
-    [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git-safe-pull
-    update_topics &>/dev/null
-  )
+  parallel --jobs 3 -k <<EOF
+  cd $DOTTY_CONFIG_HOME && git checkout main && git-safe-pull
+  cd $DOTTY_HOME && git-safe-pull
+  [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git-safe-pull
+EOF
+
+  update_topics &>/dev/null &  # Run this in the background
 
   if [[ -d ${XDG_CONFIG_HOME}/doom ]]; then
     local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
-    update_git_repo ${XDG_CONFIG_HOME}/doom &
-    PID1=$!
-    wait ${PID1}
+    update_git_repo ${XDG_CONFIG_HOME}/doom
 
     local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
     if [[ $cur_doom_rev != $last_doom_rev ]]; then
       echo-ok "Doom Sync Summary"
       doom sync
     fi
-  fi
+  fi &  # Run in background
 
   echo-info "Update TPM packages"
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/update_plugins all &
-    PID2=$!
-    wait ${PID2}
   fi
+
+  wait  # Ensure all background processes finish
 
   _cache_clear
   zinit delete --clean -y
-  # clean up local snippets
   rm -rf ~/.zinit/snippets/*--dotty*
 
-  # Sync uninstalled some software if we deleted on one machine
   $DOTTY_HOME/legacy_sync_script.zsh
 
   echo-info "Dotty update log"
