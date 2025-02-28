@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+
+# Help function
+show_help() {
+    echo "Usage: $0 -r RESOURCE_NAME [-e EVENT_NAME] [-s START_TIME] [-t END_TIME]"
+    echo
+    echo "Options:"
+    echo "  -r RESOURCE_NAME   Resource name to filter (required)"
+    echo "  -e EVENT_NAME      Event name to filter (optional)"
+    echo "  -s START_TIME      Start time (optional, default: 7 days ago)"
+    echo "  -t END_TIME        End time (optional, default: current time)"
+    echo "  -h                 Show this help message"
+    echo
+    echo "Time format: 2024-02-26T00:00:00"
+    echo
+    echo "Example:"
+    echo "  $0 -r my-bucket -e PutObject -s 2024-02-26T00:00:00 -t 2024-02-26T23:59:59"
+    echo "  $0 -r my-bucket"
+}
+
+OUTPUT_FILE="cloudtrail_events.json"
+
+# Parse command line arguments
+while getopts "r:e:s:t:h" opt; do
+    case $opt in
+        r) RESOURCE_NAME="$OPTARG";;
+        e) EVENT_NAME="$OPTARG";;
+        s) START_TIME="$OPTARG";;
+        t) END_TIME="$OPTARG";;
+        h) show_help; exit 0;;
+        ?) show_help; exit 1;;
+    esac
+done
+
+# Function to get unique event names from OUTPUT_FILE
+get_unique_events() {
+    if [ ! -f "$OUTPUT_FILE" ]; then
+        echo "Error: $OUTPUT_FILE does not exist"
+        exit 1
+    fi
+
+    echo -e "\nUnique event names from $OUTPUT_FILE:"
+    echo "----------------------------------------"
+    jq -r '.[].EventName' "$OUTPUT_FILE" | sort -u | while read -r event; do
+        echo "- $event"
+    done
+}
+
+# Validate required parameters
+if [ -z "$RESOURCE_NAME" ]; then
+    echo "Error: Resource name (-r) is required"
+    show_help
+    exit 1
+fi
+
+# Set default times if not provided
+if [ -z "$START_TIME" ]; then
+    START_TIME=$(date -u -v-7d '+%Y-%m-%dT%H:%M:%S' 2>/dev/null)
+    if [ $? -ne 0 ]; then
+        # For Linux
+        START_TIME=$(date -u -d '7 days ago' '+%Y-%m-%dT%H:%M:%S')
+    fi
+fi
+
+if [ -z "$END_TIME" ]; then
+    END_TIME=$(date -u '+%Y-%m-%dT%H:%M:%S')
+fi
+
+echo "Time range: $START_TIME to $END_TIME"
+
+# Initialize variables
+next_token=""
+first_event=true
+
+# Create or clear output file
+echo "[" > "$OUTPUT_FILE"
+
+while true; do
+    # Build base command
+    cmd="aws cloudtrail lookup-events \
+        --lookup-attributes AttributeKey=ResourceName,AttributeValue=$RESOURCE_NAME \
+        --start-time $START_TIME \
+        --end-time $END_TIME \
+        --max-results 50"
+
+    echo "Fetching CloudTrail events..."
+    echo "Resource: $RESOURCE_NAME"
+    [ ! -z "$EVENT_NAME" ] && echo "Event filter: $EVENT_NAME"
+    [ ! -z "$next_token" ] && echo "Processing page with token: ${next_token:0:20}..."
+
+    # Add next token if exists
+    if [ ! -z "$next_token" ]; then
+        cmd="$cmd --next-token $next_token"
+    fi
+
+    # Execute command
+    response=$(eval "$cmd 2>/dev/null")
+
+    # Check if AWS CLI command was successful
+    if [ $? -ne 0 ]; then
+        echo "Error: AWS CLI command failed"
+        exit 1
+    fi
+
+    # Filter events and format CloudTrailEvent
+    if [ ! -z "$EVENT_NAME" ]; then
+        # If EVENT_NAME is provided, filter by it
+        filtered_events=$(echo "$response" | jq --arg EVENT_NAME "$EVENT_NAME" \
+            '.Events[] | select(.EventName==$EVENT_NAME) | .CloudTrailEvent |= fromjson')
+    else
+        # If no EVENT_NAME, get all events
+        filtered_events=$(echo "$response" | jq '.Events[] | .CloudTrailEvent |= fromjson')
+    fi
+
+    # If we found events, append them to file
+    if [ ! -z "$filtered_events" ]; then
+        if [ "$first_event" = true ]; then
+            echo "$filtered_events" | jq -c '.' | paste -sd "," >> "$OUTPUT_FILE"
+            first_event=false
+        else
+            echo "$filtered_events" | jq -c '.' | paste -sd "," | sed 's/^/,/' >> "$OUTPUT_FILE"
+        fi
+    fi
+
+    # Get next token
+    next_token=$(echo "$response" | jq -r '.NextToken')
+
+    # Break if no more pages
+    if [ "$next_token" == "null" ]; then
+        break
+    fi
+
+    # Optional: Add small delay to avoid API throttling
+    sleep 0.5
+done
+
+# Close JSON array
+echo "]" >> "$OUTPUT_FILE"
+
+# Format the final JSON file to be more readable
+tmp_file=$(mktemp)
+jq '.' "$OUTPUT_FILE" > "$tmp_file" && mv "$tmp_file" "$OUTPUT_FILE"
+
+
+echo "=================================================================================="
+echo "Complete! Results saved to $OUTPUT_FILE"
+# Always show unique events at the end
+get_unique_events
