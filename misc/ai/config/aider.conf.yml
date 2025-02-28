@@ -18,6 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
+## aider --list-models bedrock/
 model: bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
 
 ## Use claude-3-opus-20240229 model for the main chat
@@ -138,7 +139,7 @@ model: bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
 #editor-edit-format: xxx
 
 ## Only work with models that have meta-data available (default: True)
-#show-model-warnings: true
+show-model-warnings: false
 
 ## Soft limit on tokens for chat history, after which summarization begins. If unspecified, defaults to the model's max_chat_history_tokens.
 #max-chat-history-tokens: xxx
@@ -195,19 +196,19 @@ model: bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
 #stream: true
 
 ## Set the color for user input (default: #00cc00)
-#user-input-color: #00cc00
+user-input-color: #4078f2
 
 ## Set the color for tool output (default: None)
 #tool-output-color: xxx
 
 ## Set the color for tool error messages (default: #FF2222)
-#tool-error-color: #FF2222
+tool-error-color: #e45649
 
 ## Set the color for tool warning messages (default: #FFA500)
-#tool-warning-color: #FFA500
+tool-warning-color: #f9a824
 
 ## Set the color for assistant output (default: #0088ff)
-#assistant-output-color: #0088ff
+assistant-output-color: #4078f2
 
 ## Set the color for the completion menu (default: terminal's default text color)
 #completion-menu-color: xxx
@@ -222,7 +223,7 @@ model: bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
 #completion-menu-current-bg-color: xxx
 
 ## Set the markdown code theme (default: default, other options include monokai, solarized-dark, solarized-light, or a Pygments builtin style, see https://pygments.org/styles for available themes)
-#code-theme: default
+code-theme: xcode
 
 ## Show diffs when committing changes (default: False)
 #show-diffs: false
