@@ -37,6 +37,7 @@ _is_callable lla && alias ls="lla -g --icons"
 _is_callable lla && alias dud="lla -S --include-dirs --icons"
 alias rgf="rg --files --hidden --no-ignore --follow . | rg"
 alias ll="ls -l"
+alias tree="lla -t -d 2"
 
 alias ..='cd ..'
 alias ...='cd ../..'
