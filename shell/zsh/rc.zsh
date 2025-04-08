@@ -33,13 +33,10 @@ alias ka=killall
 alias te="trash-empty -f 15"
 
 unalias cp 2>/dev/null || true
-_is_callable ds && alias du=ds
-alias dud="du -d 1"
-
-_is_callable eza && alias ls="eza --color=auto --group-directories-first --icons=always"
+_is_callable lla && alias ls="lla -g --icons"
+_is_callable lla && alias dud="lla -S --include-dirs --icons"
 alias rgf="rg --files --hidden --no-ignore --follow . | rg"
-alias ll="ls -lgh"
-alias la='ls -laFh'
+alias ll="ls -l"
 
 alias ..='cd ..'
 alias ...='cd ../..'
