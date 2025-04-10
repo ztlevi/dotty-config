@@ -1,0 +1,125 @@
+# https://mutagen.io/documentation/synchronization/version-control-systems/
+# mutagen sync create --name=cloud-dev ~/dev zhot@aws-cloud:/home/zhot/dev
+sync:
+  defaults:
+    maxStagingFileSize: "100 MB"
+    mode: "two-way-resolved"
+    ignore:
+      vcs: true
+      paths:
+        # Git
+        - .git/index.lock
+
+        # macOS
+        - .DS_Store
+        - .Spotlight-V100
+        - .fseventsd
+        - .Trash*
+        - .DocumentRevisions*
+        - .TemporaryItems
+
+        # Eclipse
+        - "**/.metadata"
+        - "**/.settings"
+        - "**/.project"
+        - "**/.classpath"
+
+        # JetBrains/IntelliJ
+        - "*.iml"
+        - "*.iws"
+        - "**/.idea"
+
+        # Vim
+        - "[._]*.s[a-v][a-z]"
+        - "[._]*.sw[a-p]"
+        - "[._]s[a-v][a-z]"
+        - "[._]sw[a-p]"
+        - Session.vim
+        - Sessionx.vim
+
+        # VSCode
+        - "__debug_bin*"
+
+        # AI tools
+        - ".aider*"
+
+        # Amazon tools
+        - ".rde"
+        - ".bemol"
+        - ".suds"
+        - release-info
+
+        # AWS data/workspace
+        - capture_data
+        - data
+        - influxdb-docker-data-volume
+        - influx_tmp_space
+        - sdk_build
+        - "**/env/**"
+        - "*.textproto"
+        - "*.pb"
+        - "*.pftrace"
+        - buildtools
+        - "*-1.0-*"
+        - "slurm-*.out"
+
+        # Java
+        - "annotation-generated-src"
+        - "annotation-generated-tst"
+
+        # Node.js
+        - node_modules
+        - .pnpm-store
+        - .parcel-cache
+        - dist
+        - __image_snapshots__
+        - __snapshots__
+
+        # Python
+        - .mypy_cache
+        - __pycache__
+        - .ipynb_checkpoints
+        - .pytest_cache
+        - .python-version
+        - pyrightconfig.json
+
+        # Build and release
+        - build
+        - build_tmp
+        - build_pkg
+        - release
+        - out
+
+        # C++
+        - .cache
+        - .ccls-cache
+
+        # Go
+        - gocache
+        - gomodcache
+
+        # Gradle
+        - "**/src/**/buildSrc/build"
+        - "**/src/**/buildSrc/.gradle"
+        - .gradle
+        - gradle
+        - gradlew
+        - gradlew.bat
+        - .brazil
+
+        # Logs
+        - "*.log"
+        - "log/*.log"
+        - "logs/*.log"
+        - "log/**/*.log"
+        - "logs/**/*.log"
+
+        # Archives
+        - "*.tar"
+        - "*.gz"
+        - "*.zip"
+        - "*.rar"
+
+        # Unison config dir
+        - .unison
+        - .attach_pid*
