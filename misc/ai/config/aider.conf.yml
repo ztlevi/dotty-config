@@ -19,7 +19,7 @@
 
 ## Specify the model to use for the main chat
 ## aider --list-models bedrock/
-model: bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
+model: bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0
 
 ## Use claude-3-opus-20240229 model for the main chat
 #opus: false
