@@ -1,6 +1,6 @@
 # https://mutagen.io/documentation/synchronization/version-control-systems/
-# mutagen sync terminate cloud-dev
-# mutagen sync create --name=cloud-dev ~/dev zhot@aws-cloud:/home/zhot/dev
+# mutagen sync terminate dev
+# mutagen sync create --name=dev ~/dev zhot@dev:/home/zhot/dev
 # mutagen sync list
 sync:
   defaults:
