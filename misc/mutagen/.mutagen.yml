@@ -7,7 +7,7 @@ sync:
     maxStagingFileSize: "20 MB"
     mode: "two-way-resolved"
     ignore:
-      vcs: true
+      vcs: false
       paths:
         # Git
         - .git/index.lock
