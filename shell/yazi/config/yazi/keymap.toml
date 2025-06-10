@@ -1,5 +1,5 @@
 # https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap.toml
-[manager]
+[mgr]
 prepend_keymap = [
 	{ on = [ "?" ], run = "help", desc = "Open help" },
 	{ on = [ "<C-g>" ], run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
