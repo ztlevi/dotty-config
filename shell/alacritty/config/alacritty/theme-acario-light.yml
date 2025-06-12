@@ -6,17 +6,17 @@ colors:
 
   cursor:
     text: "0xf0f0f0"
-    cursor: "0x1F55A0"
+    cursor: "0x009B7C"
 
   selection:
     text: "0xfafafa"
-    background: "0xa0bcf8"
+    background: "0xDEEAF8"
 
   # Normal colors
   normal:
     black: "0x1E1E33"
     red: "0xD70000"
-    green: "0x005F00"
+    green: "0x009B7C"
     yellow: "0xAF8700"
     blue: "0x1F55A0"
     magenta: "0xAF005F"
@@ -27,7 +27,7 @@ colors:
   bright:
     black: "0x1E1E33"
     red: "0xD70000"
-    green: "0x005F00"
+    green: "0x009B7C"
     yellow: "0xAF8700"
     blue: "0x1F55A0"
     magenta: "0xAF005F"
