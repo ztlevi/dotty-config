@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+   "amzn-mcp": {
+      "command": "amzn-mcp",
+      "args": [],
+      "disabled": false,
+      "env": {},
+      "autoApprove": []
+   }
+  }
+}
