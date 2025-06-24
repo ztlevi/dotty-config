@@ -84,6 +84,8 @@ sync:
         - .pytest_cache
         - .python-version
         - pyrightconfig.json
+        - .tox
+        - .env
 
         # Build and release
         - build
