@@ -1,2 +1,2 @@
 alias aw="aider --watch"
-alias qr="q chat --resume"
+alias q="q chat --model claude-4-sonnet --resume"
