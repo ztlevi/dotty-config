@@ -1,15 +1,15 @@
 font:
   normal:
-    family: Maple Mono Normal NF
+    family: Maple Mono NF
     style: Regular
   bold:
-    family: Maple Mono Normal NF
+    family: Maple Mono NF
     style: Bold
   italic:
-    family: Maple Mono Normal NF
+    family: Maple Mono NF
     style: Italic
   bold_italic:
-    family: Maple Mono Normal NF
+    family: Maple Mono NF
     style: Bold Italic
   size: 14
   offset:
