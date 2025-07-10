@@ -68,6 +68,7 @@ sync:
         # Java
         - "annotation-generated-src"
         - "annotation-generated-tst"
+        - "*.jar"
 
         # Node.js
         - node_modules
