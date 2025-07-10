@@ -29,7 +29,8 @@ key_bindings:
   - { key: F, mods: Command|Shift, chars: "\x1bF" }
   - { key: G, mods: Command, chars: "\x1bg" }
   - { key: G, mods: Command|Shift, chars: "\x1bG" }
-  - { key: H, mods: Command|Shift, chars: "\x1bH" }
+  # Command|Shift + H doesn't work, change to control
+  - { key: H, mods: Control|Shift, chars: "\x1bH" }
   - { key: I, mods: Command, chars: "\x1bi" }
   - { key: I, mods: Command|Shift, chars: "\x1bI" }
   - { key: J, mods: Command, chars: "\x1bj" }
@@ -37,7 +38,7 @@ key_bindings:
   - { key: K, mods: Command, chars: "\x1bk" }
   - { key: K, mods: Command|Shift, chars: "\x1bK" }
   - { key: L, mods: Command, chars: "\x1bl" }
-  - { key: L, mods: Command|Shift, chars: "\x1bL" }
+  - { key: L, mods: Control|Shift, chars: "\x1bL" }
   - { key: M, mods: Command, chars: "\x1bm" }
   - { key: M, mods: Command|Shift, chars: "\x1bM" }
   - { key: O, mods: Command, chars: "\x1bo" }
