@@ -1,3 +1,4 @@
+# Default binding https://alacritty.org/config-alacritty-bindings.html
 # https://www.csee.umbc.edu/portal/help/theory/ascii.txt
 key_bindings:
   - { key: C, mods: Alt, action: Copy }
@@ -13,6 +14,7 @@ key_bindings:
   - { key: Key0, mods: Alt, action: ResetFontSize }
 
   # https://github.com/alacritty/alacritty/issues/62
+  # All actions https://github.com/alacritty/alacritty/blob/master/alacritty/src/config/bindings.rs
   # Macos key
   - { key: N, mods: Command, action: CreateNewTab }
   - { key: Tab, mods: Control, action: SelectNextTab }
