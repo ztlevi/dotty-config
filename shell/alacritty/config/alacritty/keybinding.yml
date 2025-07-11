@@ -14,7 +14,8 @@ key_bindings:
 
   # https://github.com/alacritty/alacritty/issues/62
   # Macos key
-  - { key: N, mods: Command, action: CreateNewWindow }
+  - { key: N, mods: Command, action: CreateNewTab }
+  - { key: Tab, mods: Control, action: SelectNextTab }
   - { key: H, mods: Command, action: Minimize }
   # Map command+* to alt+*
   - { key: A, mods: Command, chars: "\x1ba" }
