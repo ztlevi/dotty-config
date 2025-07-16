@@ -67,6 +67,7 @@ key_bindings:
   - { key: Z, mods: Command|Shift, chars: "\x1bZ" }
   - { key: Semicolon, mods: Command, chars: "\x1b;" }
   - { key: Return,  mods: Command,  chars: "\x1b\x0d"   }
+  - { key: Return,  mods: Shift,  chars: "\x1b\x0d"   }
   - { key: Colon, mods: Command, chars: "\x1b:" }
   - { key: Comma, mods: Command, chars: "\x1b," }
   - { key: Slash, mods: Command, chars: "\x1b/" }
