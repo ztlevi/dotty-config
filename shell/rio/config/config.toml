@@ -1,0 +1,434 @@
+
+# Hide the cursor while typing
+#
+# Default is `false`
+#
+# hide-cursor-when-typing = false
+
+# Ignore theme selection foreground color
+#
+# Default is false
+#
+# Example:
+# ignore-selection-foreground-color = false
+
+# Theme
+#
+# It makes Rio look for the specified theme in the themes folder
+# (macos: ~/.config/rio/themes/dracula.toml)
+# (linux: $XDG_HOME_CONFIG/rio/themes/dracula.toml or ~/.config/rio/themes/dracula.toml)
+# (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
+#
+# Example:
+theme = "acario-light"
+
+# Padding-x
+#
+# define x axis padding (default is 0)
+#
+# Example:
+# padding-x = 10
+
+# Padding-y
+#
+# define y axis padding based on a format [top, bottom]
+# (default is [0, 0])
+#
+# Example:
+# padding-y = [30, 10]
+
+# Option as Alt
+#
+# This config only works on MacOS.
+# Possible choices: 'both', 'left' and 'right'.
+#
+# Example:
+option-as-alt = 'left'
+
+# Line height
+#
+# This option will apply an modifier to line-height
+# Default is `1.0`
+#
+# Example:
+# line-height = 1.2
+
+# Startup directory
+#
+# Directory the shell is started in. If this is unset the working
+# directory of the parent process will be used.
+#
+# This configuration only has effect if use-fork is disabled.
+#
+# Example:
+# working-dir = "/Users/raphael/Documents/"
+
+# Environment variables
+#
+# Example:
+# env-vars = []
+
+# Use fork
+#
+# Defaults for POSIX-based systems (Windows is not configurable):
+# MacOS: spawn processes
+# Linux/BSD: fork processes
+#
+# Example:
+# use-fork = false
+
+# Confirm before exiting Rio
+# Default is `true`
+#
+# confirm-before-quit = false
+
+# Cursor
+#
+# shape - Default cursor shape is 'block'
+# Other available options are: 'underline', 'beam' or 'hidden'
+#
+# blinking - Whether the cursor blinks. The default is false
+#
+# blinking-interval - Cursor update on milliseconds interval
+#
+# [cursor]
+# shape = 'block'
+# blinking = false
+# blinking-interval = 800
+
+# Editor
+#
+# Default editor on Linux and MacOS is "vi",
+# on Windows it is "notepad".
+#
+# Whenever the key binding `OpenConfigEditor` is triggered it will
+# use the value of the editor along with the rio configuration path.
+[editor]
+program = "neovim"
+args = []
+
+# Window configuration
+#
+# • width - define the initial window width.
+#   Default: 600
+#
+# • height - define the initial window height.
+#   Default: 400
+#
+# • mode - define how the window will be created
+#     - "Windowed" (default) is based on width and height
+#     - "Maximized" window is created with maximized
+#     - "Fullscreen" window is created with fullscreen
+#
+# • opacity - Set window opacity
+#
+# • blur - Set blur on the window background. Changing this config requires restarting Rio to take effect.
+#
+# • decorations - Set window decorations, options: "Enabled", "Disabled", "Transparent", "Buttonless"
+#
+# Example:
+# [window]
+# width = 600
+# height = 400
+# mode = "windowed"
+# opacity = 1.0
+# blur = false
+# decorations = "enabled"
+
+# Renderer
+#
+# • Performance: Set WGPU rendering performance
+#   - High: Adapter that has the highest performance. This is often a discrete GPU.
+#   - Low: Adapter that uses the least possible power. This is often an integrated GPU.
+#
+# • Backend: Set WGPU rendering backend
+#   - Automatic: Leave Sugarloaf/WGPU to decide
+#   - GL: Supported on Linux/Android, and Windows and macOS/iOS via ANGLE
+#   - Vulkan: Supported on Windows, Linux/Android
+#   - DX12: Supported on Windows 10
+#   - Metal: Supported on macOS/iOS
+#
+# • disable-unfocused-render: This property disable renderer processes while Rio is unfocused.
+#
+# • level: Configure renderer level
+#   - Available options: 0 and 1.
+#       Higher the level more rendering features and computations
+#       will be done like enable font ligatures or emoji support.
+#       For more information please check the docs.
+#
+# • filters: A list of paths to RetroArch slang shaders. Might not work with OpenGL.
+#
+# Example:
+# [renderer]
+# performance = "high"
+# backend = "automatic"
+# disable-unfocused-render = false
+# level = 1
+# filters = []
+
+# Keyboard
+#
+# use-kitty-keyboard-protocol - Enable Kitty Keyboard protocol
+#
+# disable-ctlseqs-alt - Disable ctlseqs with ALT keys
+#   - For example: Terminal.app does not deal with ctlseqs with ALT keys
+#
+# Example:
+# [keyboard]
+# use-kitty-keyboard-protocol = true
+# disable-ctlseqs-alt = true
+
+# Fonts
+#
+# Configure fonts used by the terminal
+#
+# Note: You can set different font families but Rio terminal
+# will always look for regular font bounds whene
+#
+# You can also set family on root to overwrite all fonts.
+[fonts]
+family = "Maple Mono NF"
+#
+# You can also specify extra fonts to load
+# [fonts]
+# extras = [{ family = "Microsoft JhengHei" }]
+#
+# In case you want to specify any font feature:
+# [fonts]
+# features = ["ss02", "ss03", "ss05", "ss19"]
+#
+# Note: Font features do not have support to live reload on configuration,
+# so to reflect your changes, you will need to close and reopen Rio.
+#
+# You can also disable font hinting. Font hinting is enabled by default.
+# [fonts]
+# hinting = false
+#
+# You can also map the specified Unicode codepoints to a particular font.
+# [fonts]
+# symbol-map = [
+#   { start = "2297", end = "2299", font-family = "Cascadia Code NF" }
+# ]
+#
+# Simple example:
+# [fonts]
+# size = 18
+[fonts.regular]
+family = "Maple Mono NF"
+style = "Normal"
+weight = 600
+
+[fonts.bold]
+family = "Maple Mono NF"
+style = "Normal"
+weight = 800
+
+[fonts.italic]
+family = "Maple Mono NF"
+style = "Italic"
+weight = 600
+
+[fonts.bold-italic]
+family = "Maple Mono NF"
+style = "Italic"
+weight = 800
+
+# Scroll
+#
+# You can change how many lines are scrolled each time by setting this option.
+#
+# Scroll calculation for canonical mode will be based on `lines = (accumulated scroll * multiplier / divider)`,
+# If you want a quicker scroll, keep increasing the multiplier.
+# If you want to reduce scroll speed you will need to increase the divider.
+# You can use both properties also to find the best scroll for you.
+#
+# Multiplier default is 3.0.
+# Divider default is 1.0.
+# Example:
+# [scroll]
+# multiplier = 3.0
+# divider = 1.0
+
+# Navigation
+#
+# "mode" - Define navigation mode
+#   • NativeTab (MacOS only)
+#   • Bookmark
+#   • BottomTab
+#   • TopTab
+#   • Plain
+#
+# "hide-if-single" - Hide navigation UI if is single.
+# "clickable" - Enable click on tabs to switch.
+# "use-current-path" - Use same path whenever a new tab is created (Note: requires `use-fork` to be set to false).
+# "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
+#
+# Example:
+# [navigation]
+# mode = "bookmark"
+# clickable = false
+# hide-if-single = true
+# use-current-path = false
+# color-automation = []
+
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
+# Entries in `shell.args` are passed unmodified as arguments to the shell.
+#
+# Default:
+#   - (macOS) user login shell
+#   - (Linux/BSD) user login shell
+#   - (Windows) powershell
+#
+# Example 1 using fish shell from bin path:
+#
+# [shell]
+# program = "/bin/fish"
+# args = ["--login"]
+#
+# Example 2 for Windows using powershell
+#
+# [shell]
+# program = "pwsh"
+# args = []
+#
+# Example 3 for Windows using powershell with login
+#
+# [shell]
+# program = "pwsh"
+# args = ["-l"]
+#
+# Example 4 for MacOS with tmux installed by homebrew
+#
+# [shell]
+# program = "/opt/homebrew/bin/tmux"
+# args = ["new-session", "-c", "/var/www"]
+
+# Colors
+#
+# Colors definition will overwrite any property in theme
+# (considering if theme folder does exists and is being used)
+#
+# Example:
+# [colors]
+# background = '#0F0D0E'
+# foreground = '#F9F4DA'
+# cursor = '#F38BA3'
+# tabs = '#443d40'
+# tabs-active = '#F38BA3'
+# green = '#0BA95B'
+# red = '#ED203D'
+# blue = '#12B5E5'
+# yellow = '#FCBA28'
+
+# Bindings
+#
+# Create custom Key bindings for Rio terminal
+# More information in: https://raphamorim.io/rio/docs/key-bindings
+#
+# Example:
+# [bindings]
+# keys = [
+#   { key = "q", with = "super", action = "Quit" },
+#   # Bytes[27, 91, 53, 126] is equivalent to "\x1b[5~"
+#   { key = "home", with = "super | shift", bytes = [27, 91, 53, 126] }
+# ]
+[bindings]
+keys = [
+  # Macos key
+  { key = "N", with = "super | shift", action = "CreateTab" },
+  { key = "W", with = "super", action = "none" },
+  { key = "W", with = "super | shift", action = "CloseTab" },
+  { key = "Tab", with = "control", action = "SelectNextTab" },
+  { key = "H", with = "super", action = "Minimize" },
+
+  # Map command+* to alt+*
+  { key = "A", with = "super", bytes = [27, 97] },         # \x1ba
+  { key = "A", with = "super | shift", bytes = [27, 65] }, # \x1bA
+  { key = "B", with = "super", bytes = [27, 98] },         # \x1bb
+  { key = "B", with = "super | shift", bytes = [27, 66] }, # \x1bB
+  { key = "D", with = "super", bytes = [27, 100] },        # \x1bd
+  { key = "D", with = "super | shift", bytes = [27, 68] }, # \x1bD
+  { key = "E", with = "super", bytes = [27, 101] },        # \x1be
+  { key = "E", with = "super | shift", bytes = [27, 69] }, # \x1bE
+  { key = "F", with = "super", bytes = [27, 102] },        # \x1bf
+  { key = "F", with = "super | shift", bytes = [27, 70] }, # \x1bF
+  { key = "G", with = "super", bytes = [27, 103] },        # \x1bg
+  { key = "G", with = "super | shift", bytes = [27, 71] }, # \x1bG
+  { key = "H", with = "control | shift", bytes = [27, 72] }, # \x1bH
+  { key = "I", with = "super", bytes = [27, 105] },        # \x1bi
+  { key = "I", with = "super | shift", bytes = [27, 73] }, # \x1bI
+  { key = "J", with = "super", bytes = [27, 106] },        # \x1bj
+  { key = "J", with = "super | shift", bytes = [27, 74] }, # \x1bJ
+  { key = "K", with = "super", bytes = [27, 107] },        # \x1bk
+  { key = "K", with = "super | shift", bytes = [27, 75] }, # \x1bK
+  { key = "L", with = "super", bytes = [27, 108] },        # \x1bl
+  { key = "L", with = "control | shift", bytes = [27, 76] }, # \x1bL
+  { key = "M", with = "super", bytes = [27, 109] },        # \x1bm
+  { key = "M", with = "super | shift", bytes = [27, 77] }, # \x1bM
+  { key = "O", with = "super", bytes = [27, 111] },        # \x1bo
+  { key = "O", with = "super | shift", bytes = [27, 79] }, # \x1bO
+  { key = "P", with = "super", bytes = [27, 112] },        # \x1bp
+  { key = "P", with = "super | shift", bytes = [27, 80] }, # \x1bP
+  { key = "R", with = "super", bytes = [27, 114] },        # \x1br
+  { key = "R", with = "super | shift", bytes = [27, 82] }, # \x1bR
+  { key = "S", with = "super", bytes = [27, 115] },        # \x1bs
+  { key = "S", with = "super | shift", bytes = [27, 83] }, # \x1bS
+  { key = "T", with = "super", bytes = [27, 116] },        # \x1bt
+  { key = "T", with = "super | shift", bytes = [27, 84] }, # \x1bT
+  { key = "U", with = "super", bytes = [27, 117] },        # \x1bu
+  { key = "U", with = "super | shift", bytes = [27, 85] }, # \x1bU
+  # { key = "W", with = "super", bytes = [27, 119] },        # \x1bw
+  # { key = "W", with = "super | shift", bytes = [27, 87] }, # \x1bW
+  { key = "X", with = "super", bytes = [27, 120] },        # \x1bx
+  { key = "X", with = "super | shift", bytes = [27, 88] }, # \x1bX
+  { key = "Y", with = "super", bytes = [27, 121] },        # \x1by
+  { key = "Y", with = "super | shift", bytes = [27, 89] }, # \x1bY
+  { key = "Z", with = "super", bytes = [27, 122] },        # \x1bz
+  { key = "Z", with = "super | shift", bytes = [27, 90] }, # \x1bZ
+  { key = "Semicolon", with = "super", bytes = [27, 59] }, # \x1b;
+  { key = "Return", with = "super", bytes = [27, 13] },    # \x1b\x0d
+  { key = "Colon", with = "super", bytes = [27, 58] },     # \x1b:
+  { key = "Comma", with = "super", bytes = [27, 44] },     # \x1b,
+  { key = "Slash", with = "super", bytes = [27, 47] },     # \x1b/
+  { key = "Key1", with = "super", bytes = [27, 49] },      # \x1b1
+  { key = "Key2", with = "super", bytes = [27, 50] },      # \x1b2
+  { key = "Key3", with = "super", bytes = [27, 51] },      # \x1b3
+  { key = "Key4", with = "super", bytes = [27, 52] },      # \x1b4
+  { key = "Key5", with = "super", bytes = [27, 53] },      # \x1b5
+  { key = "Key6", with = "super", bytes = [27, 54] },      # \x1b6
+  { key = "Key7", with = "super", bytes = [27, 55] },      # \x1b7
+  { key = "Key8", with = "super", bytes = [27, 56] },      # \x1b8
+  { key = "Key9", with = "super", bytes = [27, 57] },      # \x1b9
+]
+
+# Platform
+#
+# Rio now allows you to have different configurations per OS
+# You can write ovewrite properties like `Shell`, `Navigation`
+# and `Window`.
+#
+# Example:
+# [shell]
+# # default (in this case will be used only on MacOS)
+# program = "/bin/fish"
+# args = ["--login"]
+#
+# [platform]
+# # Microsoft Windows overwrite
+# windows.shell.program = "pwsh"
+# windows.shell.args = ["-l"]
+#
+# # Linux overwrite
+# linux.shell.program = "tmux"
+# linux.shell.args = ["new-session", "-c", "/var/www"]
+
+# Log level
+#
+# This property enables log level filter and file. The default level is "OFF" and the logs are not logged to a file as default.
+#
+# Example:
+# [developer]
+# log-level = "OFF"
+# enable-log-file = false
