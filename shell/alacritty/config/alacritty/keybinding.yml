@@ -17,6 +17,7 @@ key_bindings:
   # All actions https://github.com/alacritty/alacritty/blob/master/alacritty/src/config/bindings.rs
   # Macos key
   - { key: N, mods: Command, action: CreateNewTab }
+  - { key: T, mods: Command, action: CreateNewTab }
   - { key: Tab, mods: Control, action: SelectNextTab }
   - { key: H, mods: Command, action: Minimize }
   # Map command+* to alt+*
@@ -52,7 +53,7 @@ key_bindings:
   - { key: R, mods: Command|Shift, chars: "\x1bR" }
   - { key: S, mods: Command, chars: "\x1bs" }
   - { key: S, mods: Command|Shift, chars: "\x1bS" }
-  - { key: T, mods: Command, chars: "\x1bt" }
+  # - { key: T, mods: Command, chars: "\x1bt" }
   - { key: T, mods: Command|Shift, chars: "\x1bT" }
   - { key: U, mods: Command, chars: "\x1bu" }
   - { key: U, mods: Command|Shift, chars: "\x1bU" }
