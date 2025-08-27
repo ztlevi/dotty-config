@@ -1,11 +1,15 @@
 # https://mutagen.io/documentation/synchronization/version-control-systems/
+# Create case sensitive volume first. See base/macos/README.md
 # mutagen sync terminate dev
-# mutagen sync create --name=dev ~/dev zhot@dev:/home/zhot/dev
+# mutagen sync create --name=dev /Volumes/dev zhot@dev:/home/zhot/dev
 # mutagen sync list
 sync:
   defaults:
     maxStagingFileSize: "20 MB"
     mode: "two-way-resolved"
+    # Ignore symlink since most should be auto generated build files
+    symlink:
+      mode: ignore
     ignore:
       vcs: false
       paths:
@@ -64,6 +68,8 @@ sync:
         - buildtools
         - "*-1.0-*"
         - "slurm-*.out"
+        - .brazil
+        - .brazil_trash
 
         # Java
         - "annotation-generated-src"
@@ -87,6 +93,7 @@ sync:
         - pyrightconfig.json
         - .tox
         - .env
+        - .venv
 
         # Build and release
         - build
@@ -110,7 +117,6 @@ sync:
         - gradle
         - gradlew
         - gradlew.bat
-        - .brazil
 
         # Logs
         - "*.log"
