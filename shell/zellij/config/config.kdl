@@ -5,7 +5,7 @@
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl t" { SwitchToMode "tmux"; }
-        bind "Ctrl u" { SwitchToMode "normal"; }
+        bind "Ctrl Shift t" { SwitchToMode "normal"; }
     }
     tmux {
         // pane
