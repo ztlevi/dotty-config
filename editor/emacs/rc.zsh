@@ -20,7 +20,7 @@ else
 fi
 # if encounter Permission denied, /dev/pts/3, try kill tmux server and recreate new onw
 # https://github.com/spudlyo/clipetty/issues/20
-alias et="emacs -nw"
+alias et="unset SSH_TTY && emacs -nw"
 alias ec="emacsclient"
 alias e.="emacsclient ."
 alias se="sudo -E emacs"
