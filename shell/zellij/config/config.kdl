@@ -166,6 +166,8 @@ keybinds clear-defaults=true {
     shared_among "normal" "locked" "tmux" {
         bind "Alt Shift h" { GoToPreviousTab; }
         bind "Alt Shift l" { GoToNextTab; }
+        bind "Alt Shift i" { MoveTab "left"; }
+        bind "Alt Shift o" { MoveTab "right"; }
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
@@ -176,8 +178,6 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        // bind "Alt Shift i" { MoveTab "left"; }
-        // bind "Alt Shift o" { MoveTab "right"; }
         // bind "Alt Shift j" { MoveFocus "down"; }
         // bind "Alt Shift k" { MoveFocus "up"; }
         // bind "Alt Shift n" { NewPane; }
@@ -330,7 +330,7 @@ default_layout "default"
 //   - true (default, enabled)
 //   - false
 // 
-pane_frames false
+pane_frames true
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
