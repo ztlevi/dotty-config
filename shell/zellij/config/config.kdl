@@ -8,6 +8,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift t" { SwitchToMode "normal"; }
     }
     tmux {
+        bind "[" { SwitchToMode "scroll"; }
         // pane
         bind "h" { MoveFocus "left"; SwitchToMode "locked"; }
         bind "j" { MoveFocus "down"; SwitchToMode "locked"; }
@@ -221,14 +222,17 @@ keybinds clear-defaults=true {
         bind "up" { ScrollUp; }
         bind "right" { PageScrollDown; }
         bind "Ctrl b" { PageScrollUp; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "locked"; }
-        bind "d" { HalfPageScrollDown; }
+
+        bind "q" { SwitchToMode "locked"; }
+        bind "G" { ScrollToBottom; }
+        bind "Ctrl Shift u" { ScrollToTop; }
+        bind "Ctrl d" { HalfPageScrollDown; }
         bind "Ctrl f" { PageScrollDown; }
         bind "h" { PageScrollUp; }
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
-        bind "u" { HalfPageScrollUp; }
+        bind "Ctrl u" { HalfPageScrollUp; }
     }
     entersearch {
         bind "Ctrl c" { SwitchToMode "scroll"; }
