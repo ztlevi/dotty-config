@@ -164,7 +164,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
-    shared_among "normal" "locked" "tmux" {
+    shared_among "normal" "locked" "tmux" "scroll" {
         bind "Alt Shift h" { GoToPreviousTab; }
         bind "Alt Shift l" { GoToNextTab; }
         bind "Alt Shift i" { MoveTab "left"; }
