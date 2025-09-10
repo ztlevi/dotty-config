@@ -4,12 +4,40 @@
       "command": "npx",
       "args": ["-y", "@just-every/mcp-read-website-fast"]
     },
-    "amzn-mcp": {
-      "command": "amzn-mcp",
-      "args": [],
+    "hyperpod-mcp-servers": {
       "disabled": false,
+      "command": "~/dev/HyperPodMCPServers/env/HyperPodMCPServers-1.0/runtime/bin/hyperpod-mcp-servers",
+      "args": [],
       "env": {},
-      "autoApprove": []
+      "transportType": "stdio"
+    },
+    "builder-mcp": {
+      "disabled": false,
+      "command": "builder-mcp",
+      "args": [
+        "--include-tools",
+        "ReadInternalWebsites,InternalSearch,InternalCodeSearch,TicketingReadActions,TicketingWriteActions"
+      ],
+      "env": {},
+      "transportType": "stdio"
     }
-  }
+  },
+  "allowedTools": [
+    "fs_read",
+    "@hyperpod-mcp-servers/SCUDERIA_list_dev_tools",
+    "@hyperpod-mcp-servers/SCUDERIA_get_dev_tool_schema",
+    "@hyperpod-mcp-servers/CLOUDWATCH_get_alarms",
+    "@hyperpod-mcp-servers/CLOUDWATCH_get_metrics",
+    "@hyperpod-mcp-servers/CLOUDWATCH_get_log_groups",
+    "@hyperpod-mcp-servers/CLOUDWATCH_list_metrics",
+    "@hyperpod-mcp-servers/CLOUDWATCH_INSIGHTS_query_logs",
+    "@hyperpod-mcp-servers/SIM_get_ticket",
+    "@hyperpod-mcp-servers/SIM_get_title",
+    "@hyperpod-mcp-servers/SIM_get_description",
+    "@hyperpod-mcp-servers/SIM_get_comments",
+    "@hyperpod-mcp-servers/SIM_get_similar_tickets",
+    "@hyperpod-mcp-servers/BEDROCK_query_kb",
+    "@builder-mcp/InternalCodeSearch",
+    "@builder-mcp/InternalSearch"
+  ]
 }
