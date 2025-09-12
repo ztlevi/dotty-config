@@ -147,7 +147,12 @@ def main():
                     file.write(f"{ts}\t{msg}\n")
 
             # If there's a next token, paginate; otherwise, stop
-            next_token = response.get("nextToken")
+            new_next_token = response.get("nextBackwardToken")
+            if new_next_token == next_token:
+                break
+            else:
+                next_token = new_next_token
+
             if not next_token:
                 break
 
