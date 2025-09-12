@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# You can use `tspin` to view the log in a colorful way
 from typing import Sequence
 from urllib.parse import urlparse, parse_qs, unquote, quote
 from datetime import datetime, timezone, UTC
