@@ -1,29 +1,24 @@
 {
   "mcpServers": {
-    "read-website-fast": {
-      "command": "npx",
-      "args": ["-y", "@just-every/mcp-read-website-fast"]
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
     },
     "hyperpod-mcp-servers": {
-      "disabled": false,
       "command": "~/dev/HyperPodMCPServers/env/HyperPodMCPServers-1.0/runtime/bin/hyperpod-mcp-servers",
       "args": [],
       "env": {},
       "transportType": "stdio"
     },
     "builder-mcp": {
-      "disabled": false,
       "command": "builder-mcp",
-      "args": [
-        "--include-tools",
-        "ReadInternalWebsites,InternalSearch,InternalCodeSearch,TicketingReadActions,TicketingWriteActions"
-      ],
+      "args": [],
       "env": {},
-      "transportType": "stdio"
     }
   },
   "allowedTools": [
     "fs_read",
+    "fetch",
     "@hyperpod-mcp-servers/SCUDERIA_list_dev_tools",
     "@hyperpod-mcp-servers/SCUDERIA_get_dev_tool_schema",
     "@hyperpod-mcp-servers/CLOUDWATCH_get_alarms",
