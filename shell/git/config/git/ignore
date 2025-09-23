@@ -87,6 +87,10 @@ pyrightconfig.json
 .classpath
 *.iml
 
+# JavaScript #
+########
+.eslintcache
+
 # Go #
 ######
 __debug_bin
