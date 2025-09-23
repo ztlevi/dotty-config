@@ -81,6 +81,7 @@ sync:
         - .pnpm-store
         - .parcel-cache
         - dist
+        - .eslintcache
         - __image_snapshots__
         - __snapshots__
 
