@@ -3,7 +3,7 @@
 # Install (one or multiple) selected application(s)
 # using "brew search" as source input
 # mnemonic [B]rew [I]nstall [P]lugin
-bip() {
+function bip {
   local inst=$(brew search | fzf -m)
 
   if [[ $inst ]]; then
@@ -15,7 +15,7 @@ bip() {
 
 # Update (one or multiple) selected application(s)
 # mnemonic [B]rew [U]pdate [P]lugin
-bup() {
+function bup {
   local upd=$(brew leaves | fzf -m)
 
   if [[ $upd ]]; then
@@ -27,7 +27,7 @@ bup() {
 
 # Delete (one or multiple) selected application(s)
 # mnemonic [B]rew [C]lean [P]lugin (e.g. uninstall)
-bcp() {
+function bcp {
   local uninst=$(brew leaves | fzf -m)
 
   if [[ $uninst ]]; then
