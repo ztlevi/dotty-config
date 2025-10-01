@@ -1,2 +1,2 @@
 alias aw="aider --watch"
-alias q="q chat --model claude-4-sonnet"
+alias q="q chat --model claude-sonnet-4.5"

@@ -3,16 +3,6 @@
     "fetch": {
       "command": "uvx",
       "args": ["mcp-server-fetch"]
-    },
-    "hyperpod-mcp-servers": {
-      "command": "~/dev/HyperPodMCPServers/env/HyperPodMCPServers-1.0/runtime/bin/hyperpod-mcp-servers",
-      "args": [],
-      "env": {},
-      "transportType": "stdio"
-    },
-    "builder-mcp": {
-      "command": "builder-mcp",
-      "args": []
     }
   },
   "allowedTools": [
