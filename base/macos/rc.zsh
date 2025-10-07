@@ -5,7 +5,6 @@ zinit wait lucid for \
 
 alias date=gdate
 
-unalias bs
 alias y=pbcopy
 alias p=pbpaste
 
