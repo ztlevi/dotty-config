@@ -2,17 +2,8 @@
 local bucket="$1"
 echo "Deleting $bucket..."
 
-# Remove all objects
-s5cmd rm "s3://$bucket/*" || true
-
-# Remove all versions and delete markers
-aws s3api delete-objects --bucket "$bucket" \
-    --delete "$(aws s3api list-object-versions --bucket "$bucket" \
-        --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}' --output json)" 2>/dev/null || true
-
-aws s3api delete-objects --bucket "$bucket" \
-    --delete "$(aws s3api list-object-versions --bucket "$bucket" \
-        --query '{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}' --output json)" 2>/dev/null || true
+# # Remove current objects
+s5cmd rm --all-versions "s3://$bucket/*" || true
 
 # Delete bucket
 s5cmd rb "s3://$bucket" || true
