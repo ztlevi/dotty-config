@@ -11,6 +11,10 @@ else
     set background=light
 endif
 
+" Enable clipboard copy over SSH
+if !empty($SSH_TTY)
+	let g:clipboard = 'osc52'
+endif
 
 " Enable global clipboard
 set clipboard+=unnamedplus
