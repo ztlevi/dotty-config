@@ -5,5 +5,6 @@ echo "Deleting $bucket..."
 # # Remove current objects
 s5cmd rm --all-versions "s3://$bucket/*" || true
 
+sleep 3
 # Delete bucket
 s5cmd rb "s3://$bucket" || true
