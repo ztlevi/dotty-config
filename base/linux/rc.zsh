@@ -11,8 +11,6 @@ alias jc=journalctl
 alias ssc='sudo systemctl'
 alias ufw='sudo ufw'
 
-unalias bs &>/dev/null
-
 alias reboot='sudo systemctl reboot'
 alias shutdown='sudo systemctl poweroff'
 
