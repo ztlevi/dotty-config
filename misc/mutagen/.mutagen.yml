@@ -54,6 +54,7 @@ sync:
         - ".bemol"
         - ".suds"
         - release-info
+        - ".smithy-project.json"
 
         # AWS data/workspace
         - capture_data

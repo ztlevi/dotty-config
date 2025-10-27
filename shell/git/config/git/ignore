@@ -121,3 +121,4 @@ annotation-generated-tst
 # ^ forward slash before the folder name signifies root dir
 /out
 .bemol
+.smithy-project.json
