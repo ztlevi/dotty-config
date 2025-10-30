@@ -49,7 +49,9 @@ set whichwrap+=<,>,h,l
 " You have to unbind C-g before it works
 " ============================================================================
 map <c-c><c-c> <Esc>:wqa<CR>
+imap <c-c><c-c> <Esc>:wqa<CR>
 map <c-c><c-k> <Esc>:qa!<CR>
+imap <c-c><c-k> <Esc>:qa!<CR>
 nmap <c-g> <Esc>
 vmap <c-g> <Esc>
 imap <c-g> <Esc>a
