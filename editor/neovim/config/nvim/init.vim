@@ -23,8 +23,7 @@ set clipboard+=unnamedplus
 set nobackup
 set noswapfile
 
-" set relativenumber
-set number
+set nonumber norelativenumber
 set hidden
 set showmatch
 set comments=sl:/*,mb:\ *,elx:\ */
