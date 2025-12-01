@@ -8,9 +8,9 @@ autoload -U is-at-least
 
 # Copied from https://github.com/jeffreytse/zsh-vi-mode/blob/master/zsh-vi-mode.zsh
 # Edit command line in EDITOR
-function edit-command-line() {
+function edit_command_line() {
   # Create a temporary file and save the BUFFER to it
-  local tmp_file=$(mktemp ${TMPDIR:-/tmp}/zshXXXXXX)
+  local tmp_file=$(mktemp ${ZVM_TMPDIR}/zshXXXXXX)
 
   # Some users may config the noclobber option to prevent from
   # overwriting existing files with the > operator, we should
@@ -21,12 +21,19 @@ function edit-command-line() {
   # the warning about input not from a terminal (e.g.
   # vim), we should tell the editor input is from the
   # terminal and not from standard input.
-  "${(@Q)${(z)${EDITOR:-nvim}}}" $tmp_file </dev/tty
+  "${(@Q)${(z)${ZVM_VI_EDITOR}}}" $tmp_file </dev/tty
 
   # Reload the content to the BUFFER from the temporary
   # file after editing, and delete the temporary file.
-  BUFFER=$(cat $tmp_file)
-  rm -f "$tmp_file"
+  BUFFER=$(cat "$tmp_file")
+  rm "$tmp_file"
+
+  # Exit the visual mode
+  case $ZVM_MODE in
+    $ZVM_MODE_VISUAL|$ZVM_MODE_VISUAL_LINE)
+      zvm_exit_visual_mode
+      ;;
+  esac
 }
 # Open current prompt in external editor
 zle -N edit-command-line
