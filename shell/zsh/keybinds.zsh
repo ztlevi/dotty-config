@@ -39,6 +39,14 @@ function edit_command_line() {
 zle -N edit-command-line
 bindkey '^ ' edit-command-line
 
+# clear screen does not wipe all output completely in Zellij. Use force reset prompt to clear screen instead.
+clear-screen-completely() {
+    printf '\033c'
+    zle reset-prompt
+}
+zle -N clear-screen-completely
+bindkey '^L' clear-screen-completely
+
 bindkey -M viins '^K' kill-line
 bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^W' backward-kill-word
