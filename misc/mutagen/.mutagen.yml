@@ -103,6 +103,7 @@ sync:
         - build_pkg
         - release
         - out
+        - "*.rpm"
 
         # C++
         - .cache
