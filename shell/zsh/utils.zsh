@@ -191,11 +191,11 @@ EOF
     fi
   fi &  # Run in background
 
-  echo-info "Update TPM packages"
-  local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
-  if [[ -d $tpm ]]; then
-    $tpm/bin/update_plugins all &
-  fi
+  # echo-info "Update TPM packages"
+  # local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
+  # if [[ -d $tpm ]]; then
+  #   $tpm/bin/update_plugins all &
+  # fi
 
   wait  # Ensure all background processes finish
 
