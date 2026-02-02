@@ -296,21 +296,21 @@ simplified_ui false
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppuccin-latte"
+theme "acario"
 
 themes {
-  catppuccin-latte {
-    bg "#acb0be" // Surface2
-    fg "#4c4f69" // Text
-    red "#d20f39"
-    green "#40a02b"
-    blue "#1e66f5"
-    yellow "#df8e1d"
-    magenta "#ea76cb" // Pink
-    orange "#fe640b" // Peach
-    cyan "#04a5e5" // Sky
-    black "#e6e9ef" // Mantle
-    white "#4c4f69" // Text
+  acario {
+    bg "#f0f0f0" // Surface2
+    fg "#585C6C" // Text
+    red "#D70000"
+    green "#009B7C"
+    blue "#1F55A0"
+    yellow "#AF8700"
+    magenta "#AF005F" // Pink
+    orange "#D75F00" // Peach
+    cyan "#007687" // Sky
+    black "#E9E9F2" // Mantle
+    white "#0D0E16" // Text
   }
 }
 
