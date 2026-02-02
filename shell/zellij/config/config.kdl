@@ -300,7 +300,7 @@ theme "acario"
 
 themes {
   acario {
-    bg "#f0f0f0" // Surface2
+    bg "#D0D0E3" // Surface2
     fg "#585C6C" // Text
     red "#D70000"
     green "#009B7C"
