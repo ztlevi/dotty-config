@@ -1,4 +1,5 @@
 " find intellij actions by `:actionlist`
+" <leader>al
 
 set gdefault
 set ignorecase
