@@ -7,6 +7,10 @@
     "drawio": {
       "command": "npx",
       "args": ["@next-ai-drawio/mcp-server@latest"]
+    },
+    "scuderia-control-plane-mcp": {
+      "command": "scuderia-control-plane-mcp-server",
+      "args": []
     }
   },
   "allowedTools": [
