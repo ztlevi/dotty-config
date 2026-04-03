@@ -4,6 +4,9 @@
       "command": "uvx",
       "args": ["mcp-server-fetch"]
     },
+    "scuderia-control-plane-mcp" : {
+      "command" : "scuderia-control-plane-mcp-server"
+    } ,
     "drawio": {
       "command": "npx",
       "args": ["@next-ai-drawio/mcp-server@latest"]

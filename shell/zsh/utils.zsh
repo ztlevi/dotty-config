@@ -172,7 +172,7 @@ update_git_repo() {
 update_dotty() {
   rm -f ${DOTTY_UPDATE_LOG} && touch ${DOTTY_UPDATE_LOG}
 
-  parallel --jobs 3 -k <<EOF
+  rush -j 3 -k '{}' <<EOF
   cd $DOTTY_CONFIG_HOME && git checkout main && git-safe-pull
   cd $DOTTY_HOME && git-safe-pull
   [[ -d ${DOTTY_ASSETS_HOME} ]] && cd ${DOTTY_ASSETS_HOME} && git-safe-pull
