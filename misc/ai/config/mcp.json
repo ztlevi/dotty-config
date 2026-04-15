@@ -2,14 +2,24 @@
   "mcpServers": {
     "fetch": {
       "command": "uvx",
-      "args": ["mcp-server-fetch"]
+      "args": [
+        "mcp-server-fetch"
+      ]
     },
-    "scuderia-control-plane-mcp" : {
-      "command" : "scuderia-control-plane-mcp-server"
-    } ,
+    "builder-mcp": {
+      "command": "builder-mcp",
+      "args": [
+        "--include-tools=ReadInternalWebsites,InternalCodeSearch,TicketingReadActions,InternalSearch,SkillsTool"
+      ]
+    },
+    "scuderia-control-plane-mcp": {
+      "command": "scuderia-control-plane-mcp-server"
+    },
     "drawio": {
       "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
+      "args": [
+        "@next-ai-drawio/mcp-server@latest"
+      ]
     }
   },
   "allowedTools": [
