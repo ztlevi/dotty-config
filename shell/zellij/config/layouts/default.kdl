@@ -123,7 +123,7 @@ layout {
 
                 format_left   "#[bg=$surface0,fg=$green]#[bg=$green,fg=$crust,bold] {session} #[bg=$surface0] {mode}#[bg=$surface0] {tabs}"
                 format_center "{notifications}"
-                format_right  "#[bg=$surface0,fg=$blue]#[fg=$crust,bg=$blue] #[bg=$surface1,fg=$blue,bold] {command_user}@{command_host}#[bg=$surface0,fg=$surface1]#[bg=$surface0,fg=$blue]#[bg=$blue,fg=$crust]󰃭 #[bg=$surface1,fg=$blue,bold] {datetime}#[bg=$surface0,fg=$surface1]"
+                format_right  "#[bg=$surface0,fg=$blue]#[fg=$crust,bg=$blue] #[bg=$surface1,fg=$blue,bold] {command_user}@{command_host}#[bg=$surface0,fg=$surface1]#[bg=$surface0,fg=$blue]#[bg=$blue,fg=$crust]󰃭 #[bg=$surface1,fg=$blue,bold] {datetime}  {command_utc_time}#[bg=$surface0,fg=$surface1]"
                 format_space  "#[bg=$surface0]"
                 format_hide_on_overlength "true"
                 format_precedence "lrc"
@@ -181,8 +181,13 @@ layout {
                 command_user_rendermode "static"
 
                 datetime          "{format}"
-                datetime_format   "%Y-%m-%d 󰅐 %H:%M"
-                datetime_timezone "Europe/Stockholm"
+                datetime_format   "PDT %m-%d 󰅐 %H:%M"
+                datetime_timezone "America/Los_Angeles"
+
+                command_utc_time_command    "date -u +'UTC %m-%d 󰅐 %H:%M'"
+                command_utc_time_format     "{stdout}"
+                command_utc_time_interval   "30"
+                command_utc_time_rendermode "static"
             }
         }
         children
