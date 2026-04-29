@@ -2,9 +2,7 @@
   "mcpServers": {
     "fetch": {
       "command": "uvx",
-      "args": [
-        "mcp-server-fetch"
-      ]
+      "args": ["mcp-server-fetch"]
     },
     "builder-mcp": {
       "command": "builder-mcp",
@@ -17,28 +15,11 @@
     },
     "drawio": {
       "command": "npx",
-      "args": [
-        "@next-ai-drawio/mcp-server@latest"
-      ]
+      "args": ["@next-ai-drawio/mcp-server@latest"]
+    },
+    "appsec-mcp": {
+      "command": "appsec-mcp",
+      "args": []
     }
-  },
-  "allowedTools": [
-    "fs_read",
-    "fetch",
-    "@hyperpod-mcp-servers/SCUDERIA_list_dev_tools",
-    "@hyperpod-mcp-servers/SCUDERIA_get_dev_tool_schema",
-    "@hyperpod-mcp-servers/CLOUDWATCH_get_alarms",
-    "@hyperpod-mcp-servers/CLOUDWATCH_get_metrics",
-    "@hyperpod-mcp-servers/CLOUDWATCH_get_log_groups",
-    "@hyperpod-mcp-servers/CLOUDWATCH_list_metrics",
-    "@hyperpod-mcp-servers/CLOUDWATCH_INSIGHTS_query_logs",
-    "@hyperpod-mcp-servers/SIM_get_ticket",
-    "@hyperpod-mcp-servers/SIM_get_title",
-    "@hyperpod-mcp-servers/SIM_get_description",
-    "@hyperpod-mcp-servers/SIM_get_comments",
-    "@hyperpod-mcp-servers/SIM_get_similar_tickets",
-    "@hyperpod-mcp-servers/BEDROCK_query_kb",
-    "@builder-mcp/InternalCodeSearch",
-    "@builder-mcp/InternalSearch"
-  ]
+  }
 }
