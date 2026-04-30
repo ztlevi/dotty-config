@@ -1,25 +1,39 @@
 {
-  "mcpServers": {
-    "fetch": {
-      "command": "uvx",
-      "args": ["mcp-server-fetch"]
+  "mcpServers" : {
+    "fetch" : {
+      "command" : "uvx",
+      "args" : [ "mcp-server-fetch" ]
     },
-    "builder-mcp": {
-      "command": "builder-mcp",
+    "builder-mcp" : {
+      "command" : "builder-mcp",
+      "args" : [ "--include-tools=ReadInternalWebsites,InternalCodeSearch,TicketingReadActions,InternalSearch,SkillsTool" ]
+    },
+    "scuderia-control-plane-mcp" : {
+      "command" : "scuderia-control-plane-mcp-server"
+    },
+    "drawio" : {
+      "command" : "npx",
+      "args" : [ "@next-ai-drawio/mcp-server@latest" ]
+    },
+    "appsec-mcp" : {
+      "command" : "appsec-mcp",
+      "args" : [ ]
+    },
+    "grasp-mcp": {
+      "autoApprove": [
+        "get_profile",
+        "get_calendar_availability",
+        "get_calendar_events"
+      ],
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "grasp-mcp",
       "args": [
-        "--include-tools=ReadInternalWebsites,InternalCodeSearch,TicketingReadActions,InternalSearch,SkillsTool"
-      ]
-    },
-    "scuderia-control-plane-mcp": {
-      "command": "scuderia-control-plane-mcp-server"
-    },
-    "drawio": {
-      "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"]
-    },
-    "appsec-mcp": {
-      "command": "appsec-mcp",
-      "args": []
+        "serve",
+        "--quiet"
+      ],
+      "env": {}
     }
   }
 }
