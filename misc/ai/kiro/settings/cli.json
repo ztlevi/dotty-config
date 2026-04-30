@@ -1,0 +1,12 @@
+{
+  "chat.enableSubagent": true,
+  "chat.defaultAgent": "default",
+  "chat.defaultModel": "claude-opus-4.7",
+  "chat.diffTool": "delta --side-by-side --paging=never",
+  "chat.enableCheckpoint": false,
+  "chat.enableKnowledge": false,
+  "chat.enableTangentMode": true,
+  "chat.enableThinking": true,
+  "chat.enableTodoList": false,
+  "mcp.loadedBefore": true
+}

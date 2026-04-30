@@ -1,0 +1,105 @@
+{
+  "model": "claude-opus-4.7",
+  "name": "default",
+  "description": "Agent configuration for HyperPod internal dev tasks -- ⚠️ This agent is managed by AIM. DO NOT EDIT MANUALLY.",
+  "resources": [
+    "file://AGENTS.md",
+    "file://src/*/AGENTS.md",
+    "file://~/.kiro/steering/**/*.md",
+    "file://.kiro/steering/*.md",
+    "file://src/*/.kiro/steering/*.md",
+    "skill://~/.kiro/skills/**/SKILL.md",
+    "skill://.kiro/skills/**/SKILL.md",
+    "skill://src/*/.kiro/skills/**/SKILL.md",
+    "file:///home/zhot/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/context/*"
+  ],
+  "mcpServers": {
+    "fetch" : {
+      "command" : "uvx",
+      "args" : [ "mcp-server-fetch" ]
+    },
+    "drawio" : {
+      "command" : "npx",
+      "args" : [ "@next-ai-drawio/mcp-server@latest" ]
+    },
+    "builder-mcp": {
+      "command": "builder-mcp",
+      "args": [
+        "--include-tools",
+        "BrazilBuildAnalyzerTool,InternalSearch,InternalCodeSearch,ReadInternalWebsites,WorkspaceSearch,QuipEditor,TaskeiCreateTask,TaskeiGetRoomResources,TaskeiGetRooms,TaskeiGetTask,TaskeiListTasks,TaskeiUpdateTask,SkillsTool",
+        "--agent-sop-paths",
+        "/home/zhot/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/agent-sops",
+        "--agent-sop-filter",
+        "*",
+        "--skill-paths",
+        "/home/zhot/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/skills",
+        "--skill-name-filter",
+        "*"
+      ]
+    },
+    "scuderia-control-plane-mcp": {
+      "command": "scuderia-control-plane-mcp-server"
+    },
+    "appsec-mcp" : {
+      "command" : "appsec-mcp",
+      "args" : [ ]
+    },
+    "grasp-mcp" : {
+      "autoApprove" : [ "get_profile", "get_calendar_availability", "get_calendar_events" ],
+      "disabled" : false,
+      "timeout" : 60,
+      "type" : "stdio",
+      "command" : "grasp-mcp",
+      "args" : [ "serve", "--quiet" ],
+      "env" : { }
+    },
+    "aws-knowledge": {
+      "url": "https://knowledge-mcp.global.api.aws",
+      "type": "http"
+    }
+  },
+  "tools": ["*"],
+  "toolsSettings": {
+    "shell": {
+      "autoAllowReadonly": true,
+      "allowedCommands": [
+        "ada profile list.*",
+        "brazil-build( .*)?",
+        "brazil-build-tool-exec .*",
+        "bun .*",
+        "cargo .*",
+        "date( .*)?",
+        "diff *",
+        "gh (api|issue (list|view)|pr (diff|view)) .*",
+        "git .*",
+        "jq .*",
+        "mkdir .*",
+        "python3 .*",
+        "rg .*",
+        "sleep .*"
+      ],
+      "deniedCommands": ["git push( .*)?", "git remote (add|remove|update) .*"]
+    }
+  },
+  "allowedTools": [
+    "read",
+    "write",
+    "code",
+    "glob",
+    "grep",
+    "report",
+    "subagent",
+    "web_search",
+    "@scuderia-control-plane-mcp",
+    "@builder-mcp",
+    "@aws-knowledge"
+  ],
+  "includeMcpJson": true,
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "aim agents publish-metrics --agent-name 'hyperpod-dev' --agent-package 'HyperPodAICapabilities-1.0' || true"
+      }
+    ]
+  }
+}
