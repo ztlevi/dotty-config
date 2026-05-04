@@ -3,5 +3,6 @@
     "AWS_PROFILE": "default",
     "CLAUDE_CODE_USE_BEDROCK": "1"
   },
-  "model": "us.anthropic.claude-opus-4-7[1m]"
+  "model": "us.anthropic.claude-opus-4-7[1m]",
+  "theme": "auto"
 }
