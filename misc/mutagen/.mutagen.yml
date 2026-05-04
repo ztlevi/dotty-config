@@ -71,6 +71,7 @@ sync:
         - "slurm-*.out"
         - .brazil
         - .brazil_trash
+        - .security-scan
 
         # Java
         - "annotation-generated-src"

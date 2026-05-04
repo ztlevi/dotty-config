@@ -122,3 +122,4 @@ annotation-generated-tst
 /out
 .bemol
 .smithy-project.json
+.security-scan
