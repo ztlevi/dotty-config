@@ -123,3 +123,5 @@ annotation-generated-tst
 .bemol
 .smithy-project.json
 .security-scan
+
+**/.claude/settings.local.json

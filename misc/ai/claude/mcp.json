@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {}
+    },
+    "drawio": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@next-ai-drawio/mcp-server@latest"
+      ],
+      "env": {}
+    },
+    "scuderia-control-plane-mcp": {
+      "type": "stdio",
+      "command": "scuderia-control-plane-mcp-server",
+      "args": [],
+      "env": {}
+    },
+    "appsec-mcp": {
+      "type": "stdio",
+      "command": "appsec-mcp",
+      "args": [],
+      "env": {}
+    },
+    "aws-knowledge": {
+      "type": "http",
+      "url": "https://knowledge-mcp.global.api.aws"
+    },
+    "builder-mcp": {
+      "type": "stdio",
+      "command": "builder-mcp",
+      "args": [
+        "--include-tools",
+        "BrazilBuildAnalyzerTool,InternalSearch,InternalCodeSearch,ReadInternalWebsites,WorkspaceSearch,QuipEditor,TaskeiCreateTask,TaskeiGetRoomResources,TaskeiGetRooms,TaskeiGetTask,TaskeiListTasks,TaskeiUpdateTask,SkillsTool",
+        "--agent-sop-paths",
+        "/home/zhot/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/agent-sops",
+        "--agent-sop-filter",
+        "*",
+        "--skill-paths",
+        "/home/zhot/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/skills",
+        "--skill-name-filter",
+        "*"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -4,5 +4,43 @@
     "CLAUDE_CODE_USE_BEDROCK": "1"
   },
   "model": "us.anthropic.claude-opus-4-7[1m]",
-  "theme": "auto"
+  "theme": "auto",
+  "permissions": {
+    "allow": [
+      "Bash(ada profile list *)",
+      "Bash(brazil-build)",
+      "Bash(brazil-build *)",
+      "Bash(brazil-build-tool-exec *)",
+      "Bash(bun *)",
+      "Bash(cargo *)",
+      "Bash(date)",
+      "Bash(date *)",
+      "Bash(diff *)",
+      "Bash(gh api *)",
+      "Bash(gh issue list *)",
+      "Bash(gh issue view *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr view *)",
+      "Bash(git *)",
+      "Bash(jq *)",
+      "Bash(mkdir *)",
+      "Bash(python3 *)",
+      "Bash(rg *)",
+      "Bash(sleep *)"
+    ],
+    "deny": [
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git remote add *)",
+      "Bash(git remote remove *)",
+      "Bash(git remote update *)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 10
+  }
 }
