@@ -3,18 +3,18 @@
     "fetch": {
       "type": "stdio",
       "command": "uvx",
-      "args": [
-        "mcp-server-fetch"
-      ],
+      "args": ["mcp-server-fetch"],
       "env": {}
     },
     "drawio": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "@next-ai-drawio/mcp-server@latest"
-      ],
+      "args": ["@next-ai-drawio/mcp-server@latest"],
       "env": {}
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
     },
     "scuderia-control-plane-mcp": {
       "type": "stdio",
