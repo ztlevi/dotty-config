@@ -1,10 +1,10 @@
 {
+  "enableAllProjectMcpServers": true,
   "env": {
     "AWS_PROFILE": "default",
     "CLAUDE_CODE_USE_BEDROCK": "1"
   },
   "model": "us.anthropic.claude-opus-4-7[1m]",
-  "theme": "auto",
   "permissions": {
     "allow": [
       "Bash(ada profile list *)",
@@ -36,11 +36,11 @@
       "Bash(git remote update *)"
     ]
   },
-  "enableAllProjectMcpServers": true,
   "statusLine": {
-    "type": "command",
     "command": "npx -y ccstatusline@latest",
     "padding": 0,
-    "refreshInterval": 10
-  }
+    "refreshInterval": 10,
+    "type": "command"
+  },
+  "theme": "auto"
 }
