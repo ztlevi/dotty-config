@@ -7,6 +7,10 @@
     "drawio" : {
       "command" : "npx",
       "args" : [ "@next-ai-drawio/mcp-server@latest" ]
+    },
+    "ai-community-slack-mcp" : {
+      "command" : "ai-community-slack-mcp",
+      "args" : [ ]
     }
   }
 }
