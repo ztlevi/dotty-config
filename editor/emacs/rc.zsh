@@ -24,21 +24,21 @@ alias et="unset SSH_TTY && emacs -nw"
 alias ec="emacsclient"
 alias e.="emacsclient ."
 alias se="sudo -E emacs"
-function doom() {
+doom() {
   env doom "$@"
 }
 alias magit="emacsclient -n -e \(magit-status\)"
 alias ke="pkill -SIGUSR2 -i emacs"
 alias edebug="emacs --debug-init"
 alias etime="emacs --timed-requires --profile"
-function ctagsl() {
+ctagsl() {
   # Input: e.g. c,c++,python
   ctags --languages=$@ --kinds-all='*' --fields='*' --extras='*' -R
 }
 
 ediff() { e --eval "(ediff-files \"$1\" \"$2\")"; }
 
-function use-doom() {
+use-doom() {
   if [ -d "$HOME/.emacs.d-doom" ]; then
     mv ~/.emacs.d ~/.emacs.d-spacemacs && mv ~/.emacs.d-doom ~/.emacs.d
   else
@@ -46,7 +46,7 @@ function use-doom() {
   fi
 }
 
-function use-spacemacs() {
+use-spacemacs() {
   if [ -d "$HOME/.emacs.d-spacemacs" ]; then
     mv ~/.emacs.d ~/.emacs.d-doom && mv ~/.emacs.d-spacemacs ~/.emacs.d
   else

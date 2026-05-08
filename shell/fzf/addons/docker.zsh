@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Select a docker container to start and attach to
-function dka() {
+dka() {
   local cid
   cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 

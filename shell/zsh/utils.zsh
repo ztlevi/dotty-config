@@ -210,7 +210,7 @@ EOF
   rm -f ${DOTTY_UPDATE_LOG}
 }
 alias uu='update_dotty'
-function uuh() {
+uuh() {
   git -C $XDG_CONFIG_HOME/dotty reset --hard HEAD
   git -C $XDG_CONFIG_HOME/dotty/config reset --hard HEAD
   update_dotty

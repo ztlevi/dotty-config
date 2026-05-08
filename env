@@ -29,7 +29,7 @@ function echo-skip-b { printf "${fg[white]}${bg[black]}[SKIP] ${reset_color} $*\
 function echo-ok-b   { printf "${fg[white]}${bg[green]}[ OK ] ${reset_color} $*\n"; }
 function echo-fail-b { printf "${fg[white]}${bg[red]}[FAIL] ${reset_color} $*\n"; }
 
-function dotty(){
+dotty(){
   $DOTTY_HOME/deploy $@
   # source/export during $DOTTY_HOME/deploy does not work. Use source to load it.
   _load_all env.zsh
@@ -45,44 +45,44 @@ for dir in "$XDG_CACHE_HOME" "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_BIN_HOME"
 done
 
 ## Library
-function _is_interactive() { [[ $- == *i* || -n $EMACS ]]; }
+_is_interactive() { [[ $- == *i* || -n $EMACS ]]; }
 
-function _is_running() {
+_is_running() {
   for prc in "$@"; do
     pgrep -x "$prc" >/dev/null || return 1
   done
 }
 
-function _is_callable() {
+_is_callable() {
   for cmd in "$@"; do
     command -v "$cmd" >/dev/null || return 1
   done
 }
 
-function _run() {
+_run() {
   if _is_callable "$1" && ! _is_running "$1"; then
     "$@"
   fi
 }
 
-function _call() {
+_call() {
   if _is_callable "$1"; then
     "$@"
   fi
 }
 
-function _source() {
+_source() {
   [[ -f $1 ]] && source "$1"
 }
 
-function _load() {
+_load() {
   case $1 in
     /*) source "$1" ;;
     *) source "$DOTTY_CONFIG_HOME/$1" ;;
   esac
 }
 
-function _load_all() {
+_load_all() {
   mkdir -p $DOTTY_DATA_HOME
   local topics=($(ls $DOTTY_DATA_HOME))
   if [[ ${#topics} -gt 0 ]]; then
@@ -92,11 +92,11 @@ function _load_all() {
   fi
 }
 
-function _load_repo() {
+_load_repo() {
   _ensure_repo "$1" "$2" && source "$2/$3" || echo >&2 "Failed to load $1"
 }
 
-function _ensure_repo() {
+_ensure_repo() {
   local target=$1
   local dest=$2
   if [[ ! -d $dest ]]; then
@@ -112,7 +112,7 @@ function _ensure_repo() {
   fi
 }
 
-function _os() {
+_os() {
   case $OSTYPE in
     linux*)
       if [[ -f /etc/nix/nix.conf ]]; then
@@ -133,7 +133,7 @@ function _os() {
   esac
 }
 
-function _cache() {
+_cache() {
   command -v "$2" >/dev/null || return 1
   local cache_dir="$XDG_CACHE_HOME/${SHELL##*/}"
   local cache="$cache_dir/$1"
@@ -145,7 +145,7 @@ function _cache() {
   source $cache || rm -f $cache
 }
 
-function _cache_clear() {
+_cache_clear() {
   command rm -rf $XDG_CACHE_HOME/${SHELL##*/}
 }
 
@@ -178,7 +178,7 @@ function mklink {
   done
 }
 
-function get_github_latest_release_url() {
+get_github_latest_release_url() {
   # Function "get_github_latest_release_url": get repo's latest release download url
   # Requirement: jq needs to be installed
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function icon_map() {
+icon_map() {
   case "$1" in
   "Typora")
     icon_result=":text:"

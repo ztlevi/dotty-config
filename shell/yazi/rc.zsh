@@ -1,4 +1,4 @@
-function ya() {
+ya() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
@@ -6,7 +6,7 @@ function ya() {
 	rm -f -- "$tmp"
 }
 
-function widget-yazi-cd() {
+widget-yazi-cd() {
   BUFFER="ya"
   zle accept-line
 }

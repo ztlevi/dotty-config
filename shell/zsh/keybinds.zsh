@@ -8,7 +8,7 @@ autoload -U is-at-least
 
 # Copied from https://github.com/jeffreytse/zsh-vi-mode/blob/master/zsh-vi-mode.zsh
 # Edit command line in EDITOR
-function edit_command_line() {
+edit_command_line() {
   # Create a temporary file and save the BUFFER to it
   local tmp_file=$(mktemp ${ZVM_TMPDIR}/zshXXXXXX)
 

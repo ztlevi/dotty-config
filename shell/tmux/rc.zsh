@@ -9,7 +9,7 @@ alias tksv='tmux kill-server'
 alias trs='tmux rename-session'
 alias trw='tmux rename-window'
 
-function tkss() {
+tkss() {
   if [[ -n $(tmux ls | rg $1) ]]; then
     tmux kill-session -t $1
   fi

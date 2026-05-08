@@ -55,10 +55,10 @@ alias wget='wget -c' # Resume dl if possible
 alias cssh='$EDITOR $HOME/.ssh/config'
 
 alias ag="ag -p $XDG_CONFIG_HOME/ag/agignore"
-function prg() {ps aux | rg -i $@}
-function grep_search() { echo $2 | grep -qiP $1; }
-function rg_search() { echo $2 | rg -qS $1; }
-function vread() {
+prg() {ps aux | rg -i $@}
+grep_search() { echo $2 | grep -qiP $1; }
+rg_search() { echo $2 | rg -qS $1; }
+vread() {
   (
     $@ > /tmp/dummy_vread_file
     nvim +Man! /tmp/dummy_vread_file
@@ -81,7 +81,7 @@ _is_callable direnv && alias da="direnv allow"
 take() { mkdir "$1" && cd "$1"; }
 hex() { echo -n $@ | xxd -psdu; }
 
-function format-all-dos2unix() {
+format-all-dos2unix() {
   if [[ -z $1 ]]; then
     echo "Missing file extension as first argument, e.g. java..."
   fi
@@ -90,7 +90,7 @@ function format-all-dos2unix() {
   done
 }
 
-function format-all-shfmt() {
+format-all-shfmt() {
   fd -x shfmt -w -ci -i 2 -ln bash {} \; --regex '_init' .
   fd -x shfmt -w -ci -i 2 -ln bash {} \; -e zsh -e sh .
 }

@@ -1,4 +1,4 @@
-function joshuto-cd() {
+joshuto-cd() {
   # TODO: remove this once nixos joshuto version updated
   if [[ $(_os) == 'linux-nixos' ]]; then
     joshuto
@@ -30,7 +30,7 @@ function joshuto-cd() {
   esac
 }
 
-function widget-joshuto-cd() {
+widget-joshuto-cd() {
   BUFFER="joshuto-cd"
   zle accept-line
 }

@@ -27,7 +27,7 @@ elif _is_callable xsel; then
   alias p='xsel -o --clipboard'
 fi
 
-function ppalist() {
+ppalist() {
   for APT in $(find /etc/apt/ -name \*.list); do
     grep -o "^deb http://ppa.launchpad.net/[a-z0-9\-]\+/[a-z0-9\-]\+" $APT | while read ENTRY; do
       CURRENT_USER=$(echo $ENTRY | cut -d/ -f4)

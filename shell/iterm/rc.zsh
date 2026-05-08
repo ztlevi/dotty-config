@@ -1,5 +1,5 @@
 alias ot="iterm-new-tab"
-function iterm-new-tab() {
+iterm-new-tab() {
   local cdto="$PWD"
   local args="$@"
 

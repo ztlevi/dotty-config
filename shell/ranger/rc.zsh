@@ -1,4 +1,4 @@
-function ranger-cd() {
+ranger-cd() {
   tmpfile='/tmp/choosedir'
   tempres='/tmp/ranger_temp_res'
   rm -f "$tempres"
@@ -11,7 +11,7 @@ function ranger-cd() {
   rm -f "$tmpfile"
 }
 
-function widget-ranger-cd() {
+widget-ranger-cd() {
   BUFFER="ranger-cd"
   zle accept-line
 }

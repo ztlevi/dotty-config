@@ -1,6 +1,6 @@
 alias gpg-restart="gpgconf --kill gpg-agent"
 
-function test-ssh-connection() {
+test-ssh-connection() {
   server=$1         # server IP
   port=22           # port
   connect_timeout=5 # Connection timeout
@@ -15,7 +15,7 @@ function test-ssh-connection() {
   fi
 }
 
-function generate-ssh-gpg-config() {
+generate-ssh-gpg-config() {
   # Test the ssh connection before you gneretae the ssh config that enables gpg forwarding
   # Args:
   # connection_name: e.g. kuro
@@ -49,7 +49,7 @@ host ${connection_name}
 EOF
 }
 
-function ssh-with-gpg-socket-deleted() {
+ssh-with-gpg-socket-deleted() {
   # You can either add `StreamLocalBindUnlink yes` to your /etc/ssh/sshd_config
   # Or, delete the remote gpg socket file before ssh.
   # Typically, kill gpg-agent will delete the socket files

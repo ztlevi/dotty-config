@@ -16,14 +16,14 @@ alias git-scan-secrets="git secrets --scan-history"
 
 # Use after you change your branch name from master to main
 # https://github.com/<user>/<project-name>/settings/branches
-function git-rename-master-to-main() {
+git-rename-master-to-main() {
   git branch -m master main
   git fetch origin
   git branch -u origin/main main
   git remote set-head origin -a
 }
 
-function git-copy-hooks() {
+git-copy-hooks() {
   if [[ -d ".git" ]]; then
     rm -rf ".git/hooks"
     cp -R $DOTTY_CONFIG_HOME/shell/git/template/hooks .git/
@@ -33,14 +33,14 @@ function git-copy-hooks() {
   fi
 }
 
-function git-reset-submodules () {
+git-reset-submodules() {
   git submodule deinit -f .
   git clean -fdx -f
   git submodule update --init --recursive -j 8
 
 }
 
-function gitz () {
+gitz() {
   git config user.name "Ting Zhou"
   git config user.email "ztlevi.work@gmail.com"
 
