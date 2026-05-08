@@ -37,7 +37,7 @@ function edit_command_line() {
 }
 # Open current prompt in external editor
 zle -N edit-command-line
-bindkey '^ ' edit-command-line
+bindkey '^V' edit-command-line
 
 # clear screen does not wipe all output completely in Zellij. Use force reset prompt to clear screen instead.
 clear-screen-completely() {
