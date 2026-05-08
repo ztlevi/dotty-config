@@ -5,8 +5,7 @@
     {
       "context": "Chat",
       "bindings": {
-        "ctrl+g": null,
-        "ctrl+v": "chat:externalEditor"
+        "ctrl+g": "chat:externalEditor"
       }
     }
   ]
