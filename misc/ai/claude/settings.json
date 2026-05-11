@@ -60,9 +60,7 @@
     ]
   },
   "statusLine": {
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "refreshInterval": 10,
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal",
     "type": "command"
   },
   "theme": "auto",
