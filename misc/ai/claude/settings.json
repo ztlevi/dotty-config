@@ -38,7 +38,18 @@
       "Bash(mkdir *)",
       "Bash(python3 *)",
       "Bash(rg *)",
-      "Bash(sleep *)"
+      "Bash(sleep *)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Task",
+      "WebSearch",
+      "WebFetch",
+      "mcp__scuderia-control-plane-mcp",
+      "mcp__builder-mcp",
+      "mcp__aws-knowledge"
     ],
     "deny": [
       "Bash(git push)",
