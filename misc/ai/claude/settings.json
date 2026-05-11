@@ -60,7 +60,7 @@
     ]
   },
   "statusLine": {
-    "command": "npx -y @owloops/claude-powerline@latest --style=minimal",
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=tokyo-night",
     "type": "command"
   },
   "theme": "auto",
