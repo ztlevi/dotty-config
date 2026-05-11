@@ -12,10 +12,6 @@
       "args": ["@next-ai-drawio/mcp-server@latest"],
       "env": {}
     },
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    },
     "scuderia-control-plane-mcp": {
       "type": "stdio",
       "command": "scuderia-control-plane-mcp-server",

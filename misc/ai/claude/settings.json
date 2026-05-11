@@ -1,10 +1,15 @@
 {
   "enableAllProjectMcpServers": true,
   "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
     "frontend-slides@frontend-slides": true,
     "gopls-lsp@claude-plugins-official": true,
     "jdtls-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
   "env": {
