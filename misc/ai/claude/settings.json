@@ -1,7 +1,11 @@
 {
   "enableAllProjectMcpServers": true,
   "enabledPlugins": {
-    "frontend-slides@frontend-slides": true
+    "frontend-slides@frontend-slides": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "env": {
     "AWS_PROFILE": "claude-code-DO-NOT-DELETE",
@@ -60,7 +64,7 @@
     ]
   },
   "statusLine": {
-    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=tokyo-night",
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=light",
     "type": "command"
   },
   "theme": "auto",
