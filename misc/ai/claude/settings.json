@@ -1,9 +1,22 @@
 {
+  "enableAllProjectMcpServers": true,
+  "enabledPlugins": {
+    "frontend-slides@frontend-slides": true
+  },
   "env": {
     "AWS_PROFILE": "claude-code-DO-NOT-DELETE",
     "AWS_REGION": "us-west-2",
     "CLAUDE_CODE_USE_BEDROCK": "1"
   },
+  "extraKnownMarketplaces": {
+    "frontend-slides": {
+      "source": {
+        "repo": "zarazhangrui/frontend-slides",
+        "source": "github"
+      }
+    }
+  },
+  "model": "us.anthropic.claude-opus-4-7[1m]",
   "permissions": {
     "allow": [
       "Bash(ada profile list *)",
@@ -35,25 +48,12 @@
       "Bash(git remote update *)"
     ]
   },
-  "model": "us.anthropic.claude-opus-4-7[1m]",
-  "enableAllProjectMcpServers": true,
   "statusLine": {
-    "type": "command",
     "command": "npx -y ccstatusline@latest",
     "padding": 0,
-    "refreshInterval": 10
-  },
-  "extraKnownMarketplaces": {
-    "frontend-slides": {
-      "source": {
-        "source": "github",
-        "repo": "zarazhangrui/frontend-slides"
-      }
-    }
+    "refreshInterval": 10,
+    "type": "command"
   },
   "theme": "auto",
-  "tui": "fullscreen",
-  "enabledPlugins": {
-    "frontend-slides@frontend-slides": true
-  }
+  "tui": "fullscreen"
 }
