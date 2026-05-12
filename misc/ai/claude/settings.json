@@ -48,6 +48,8 @@
       "Bash(python3 *)",
       "Bash(rg *)",
       "Bash(sleep *)",
+      "Skill(code-review:code-review)",
+      "LSP",
       "Read",
       "Write",
       "Edit",
