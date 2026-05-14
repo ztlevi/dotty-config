@@ -1,4 +1,8 @@
 {
+  "availableModels": [
+    "opus",
+    "sonnet"
+  ],
   "enableAllProjectMcpServers": true,
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true,

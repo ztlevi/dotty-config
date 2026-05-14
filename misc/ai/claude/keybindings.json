@@ -5,7 +5,15 @@
     {
       "context": "Chat",
       "bindings": {
-        "ctrl+g": "chat:externalEditor"
+        "ctrl+g": "chat:externalEditor",
+        "ctrl+x ctrl+d": "chat:killAgents"
+      }
+    },
+    {
+      "context": "Task",
+      "bindings": {
+        "ctrl+b": null,
+        "ctrl+x ctrl+x": "task:background"
       }
     }
   ]
