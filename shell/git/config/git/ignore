@@ -124,4 +124,6 @@ annotation-generated-tst
 .smithy-project.json
 .security-scan
 
-**/.claude/settings.local.json
+# AI
+**/.claude
+**/.regent
