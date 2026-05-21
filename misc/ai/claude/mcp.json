@@ -34,10 +34,6 @@
       "args": [
         "--include-tools",
         "BrazilBuildAnalyzerTool,InternalSearch,InternalCodeSearch,ReadInternalWebsites,WorkspaceSearch,QuipEditor,TaskeiCreateTask,TaskeiGetRoomResources,TaskeiGetRooms,TaskeiGetTask,TaskeiListTasks,TaskeiUpdateTask,SkillsTool",
-        "--agent-sop-paths",
-        "~/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/agent-sops",
-        "--agent-sop-filter",
-        "*",
         "--skill-paths",
         "~/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/skills",
         "--skill-name-filter",
