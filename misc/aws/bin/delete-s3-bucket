@@ -2,9 +2,21 @@
 local bucket="$1"
 echo "Deleting $bucket..."
 
-# # Remove current objects
+# Bulk-remove most objects (fast path)
 s5cmd rm --all-versions "s3://$bucket/*" || true
 
-sleep 3
+# Sweep up anything s5cmd missed (e.g. folder-placeholder keys ending in '/',
+# stray versions, delete markers) using paginated delete-objects calls.
+while :; do
+  payload="$(aws s3api list-object-versions --bucket "$bucket" --max-items 1000 \
+    --query '{Objects: (Versions[].{Key:Key,VersionId:VersionId} || `[]`)[*] | concat(@, (DeleteMarkers[].{Key:Key,VersionId:VersionId} || `[]`)[*]), Quiet: `true`}' \
+    --output json 2>/dev/null)"
+  count="$(echo "$payload" | jq '.Objects | length')"
+  if [[ -z "$count" || "$count" == "0" ]]; then
+    break
+  fi
+  aws s3api delete-objects --bucket "$bucket" --delete "$payload" >/dev/null || break
+done
+
 # Delete bucket
 s5cmd rb "s3://$bucket" || true
