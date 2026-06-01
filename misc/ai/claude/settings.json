@@ -1,52 +1,10 @@
 {
-  "availableModels": [
-    "opus",
-    "sonnet"
-  ],
-  "enableAllProjectMcpServers": true,
-  "enabledPlugins": {
-    "AmazonBuilderCoreAIAgents-core@aim": true,
-    "AmazonBuilderCoreAIAgents-pipeline-assistant@aim": true,
-    "claude-code-setup@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "frontend-slides@frontend-slides": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "jdtls-lsp@claude-plugins-official": true,
-    "planning-with-files@planning-with-files": true,
-    "playwright@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "BuilderInsightsAgents-all@aim": true
-  },
+  "awsCredentialExport": "\"/home/zhot/.toolbox/bin/claude\" default-credential-export",
   "env": {
     "CLAUDE_CODE_USE_BEDROCK": "1",
     "AWS_REGION": "us-west-2"
   },
-  "extraKnownMarketplaces": {
-    "aim": {
-      "source": {
-        "path": "/local/home/zhot/.aim/cc-plugins",
-        "source": "directory"
-      }
-    },
-    "frontend-slides": {
-      "source": {
-        "repo": "zarazhangrui/frontend-slides",
-        "source": "github"
-      }
-    },
-    "planning-with-files": {
-      "source": {
-        "repo": "OthmanAdi/planning-with-files",
-        "source": "github"
-      }
-    }
-  },
   "includeCoAuthoredBy": false,
-  "model": "us.anthropic.claude-opus-4-7[1m]",
   "permissions": {
     "allow": [
       "Bash(ada profile list *)",
@@ -91,11 +49,54 @@
       "Bash(git remote update *)"
     ]
   },
+  "model": "sonnet",
+  "availableModels": [
+    "opus",
+    "sonnet"
+  ],
+  "enableAllProjectMcpServers": true,
   "statusLine": {
-    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=light",
-    "type": "command"
+    "type": "command",
+    "command": "npx -y @owloops/claude-powerline@latest --style=minimal --theme=light"
   },
-  "theme": "auto",
+  "enabledPlugins": {
+    "AmazonBuilderCoreAIAgents-core@aim": true,
+    "AmazonBuilderCoreAIAgents-pipeline-assistant@aim": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "frontend-slides@frontend-slides": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "planning-with-files@planning-with-files": true,
+    "playwright@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "BuilderInsightsAgents-all@aim": true
+  },
+  "extraKnownMarketplaces": {
+    "aim": {
+      "source": {
+        "source": "directory",
+        "path": "/local/home/zhot/.aim/cc-plugins"
+      }
+    },
+    "frontend-slides": {
+      "source": {
+        "source": "github",
+        "repo": "zarazhangrui/frontend-slides"
+      }
+    },
+    "planning-with-files": {
+      "source": {
+        "source": "github",
+        "repo": "OthmanAdi/planning-with-files"
+      }
+    }
+  },
   "tui": "fullscreen",
-  "awsCredentialExport": "\"/home/zhot/.toolbox/bin/claude\" default-credential-export"
+  "theme": "auto",
+  "planModeModel": "global.anthropic.claude-opus-4-7[1m]"
 }
