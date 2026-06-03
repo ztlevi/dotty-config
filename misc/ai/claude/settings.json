@@ -49,7 +49,7 @@
       "Bash(git remote update *)"
     ]
   },
-  "model": "sonnet",
+  "model": "global.anthropic.claude-opus-4-8[1m]",
   "availableModels": [
     "opus",
     "sonnet"
@@ -98,5 +98,5 @@
   },
   "tui": "fullscreen",
   "theme": "auto",
-  "planModeModel": "global.anthropic.claude-opus-4-7[1m]"
+  "planModeModel": "global.anthropic.claude-opus-4-8[1m]"
 }
