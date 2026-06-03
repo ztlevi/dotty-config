@@ -45,6 +45,7 @@ sync:
 
         # VSCode
         - "__debug_bin*"
+        - "debug.test*"
 
         # AI tools
         - ".aider*"
