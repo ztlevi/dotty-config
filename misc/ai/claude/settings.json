@@ -74,7 +74,8 @@
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "BuilderInsightsAgents-all@aim": true
+    "BuilderInsightsAgents-all@aim": true,
+    "aws-core@agent-toolkit-for-aws": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -93,6 +94,12 @@
       "source": {
         "source": "github",
         "repo": "OthmanAdi/planning-with-files"
+      }
+    },
+    "agent-toolkit-for-aws": {
+      "source": {
+        "source": "github",
+        "repo": "aws/agent-toolkit-for-aws"
       }
     }
   },
