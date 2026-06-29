@@ -18,6 +18,10 @@
       "args": [],
       "env": {}
     },
+    "local-chorus-mcp": {
+      "command": "local-chorus-mcp",
+      "args": []
+    },
     "appsec-mcp": {
       "type": "stdio",
       "command": "appsec-mcp",
