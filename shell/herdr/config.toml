@@ -20,7 +20,7 @@
 # `herdr --default-config` to see whether more keys (foreground/background/
 # cursor/selection, black/magenta/cyan/white) are supported and add them.
 [theme]
-name = "one-light"
+name = "catppuccin-latte"
 
 [theme.custom]
 panel_bg = "#f5f5f9"    # acario background
