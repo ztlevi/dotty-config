@@ -1,0 +1,97 @@
+# herdr configuration -- https://herdr.dev
+#
+# Keybindings mirror the tmux (shell/tmux/tmux.conf) and zellij
+# (shell/zellij/config/config.kdl) topics so muscle memory carries over:
+#   - prefix is Ctrl-t (same as tmux; herdr ships with Ctrl-b)
+#   - h/j/k/l focus panes, Shift+h/j/k/l swap panes
+#   - v / s split panes, x closes the pane, z zooms
+#   - n / p cycle tabs, prefix+[ enters copy mode
+#
+# Print the full authoritative default config with: herdr --default-config
+
+# --- Theme ------------------------------------------------------------------
+# Match the alacritty "acario-light" theme
+# (config/shell/alacritty/config/alacritty/theme-acario-light.yml).
+#
+# herdr ships built-in themes but has no acario-light, so use the closest light
+# base ("one-light") and override the accent palette with acario's colors via
+# [theme.custom]. Only the color keys documented by herdr are set here
+# (panel_bg, accent, green, blue, red, yellow); after installing, run
+# `herdr --default-config` to see whether more keys (foreground/background/
+# cursor/selection, black/magenta/cyan/white) are supported and add them.
+[theme]
+name = "one-light"
+
+[theme.custom]
+panel_bg = "#f5f5f9"    # acario background
+accent = "#009B7C"      # acario green / cursor
+green = "#009B7C"
+blue = "#1F55A0"
+red = "#D70000"
+yellow = "#AF8700"
+
+[keys]
+# tmux uses Ctrl-t as its prefix; reuse it here (Ctrl-b is left for readline).
+prefix = "ctrl+t"
+
+# --- Tabs (tmux "windows" / zellij "tabs") ---------------------------------
+new_tab = "prefix+n"                    # tmux: prefix n  | zellij: n
+close_tab = "prefix+shift+x"            # zellij: X
+rename_tab = "prefix+shift+t"
+# tmux M-H / M-L cycle windows; keep herdr's n/p plus the alt shortcuts.
+next_tab = ["prefix+p", "alt+shift+l"]
+previous_tab = ["prefix+shift+p", "alt+shift+h"]
+switch_tab = "prefix+1..9"              # tmux/zellij: prefix 1..9
+
+# --- Pane focus (vim-style, matches tmux + zellij h/j/k/l) ------------------
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# --- Pane swap (tmux prefix Shift+h/j/k/l) ---------------------------------
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+
+# --- Pane lifecycle ---------------------------------------------------------
+# tmux: prefix v = vertical split (side-by-side), prefix s = horizontal split.
+split_vertical = "prefix+v"
+split_horizontal = "prefix+s"
+close_pane = "prefix+x"                 # zellij: x
+zoom = "prefix+z"                       # zellij: z (toggle frames) / tmux zoom
+resize_mode = "prefix+r"
+toggle_sidebar = "prefix+b"
+
+# --- Copy mode (tmux prefix [ ) --------------------------------------------
+copy_mode = "prefix+["
+
+# --- Session / detach (tmux: C-t d) ----------------------------------------
+detach = "prefix+d"
+goto = "prefix+g"                       # session navigator
+
+# --- Workspaces -------------------------------------------------------------
+workspace_picker = "prefix+w"
+new_workspace = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+new_worktree = "prefix+shift+g"
+switch_workspace = "prefix+shift+1..9"
+
+# --- Navigate-mode plain keys (vim-style, mirrors zellij locked nav) --------
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+# --- Custom commands --------------------------------------------------------
+# Reload the config at runtime, matching tmux's "prefix R" (source-file).
+# herdr has no built-in reload keybinding, so run the CLI reload detached.
+[[keys.command]]
+key = "prefix+shift+r"
+type = "shell"
+command = "herdr server reload-config"
+description = "reload herdr config"
