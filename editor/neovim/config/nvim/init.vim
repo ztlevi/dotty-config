@@ -11,9 +11,18 @@ else
     set background=light
 endif
 
-" Enable clipboard copy over SSH
-if !empty($SSH_TTY)
-	let g:clipboard = 'osc52'
+" Use OSC 52 for clipboard when no local display is available (SSH, tmux,
+" bare terminal). Falls back to system tools (xclip/pbcopy/...) when a
+" display exists.
+if empty($DISPLAY) && empty($WAYLAND_DISPLAY)
+lua << EOF
+  local osc52 = require('vim.ui.clipboard.osc52')
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = { ['+'] = osc52.copy('+'), ['*'] = osc52.copy('*') },
+    paste = { ['+'] = osc52.paste('+'), ['*'] = osc52.paste('*') },
+  }
+EOF
 endif
 
 " Enable global clipboard
