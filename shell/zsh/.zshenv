@@ -18,6 +18,7 @@ _is_callable nvim && export MANPAGER="nvim +Man!"
 
 # No github credentials
 export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 export HOMEBREW_NO_ASK=true1
 
 # Load homebrew env more eagerly here. Make sure HOMEBREW_PREFIX is set before `_load_all env.zsh`
