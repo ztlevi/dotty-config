@@ -51,7 +51,7 @@ bindkey '^L' clear-screen-completely
 
 bindkey -M viins '^K' kill-line
 bindkey -M viins '^U' backward-kill-line
-bindkey -M viins '^W' backward-kill-word
+# bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^H' backward-delete-char
 bindkey -M viins '^?' backward-delete-char # backspace key
 bindkey -M viins '^D' delete-char
