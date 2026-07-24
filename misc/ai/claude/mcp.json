@@ -6,12 +6,6 @@
       "args": ["mcp-server-fetch"],
       "env": {}
     },
-    "drawio": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@next-ai-drawio/mcp-server@latest"],
-      "env": {}
-    },
     "scuderia-control-plane-mcp": {
       "type": "stdio",
       "command": "scuderia-control-plane-mcp-server",
@@ -20,6 +14,14 @@
     },
     "local-chorus-mcp": {
       "command": "local-chorus-mcp",
+      "args": []
+    },
+    "pippin-mcp": {
+      "command": "pippin-mcp-server",
+      "args": []
+    },
+    "software-builder-insights-prod-mcp": {
+      "command": "software-builder-insights-prod-mcp",
       "args": []
     },
     "appsec-mcp": {
@@ -33,17 +35,13 @@
       "url": "https://knowledge-mcp.global.api.aws"
     },
     "builder-mcp": {
-      "type": "stdio",
       "command": "builder-mcp",
       "args": [
-        "--include-tools",
-        "BrazilBuildAnalyzerTool,InternalSearch,InternalCodeSearch,ReadInternalWebsites,WorkspaceSearch,QuipEditor,TaskeiCreateTask,TaskeiGetRoomResources,TaskeiGetRooms,TaskeiGetTask,TaskeiListTasks,TaskeiUpdateTask,SkillsTool",
         "--skill-paths",
         "~/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/skills",
         "--skill-name-filter",
         "*"
-      ],
-      "env": {}
+      ]
     }
   }
 }
