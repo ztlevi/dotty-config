@@ -20,7 +20,7 @@ symbol = " "
 
 # Customize the claude-code profile
 [profiles]
-claude-code = "$claude_model$claude_context$claude_cost"
+claude-code = "$directory$claude_model$claude_context$claude_cost"
 
 # Configure individual modules
 [claude_model]
