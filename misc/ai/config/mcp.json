@@ -15,6 +15,10 @@
     "pippin-mcp" : {
       "command" : "pippin-mcp-server",
       "args" : [ ]
+    },
+    "local-chorus-mcp" : {
+      "command" : "local-chorus-mcp",
+      "args" : [ ]
     }
   }
 }
