@@ -11,7 +11,7 @@ sync:
     symlink:
       mode: ignore
     ignore:
-      vcs: true
+      vcs: false
       paths:
         # Git
         - .git/index.lock
