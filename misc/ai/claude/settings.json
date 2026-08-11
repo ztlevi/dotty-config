@@ -49,7 +49,6 @@
       "Bash(git remote update *)"
     ]
   },
-  "model": "global.anthropic.claude-opus-5[1m]",
   "availableModels": [
     "claude-opus-4-6[1m]",
     "claude-opus-4-6",
@@ -72,20 +71,20 @@
     "command": "input=$(cat); cd \"$(printf '%s' \"$input\" | jq -r '.workspace.current_dir // .cwd')\" 2>/dev/null; printf '%s' \"$input\" | starship statusline claude-code"
   },
   "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true,
     "AmazonBuilderCoreAIAgents-core@aim": true,
     "AmazonBuilderCoreAIAgents-pipeline-assistant@aim": true,
     "claude-code-setup@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "frontend-slides@frontend-slides": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "jdtls-lsp@claude-plugins-official": true,
     "planning-with-files@planning-with-files": true,
     "playwright@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
     "BuilderInsightsAgents-all@aim": true,
     "aws-core@agent-toolkit-for-aws": true,
     "HyperPodAIAgents-all@aim": true,
@@ -119,6 +118,7 @@
   },
   "tui": "fullscreen",
   "theme": "auto",
+  "model": "global.anthropic.claude-sonnet-5",
   "planModeModel": "global.anthropic.claude-opus-4-8[1m]",
   "modelOverrides": {
     "claude-opus-4-6[1m]": "global.anthropic.claude-opus-4-6-v1[1m]",
