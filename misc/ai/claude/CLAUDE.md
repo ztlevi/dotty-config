@@ -10,3 +10,7 @@ Still prioritize built-in tools (Read/Edit/Grep/Glob) over Bash where applicable
 ## Scuderia context
 
 @~/dev/work/context/scuderia-context.md
+
+## CRUX / cr troubleshooting
+
+@~/dev/work/context/crux-context.md
