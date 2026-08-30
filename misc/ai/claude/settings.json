@@ -4,6 +4,9 @@
     "CLAUDE_CODE_USE_BEDROCK": "1",
     "AWS_REGION": "us-west-2"
   },
+  "worktree": {
+    "bgIsolation": "none"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "auto",
