@@ -127,3 +127,4 @@ annotation-generated-tst
 # AI
 **/.claude
 **/.regent
+.playwright-mcp

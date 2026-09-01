@@ -51,7 +51,9 @@ sync:
         - "debug.test*"
 
         # AI tools
-        - ".aider*"
+        - "**/.claude"
+        - "**/.regent"
+        - ".playwright-mcp"
 
         # Amazon tools
         - ".rde"
