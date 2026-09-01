@@ -121,7 +121,7 @@
     }
   },
   "tui": "fullscreen",
-  "theme": "auto",
+  "theme": "light-daltonized",
   "model": "global.anthropic.claude-sonnet-5",
   "planModeModel": "global.anthropic.claude-opus-4-8[1m]",
   "modelOverrides": {
