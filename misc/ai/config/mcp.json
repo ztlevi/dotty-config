@@ -4,10 +4,6 @@
       "command" : "uvx",
       "args" : [ "mcp-server-fetch" ]
     },
-    "drawio" : {
-      "command" : "npx",
-      "args" : [ "@next-ai-drawio/mcp-server@latest" ]
-    },
     "creds-agent" : {
       "command" : "aim",
       "args" : [ "mcp", "start-server", "local-creds-agent-mcp" ]

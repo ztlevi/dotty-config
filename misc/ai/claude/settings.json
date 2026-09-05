@@ -91,8 +91,7 @@
     "superpowers@claude-plugins-official": true,
     "BuilderInsightsAgents-all@aim": true,
     "aws-core@agent-toolkit-for-aws": true,
-    "HyperPodAIAgents-all@aim": true,
-    "ScuderiaControlPlaneAICapabilities-all@aim": true
+    "HyperPodAIAgents-all@aim": true
   },
   "extraKnownMarketplaces": {
     "aim": {

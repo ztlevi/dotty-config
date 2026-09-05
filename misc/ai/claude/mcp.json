@@ -7,10 +7,14 @@
       "env": {}
     },
     "scuderia-control-plane-mcp": {
-      "type": "stdio",
-      "command": "scuderia-control-plane-mcp-server",
-      "args": [],
-      "env": {}
+      "command": "hyperpod-control-plane-mcp"
+    },
+    "scuderia-resilience-mcp": {
+      "command": "hyperpod-resilience-mcp"
+    },
+    "bunsho-mcp": {
+      "command": "bunsho-mcp",
+      "args": []
     },
     "local-chorus-mcp": {
       "command": "local-chorus-mcp",
@@ -33,15 +37,6 @@
     "aws-knowledge": {
       "type": "http",
       "url": "https://knowledge-mcp.global.api.aws"
-    },
-    "builder-mcp": {
-      "command": "builder-mcp",
-      "args": [
-        "--skill-paths",
-        "~/.aim/packages/local/ScuderiaControlPlaneAICapabilities-1.0/skills",
-        "--skill-name-filter",
-        "*"
-      ]
     }
   }
 }
