@@ -55,6 +55,7 @@ bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^H' backward-delete-char
 bindkey -M viins '^?' backward-delete-char # backspace key
 bindkey -M viins '^D' delete-char
+bindkey '^D' delete-char # main keymap is emacs, not viins, since vi mode isn't enabled
 bindkey -M viins '^B' backward-char
 bindkey -M viins '^F' forward-char
 bindkey -M viins '^G' push-line-or-edit
