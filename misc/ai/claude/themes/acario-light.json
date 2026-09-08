@@ -37,8 +37,8 @@
     "diffAddedWord": "#B8E0B0",
     "diffRemovedWord": "#F2B8BD",
 
-    "userMessageBackground": "#DFF0D8",
-    "userMessageBackgroundHover": "#D0D0E3",
+    "userMessageBackground": "#B7D8D5",
+    "userMessageBackgroundHover": "#80BEB2",
     "bashMessageBackgroundColor": "#D5FAFF",
     "memoryBackgroundColor": "#DEEAF8",
     "selectionBg": "#C0CCD0",
