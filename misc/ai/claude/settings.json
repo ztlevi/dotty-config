@@ -4,12 +4,8 @@
     "CLAUDE_CODE_USE_BEDROCK": "1",
     "AWS_REGION": "us-west-2"
   },
-  "worktree": {
-    "bgIsolation": "none"
-  },
   "includeCoAuthoredBy": false,
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(ada profile list *)",
       "Bash(brazil-build)",
@@ -51,8 +47,15 @@
       "Bash(git remote add *)",
       "Bash(git remote remove *)",
       "Bash(git remote update *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
+  "model": "global.anthropic.claude-sonnet-5",
+  "fallbackModel": [
+    "global.anthropic.claude-opus-4-8[1m]",
+    "global.anthropic.claude-opus-4-7[1m]",
+    "global.anthropic.claude-opus-4-6-v1[1m]"
+  ],
   "availableModels": [
     "claude-opus-4-6[1m]",
     "claude-opus-4-6",
@@ -69,7 +72,27 @@
     "claude-fable-5[1m]",
     "claude-haiku-4-5"
   ],
+  "enforceAvailableModels": true,
+  "modelOverrides": {
+    "claude-opus-4-6[1m]": "global.anthropic.claude-opus-4-6-v1[1m]",
+    "claude-opus-4-6": "global.anthropic.claude-opus-4-6-v1",
+    "claude-opus-4-7[1m]": "global.anthropic.claude-opus-4-7[1m]",
+    "claude-opus-4-7": "global.anthropic.claude-opus-4-7",
+    "claude-opus-4-8[1m]": "global.anthropic.claude-opus-4-8[1m]",
+    "claude-opus-4-8": "global.anthropic.claude-opus-4-8",
+    "claude-opus-5[1m]": "global.anthropic.claude-opus-5[1m]",
+    "claude-opus-5": "global.anthropic.claude-opus-5",
+    "claude-sonnet-4-6": "global.anthropic.claude-sonnet-4-6",
+    "claude-sonnet-4-6[1m]": "global.anthropic.claude-sonnet-4-6[1m]",
+    "claude-sonnet-5": "global.anthropic.claude-sonnet-5",
+    "claude-fable-5": "global.anthropic.claude-fable-5[1m]",
+    "claude-fable-5[1m]": "global.anthropic.claude-fable-5[1m]",
+    "claude-haiku-4-5": "global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
   "enableAllProjectMcpServers": true,
+  "worktree": {
+    "bgIsolation": "none"
+  },
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); cd \"$(printf '%s' \"$input\" | jq -r '.workspace.current_dir // .cwd')\" 2>/dev/null; printf '%s' \"$input\" | starship statusline claude-code"
@@ -120,32 +143,6 @@
     }
   },
   "tui": "fullscreen",
-  "theme": "acario-light",
-  "model": "global.anthropic.claude-sonnet-5",
-  "planModeModel": "global.anthropic.claude-opus-4-8[1m]",
-  "modelOverrides": {
-    "claude-opus-4-6[1m]": "global.anthropic.claude-opus-4-6-v1[1m]",
-    "claude-opus-4-6": "global.anthropic.claude-opus-4-6-v1",
-    "claude-opus-4-7[1m]": "global.anthropic.claude-opus-4-7[1m]",
-    "claude-opus-4-7": "global.anthropic.claude-opus-4-7",
-    "claude-opus-4-8[1m]": "global.anthropic.claude-opus-4-8[1m]",
-    "claude-opus-4-8": "global.anthropic.claude-opus-4-8",
-    "claude-opus-5[1m]": "global.anthropic.claude-opus-5[1m]",
-    "claude-opus-5": "global.anthropic.claude-opus-5",
-    "claude-sonnet-4-6": "global.anthropic.claude-sonnet-4-6",
-    "claude-sonnet-4-6[1m]": "global.anthropic.claude-sonnet-4-6[1m]",
-    "claude-sonnet-5": "global.anthropic.claude-sonnet-5",
-    "claude-fable-5": "global.anthropic.claude-fable-5[1m]",
-    "claude-fable-5[1m]": "global.anthropic.claude-fable-5[1m]",
-    "claude-haiku-4-5": "global.anthropic.claude-haiku-4-5-20251001-v1:0"
-  },
-  "enforceAvailableModels": true,
-  "fallbackModel": [
-    "global.anthropic.claude-opus-4-8[1m]",
-    "global.anthropic.claude-opus-4-7[1m]",
-    "global.anthropic.claude-opus-4-6-v1[1m]"
-  ],
-  "companyAnnouncements": [
-    "Claude Code usage is cleared for Business Data per the AI For Me Guidance.\nITAR, PII, Customer Data, and more are strictly prohibited for use within this tool.\nRead more: https://w.amazon.com/bin/view/Security/AI-Security/AIforMe-Guidance#HDATAANDEXAMPLESQUICKREFERENCETABLE"
-  ]
+  "theme": "custom:acario-light",
+  "planModeModel": "global.anthropic.claude-opus-4-8[1m]"
 }
