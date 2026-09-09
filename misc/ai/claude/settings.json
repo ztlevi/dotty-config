@@ -114,7 +114,8 @@
     "superpowers@claude-plugins-official": true,
     "BuilderInsightsAgents-all@aim": true,
     "aws-core@agent-toolkit-for-aws": true,
-    "HyperPodAIAgents-all@aim": true
+    "HyperPodAIAgents-all@aim": true,
+    "stock-deep-analyzer@uzi-skill": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -139,6 +140,12 @@
       "source": {
         "source": "github",
         "repo": "aws/agent-toolkit-for-aws"
+      }
+    },
+    "uzi-skill": {
+      "source": {
+        "source": "github",
+        "repo": "wbh604/UZI-Skill"
       }
     }
   },
