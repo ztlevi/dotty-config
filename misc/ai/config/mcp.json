@@ -1,20 +1,42 @@
 {
-  "mcpServers" : {
-    "fetch" : {
-      "command" : "uvx",
-      "args" : [ "mcp-server-fetch" ]
+  "mcpServers": {
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-fetch"],
+      "env": {}
     },
-    "creds-agent" : {
-      "command" : "aim",
-      "args" : [ "mcp", "start-server", "local-creds-agent-mcp" ]
+    "scuderia-control-plane-mcp": {
+      "command": "hyperpod-control-plane-mcp"
     },
-    "pippin-mcp" : {
-      "command" : "pippin-mcp-server",
-      "args" : [ ]
+    "scuderia-resilience-mcp": {
+      "command": "hyperpod-resilience-mcp"
     },
-    "local-chorus-mcp" : {
-      "command" : "local-chorus-mcp",
-      "args" : [ ]
+    "bunsho-mcp": {
+      "command": "bunsho-mcp",
+      "args": []
+    },
+    "local-chorus-mcp": {
+      "command": "local-chorus-mcp",
+      "args": []
+    },
+    "pippin-mcp": {
+      "command": "pippin-mcp-server",
+      "args": []
+    },
+    "software-builder-insights-prod-mcp": {
+      "command": "software-builder-insights-prod-mcp",
+      "args": []
+    },
+    "appsec-mcp": {
+      "type": "stdio",
+      "command": "appsec-mcp",
+      "args": [],
+      "env": {}
+    },
+    "aws-knowledge": {
+      "type": "http",
+      "url": "https://knowledge-mcp.global.api.aws"
     }
   }
 }

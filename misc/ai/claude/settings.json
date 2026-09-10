@@ -1,5 +1,5 @@
 {
-  "awsCredentialExport": "\"/home/zhot/.toolbox/bin/claude\" default-credential-export",
+  "awsCredentialExport": "\"$HOME/.toolbox/bin/claude\" default-credential-export",
   "env": {
     "CLAUDE_CODE_USE_BEDROCK": "1",
     "AWS_REGION": "us-west-2"
@@ -121,7 +121,7 @@
     "aim": {
       "source": {
         "source": "directory",
-        "path": "/local/home/zhot/.aim/cc-plugins"
+        "path": "$HOME/.aim/cc-plugins"
       }
     },
     "frontend-slides": {
