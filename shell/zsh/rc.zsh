@@ -55,7 +55,8 @@ alias wget='wget -c' # Resume dl if possible
 alias cssh='$EDITOR $HOME/.ssh/config'
 
 alias ag="ag -p $XDG_CONFIG_HOME/ag/agignore"
-prg() {ps aux | rg -i $@}
+alias procs="procs --load-config $XDG_CONFIG_HOME/procs/config.toml"
+prg() {procs $@}
 grep_search() { echo $2 | grep -qiP $1; }
 rg_search() { echo $2 | rg -qS $1; }
 vread() {
