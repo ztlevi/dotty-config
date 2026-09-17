@@ -5,7 +5,7 @@
 # mutagen sync list
 sync:
   defaults:
-    maxStagingFileSize: "20 MB"
+    maxStagingFileSize: "100 MB"
     mode: "two-way-resolved"
     # Ignore symlink since most should be auto generated build files
     symlink:

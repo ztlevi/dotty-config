@@ -215,3 +215,57 @@ uuh() {
   git -C $XDG_CONFIG_HOME/dotty/config reset --hard HEAD
   update_dotty
 }
+
+# Delete a path on both sides of a mutagen sync session.
+# Needed because mutagen refuses to propagate a delete when the target
+# directory contains content it doesn't track (e.g. ignored .git dirs),
+# leaving the whole subtree stuck on the other side.
+# Usage: mutagen-rm [-f] <path-relative-to-sync-root> [session=dev]
+mutagen-rm() {
+  emulate -L zsh
+  local force=0
+  [[ "$1" == "-f" ]] && { force=1; shift }
+
+  if [[ -z "$1" ]]; then
+    echo-fail "usage: mutagen-rm [-f] <relative-path> [session=dev]"
+    return 1
+  fi
+  local rel_path="$1"
+  local session="${2:-dev}"
+  rel_path="${rel_path#/}"
+  if [[ -z "$rel_path" || "$rel_path" == "." ]]; then
+    echo-fail "Refusing to delete the sync root itself"
+    return 1
+  fi
+
+  local info alpha_path beta_user beta_host beta_path
+  info=$(mutagen sync list "$session" --template '{{with index . 0}}{{.Alpha.Path}}|{{.Beta.User}}|{{.Beta.Host}}|{{.Beta.Path}}{{end}}' 2>/dev/null)
+  if [[ -z "$info" ]]; then
+    echo-fail "Could not find mutagen session '${session}'"
+    return 1
+  fi
+  IFS='|' read -r alpha_path beta_user beta_host beta_path <<<"$info"
+
+  local local_target="${alpha_path}/${rel_path}"
+  local remote_target="${beta_path}/${rel_path}"
+
+  if (( ! force )); then
+    echo-info "About to rm -rf on both sides of session '${session}':"
+    echo "  local:  ${local_target}"
+    echo "  remote: ${beta_user}@${beta_host}:${remote_target}"
+    read -q "REPLY?Proceed? [y/N] "
+    echo
+    [[ "$REPLY" == "y" ]] || { echo-fail "Aborted"; return 1 }
+  fi
+
+  echo-info "Deleting locally: ${local_target}"
+  rm -rf "${local_target}"
+
+  echo-info "Deleting on remote: ${beta_user}@${beta_host}:${remote_target}"
+  ssh "${beta_user}@${beta_host}" "rm -rf ${(qq)remote_target}"
+
+  echo-info "Flushing mutagen session '${session}'"
+  mutagen sync flush "${session}"
+
+  echo-ok "Deleted '${rel_path}' on both sides of '${session}'"
+}
