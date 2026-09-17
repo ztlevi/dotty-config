@@ -5,6 +5,7 @@
     "AWS_REGION": "us-west-2"
   },
   "includeCoAuthoredBy": false,
+  "autoCompactEnabled": true,
   "permissions": {
     "allow": [
       "Bash(ada profile list *)",
