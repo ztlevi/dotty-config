@@ -37,6 +37,14 @@
     "aws-knowledge": {
       "type": "http",
       "url": "https://knowledge-mcp.global.api.aws"
+    },
+    "creds-agent": {
+      "command": "aim",
+      "args": ["mcp", "start-server", "local-creds-agent-mcp"]
+    },
+    "copy-pasta-mcp": {
+      "command": "copy-pasta-mcp",
+      "args": []
     }
   }
 }

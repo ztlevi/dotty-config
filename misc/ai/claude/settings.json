@@ -5,7 +5,6 @@
     "AWS_REGION": "us-west-2"
   },
   "includeCoAuthoredBy": false,
-  "autoCompactEnabled": true,
   "permissions": {
     "allow": [
       "Bash(ada profile list *)",
@@ -40,7 +39,10 @@
       "WebFetch",
       "mcp__scuderia-control-plane-mcp",
       "mcp__builder-mcp",
-      "mcp__aws-knowledge"
+      "mcp__aws-knowledge",
+      "mcp__arcc__search_arcc",
+      "mcp__arcc-mcp__search_arcc",
+      "mcp__plugin_local-ARCCBaselineCapability-all_arcc-mcp__search_arcc"
     ],
     "deny": [
       "Bash(git push)",
@@ -51,7 +53,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "global.anthropic.claude-sonnet-5",
+  "model": "global.anthropic.claude-opus-5-5[1m]",
   "fallbackModel": [
     "global.anthropic.claude-opus-4-8[1m]",
     "global.anthropic.claude-opus-4-7[1m]",
@@ -88,7 +90,9 @@
     "claude-sonnet-5": "global.anthropic.claude-sonnet-5",
     "claude-fable-5": "global.anthropic.claude-fable-5[1m]",
     "claude-fable-5[1m]": "global.anthropic.claude-fable-5[1m]",
-    "claude-haiku-4-5": "global.anthropic.claude-haiku-4-5-20251001-v1:0"
+    "claude-haiku-4-5": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "claude-opus-5-5[1m]": "global.anthropic.claude-opus-5-5[1m]",
+    "claude-opus-5-5": "global.anthropic.claude-opus-5-5"
   },
   "enableAllProjectMcpServers": true,
   "worktree": {
@@ -116,7 +120,13 @@
     "BuilderInsightsAgents-all@aim": true,
     "aws-core@agent-toolkit-for-aws": true,
     "HyperPodAIAgents-all@aim": true,
-    "stock-deep-analyzer@uzi-skill": true
+    "stock-deep-analyzer@uzi-skill": true,
+    "ScuderiaControlPlaneAICapabilities-all@aim": true,
+    "AmazonBuilderCoreAIAgents-runtime-configuration-assistant@aim": true,
+    "AtlasAICapabilities-all@aim": true,
+    "EdgeSwarm-all@aim": true,
+    "HyperPodAICapabilities-all@aim": true,
+    "andrej-karpathy-skills@karpathy-skills": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -148,9 +158,16 @@
         "source": "github",
         "repo": "wbh604/UZI-Skill"
       }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
     }
   },
   "tui": "fullscreen",
   "theme": "custom:acario-light",
+  "autoCompactEnabled": true,
   "planModeModel": "global.anthropic.claude-opus-4-8[1m]"
 }
