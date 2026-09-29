@@ -14,3 +14,15 @@ Still prioritize built-in tools (Read/Edit/Grep/Glob) over Bash where applicable
 ## CRUX / cr troubleshooting
 
 @~/dev/work/context/crux-context.md
+
+## Hyperpod/Scuderia Tickets analysis
+
+@~/dev/work/context/ticket-analysis.md
+
+## HyperPod team ownership
+
+@~/dev/work/context/hyperpod-team-ownership.md
+
+## Personal build and test
+
+@~/dev/work/context/personal-build-and-test.md
