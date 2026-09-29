@@ -45,6 +45,9 @@ command = "hyperpod-control-plane-mcp"
 [mcp_servers.scuderia-resilience-mcp]
 command = "hyperpod-resilience-mcp"
 
+[mcp_servers.copy-pasta-mcp]
+command = "copy-pasta-mcp"
+
 [shell_environment_policy]
 inherit = "all"
 
@@ -57,18 +60,13 @@ enabled = false
 [otel]
 exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/logs", protocol = "binary" } }
 metrics_exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/metrics", protocol = "binary" } }
-trace_exporter = "none"
+trace_exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/traces", protocol = "binary" } }
 log_user_prompt = true
 environment = "stable"
 
 [model_providers.amazon-bedrock.aws]
 region = "us-east-2"
 profile = "codex-DO-NOT-DELETE"
-
-[marketplaces.aim]
-last_updated = "2026-08-11T20:15:03Z"
-source_type = "local"
-source = "$HOME/.aim/plugins/codex"
 
 [marketplaces.frontend-slides]
 source_type = "git"
@@ -81,6 +79,10 @@ source = "https://github.com/OthmanAdi/planning-with-files.git"
 [marketplaces.agent-toolkit-for-aws]
 source_type = "git"
 source = "https://github.com/aws/agent-toolkit-for-aws.git"
+
+[marketplaces.aim]
+source_type = "local"
+source = "/local/home/zhot/.aim/plugins/codex"
 
 [plugins."AmazonBuilderCoreAIAgents-core@aim"]
 enabled = true
@@ -116,6 +118,21 @@ enabled = true
 enabled = true
 
 [plugins."MidwayClientSuiteIntegrationAgents-all@aim"]
+enabled = true
+
+[plugins."AmazonBuilderCoreAIAgents-runtime-configuration-assistant@aim"]
+enabled = true
+
+[plugins."ScuderiaControlPlaneAICapabilities-all@aim"]
+enabled = true
+
+[plugins."EdgeSwarm-all@aim"]
+enabled = true
+
+[plugins."HyperPodAICapabilities-all@aim"]
+enabled = true
+
+[plugins."AVMAIToolKit-all@aim"]
 enabled = true
 
 [hooks.state]
