@@ -101,7 +101,8 @@
     "claude-opus-5-5[1m]": "global.anthropic.claude-opus-5-5[1m]",
     "claude-opus-5-5": "global.anthropic.claude-opus-5-5",
     "claude-sonnet-5-5[1m]": "global.anthropic.claude-sonnet-5-5[1m]",
-    "claude-sonnet-5-5": "global.anthropic.claude-sonnet-5-5"
+    "claude-sonnet-5-5": "global.anthropic.claude-sonnet-5-5",
+    "claude-haiku-5-5": "global.anthropic.claude-haiku-5-5"
   },
   "enableAllProjectMcpServers": true,
   "worktree": {
@@ -137,7 +138,8 @@
     "HyperPodAICapabilities-all@aim": true,
     "andrej-karpathy-skills@karpathy-skills": true,
     "AVMAIToolKit-all@aim": true,
-    "SageMakerPipelineAgent-all@aim": true
+    "SageMakerPipelineAgent-all@aim": true,
+    "diagram-design@diagram-design": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -174,6 +176,12 @@
       "source": {
         "source": "github",
         "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    },
+    "diagram-design": {
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
       }
     }
   },

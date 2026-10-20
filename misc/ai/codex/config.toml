@@ -1,11 +1,10 @@
 model_provider = "amazon-bedrock"
 forced_login_method = "api"
 check_for_update_on_startup = false
-commit_attribution = ""
 chatgpt_base_url = "http://127.0.0.1:9"
 approvals_reviewer = "auto_review"
 model_reasoning_effort = "high"
-model = "openai.gpt-5.6-sol"
+model = "openai.gpt-6.1-sol"
 
 [mcp_servers.builder-mcp]
 command = "builder-mcp"
@@ -65,8 +64,11 @@ log_user_prompt = true
 environment = "stable"
 
 [model_providers.amazon-bedrock.aws]
-region = "us-east-2"
-profile = "codex-DO-NOT-DELETE"
+region = "us-east-1"
+
+[model_providers.amazon-bedrock.aws.credential_export]
+command = "/home/zhot/.toolbox/bin/codex"
+args = ["amzn", "credential-process"]
 
 [marketplaces.frontend-slides]
 source_type = "git"
@@ -160,3 +162,7 @@ trusted_hash = "sha256:a719f386d42f5c9f72a53ac05eee5455b3a54ec646bccb00985b960b3
 
 [tui]
 resume_cwd = "session"
+screen_reader_detection_done = true
+
+[features]
+guardian_reuse_parent_compaction = false
