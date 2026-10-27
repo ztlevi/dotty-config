@@ -108,6 +108,7 @@
   "worktree": {
     "bgIsolation": "none"
   },
+  "enableWorkflows": true,
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); cd \"$(printf '%s' \"$input\" | jq -r '.workspace.current_dir // .cwd')\" 2>/dev/null; printf '%s' \"$input\" | starship statusline claude-code"
@@ -141,7 +142,9 @@
     "SageMakerPipelineAgent-all@aim": true,
     "diagram-design@diagram-design": true,
     "sagemaker-ai@agent-plugins-for-aws": true,
-    "savvy-progress@claude-kit": true
+    "savvy-progress@claude-kit": true,
+    "filetree@claude-code-filetree": true,
+    "blast-radius@ztlevi-mods": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -197,10 +200,21 @@
         "source": "github",
         "repo": "JohnnyVizz/claude-kit"
       }
+    },
+    "claude-code-filetree": {
+      "source": {
+        "source": "github",
+        "repo": "data-goblin/claude-code-filetree"
+      }
+    },
+    "ztlevi-mods": {
+      "source": {
+        "source": "github",
+        "repo": "ztlevi/claude-marketplace"
+      }
     }
   },
   "tui": "fullscreen",
   "theme": "custom:acario-light",
-  "autoCompactEnabled": true,
-  "enableWorkflows": true
+  "autoCompactEnabled": true
 }
