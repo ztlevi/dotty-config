@@ -140,7 +140,8 @@
     "AVMAIToolKit-all@aim": true,
     "SageMakerPipelineAgent-all@aim": true,
     "diagram-design@diagram-design": true,
-    "sagemaker-ai@agent-plugins-for-aws": true
+    "sagemaker-ai@agent-plugins-for-aws": true,
+    "savvy-progress@claude-kit": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -190,9 +191,16 @@
         "source": "github",
         "repo": "awslabs/agent-plugins"
       }
+    },
+    "claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "JohnnyVizz/claude-kit"
+      }
     }
   },
   "tui": "fullscreen",
   "theme": "custom:acario-light",
-  "autoCompactEnabled": true
+  "autoCompactEnabled": true,
+  "enableWorkflows": true
 }
