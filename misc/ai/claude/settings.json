@@ -143,7 +143,8 @@
     "diagram-design@diagram-design": true,
     "sagemaker-ai@agent-plugins-for-aws": true,
     "savvy-progress@claude-kit": true,
-    "filetree@claude-code-filetree": true
+    "filetree@claude-code-filetree": true,
+    "gloss@gloss": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -204,6 +205,12 @@
       "source": {
         "source": "github",
         "repo": "data-goblin/claude-code-filetree"
+      }
+    },
+    "gloss": {
+      "source": {
+        "source": "github",
+        "repo": "ztlevi/gloss"
       }
     }
   },
