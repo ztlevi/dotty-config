@@ -144,7 +144,8 @@
     "sagemaker-ai@agent-plugins-for-aws": true,
     "savvy-progress@claude-kit": true,
     "filetree@claude-code-filetree": true,
-    "gloss@gloss": true
+    "gloss@gloss": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -211,6 +212,12 @@
       "source": {
         "source": "github",
         "repo": "ztlevi/gloss"
+      }
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
       }
     }
   },
