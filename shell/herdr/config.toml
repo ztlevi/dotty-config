@@ -96,3 +96,23 @@ key = "prefix+shift+r"
 type = "shell"
 command = "herdr server reload-config"
 description = "reload herdr config"
+
+# --- Nerd Font icons ---------------------------------------------------------
+# Needs a Nerd Font in the terminal. Glyphs are literal private-use characters.
+[ui]
+# distinct shapes per agent state instead of plain colored dots
+status_indicators = "symbols"
+
+# right edge of the tab bar:  zoom | host | clock
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "text", text = "" },
+  { type = "hostname" },
+  { type = "text", text = " UTC" },
+  { type = "datetime", format = "%m/%d %H:%M" },
+]
+tab_bar_right_separator = " "
+
+# Agents panel: pane tokens are allowed here ("$icon" is set by rc.zsh)
+[ui.sidebar.agents]
+rows = [["state_icon", "$icon", "workspace", "tab"], ["agent"]]
