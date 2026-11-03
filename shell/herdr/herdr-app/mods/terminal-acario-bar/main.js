@@ -29,7 +29,9 @@ function find(node, id) {
 function folder(cwd) {
   if (!cwd) return "";
   const h = home();
-  return cwd === h ? "~" : cwd.startsWith(h + "/") ? "~" + cwd.slice(h.length) : cwd;
+  if (cwd === h) return "~";
+  // Last path segment only ("/Volumes/dev/work" -> "work").
+  return cwd.split("/").filter(Boolean).pop() ?? cwd;
 }
 
 // The pane a tab's tab speaks for: the focused one, else its agent, else the first.
@@ -199,8 +201,8 @@ export default class TerminalsBar extends View {
           .items_center()
           .rounded(13)
           .border_1()
-          .border_color(C.tabEdge)
-          .bg(C.tab)
+          .border_color("#00000000")
+          .bg(C.tray)
           .text_size(13)
           .text_color(C.text)
           .child(div().flex_none().child("🕒"))
