@@ -110,6 +110,18 @@ export default class TerminalsBar extends View {
   init(_props, cx) {
     // Redraw a few times a minute so the clock never lags by more than a tick.
     this.clock = cx.timer.every(10000, (c) => c.notify());
+    this.stretch = false; // the lens is mid-glide: a little longer, like a drop of liquid
+    this.pressed = false; // a tab is under the pointer: the lens squishes
+  }
+
+  // Flash a state flag for `ms`, then let it go.
+  flash(cx, key, ms) {
+    this[key] = true;
+    cx.notify();
+    cx.timer.after(ms, (c) => {
+      this[key] = false;
+      c.notify();
+    });
   }
 
   render() {
@@ -119,26 +131,36 @@ export default class TerminalsBar extends View {
     const all = panes();
     const w = win() ?? {};
 
+    // Fixed-width tabs, so the sliding lens knows where each one sits.
+    const n = space.tabs.length;
+    const TAB_W = n <= 5 ? 180 : n <= 7 ? 150 : 120;
+    const PAD = 3;
+    const GAP = 3;
+    const TAB_H = 30;
+    const at = Math.max(0, space.tabs.findIndex((c) => c.active));
+
     const tab = (c) => {
       const p = lead(all, c.id);
       const where = c.named ? "" : folder(p?.cwd);
       return own(h_flex())
         .id(`tm-${c.id}`)
-        .flex_shrink(1)
-        .w(200)
+        .flex_none()
+        .w(TAB_W)
         .min_w(0)
-        .h_full()
+        .h(TAB_H)
         .pl(5)
         .pr(12)
         .gap(9)
         .items_center()
-        .rounded(13)
-        .border_1()
+        .rounded_full()
         .cursor_pointer()
         .text_size(13)
-        .when(c.active, (el) => el.bg(C.tab).border_color(C.tabEdge))
-        .when(!c.active, (el) => el.border_color("#00000000").hover((s) => s.bg(C.hover)))
-        .on_click(() => run("tab.select", { id: c.id }))
+        .when(!c.active, (el) => el.hover((s) => s.bg(C.hover)))
+        .on_mouse_down("left", (_e, cx) => this.flash(cx, "pressed", 140))
+        .on_click((_e, cx) => {
+          if (!c.active) this.flash(cx, "stretch", 200);
+          run("tab.select", { id: c.id });
+        })
         .on_mouse_down("right", () =>
           openOverlay({ mod: "menu", kind: "popup", width: 200, props: { tab: "tab", target: { id: c.id, space: space.id } } }),
         )
@@ -153,6 +175,24 @@ export default class TerminalsBar extends View {
         );
     };
 
+    // The lens: one capsule that glides to the shown tab, stretches while
+    // it travels and squishes under a press. It sits under the tabs.
+    const lens = div()
+      .id("tm-lens")
+      .absolute()
+      .rounded_full()
+      .bg(C.tab)
+      .border_1()
+      .border_color(C.tabEdge)
+      .top(PAD + (this.pressed ? 1 : 0))
+      .left(PAD + at * (TAB_W + GAP) - (this.stretch ? 6 : 0))
+      .w(TAB_W + (this.stretch ? 12 : 0))
+      .h(TAB_H - (this.pressed ? 2 : 0))
+      .transition("left", { duration: 320, easing: "ease-out" })
+      .transition("width", { duration: 320, easing: "ease-out" })
+      .transition("top", { duration: 120, easing: "ease-out" })
+      .transition("height", { duration: 120, easing: "ease-out" });
+
     return h_flex()
       .size_full()
       .gap(8)
@@ -163,15 +203,15 @@ export default class TerminalsBar extends View {
         own(h_flex())
           .id("tm-space")
           .flex_none()
-          .min_w(150)
           .h(30)
+          .rounded_full()
+          .bg(space.machine ? "#1F55A0" : "#009B7C")
+          .min_w(150)
           .pl(10)
           .pr(12)
           .gap(8)
           .items_center()
           .justify_center()
-          .rounded_full()
-          .bg(space.machine ? "#1F55A0" : "#009B7C")
           .cursor_pointer()
           .text_size(13)
           .text_color("#ffffff")
@@ -181,13 +221,15 @@ export default class TerminalsBar extends View {
       )
       .child(
         h_flex()
-          .flex_shrink(1)
-          .min_w(0)
+          .relative()
+          .flex_none()
           .h(36)
-          .p(3)
-          .gap(3)
+          .p(PAD)
+          .gap(GAP)
+          .items_center()
           .rounded(16)
           .bg(C.tray)
+          .child(lens)
           .children(space.tabs.map(tab)),
       )
       .child(div().flex_1())
@@ -197,13 +239,11 @@ export default class TerminalsBar extends View {
         h_flex()
           .flex_none()
           .h(36)
-          .px(12)
+          .rounded(13)
+          .bg(C.tray)
+          .px(14)
           .gap(8)
           .items_center()
-          .rounded(13)
-          .border_1()
-          .border_color("#00000000")
-          .bg(C.tray)
           .text_size(13)
           .text_color(C.text)
           .child(div().flex_none().child("🕒"))
