@@ -1,10 +1,10 @@
 {
-  "zoom": 1.0,
+  "zoom": 1,
   "sounds": {
     "enabled": true
   },
-  "font": "Maple Mono Normal NF",
-  "font_size": 12.0,
-  "minimum_contrast": 1.0,
+  "font": "UbuntuMono Nerd Font Mono",
+  "font_size": 18,
+  "minimum_contrast": 1,
   "theme": "acario-light"
 }
