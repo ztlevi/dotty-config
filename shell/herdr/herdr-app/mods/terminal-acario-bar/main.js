@@ -53,7 +53,7 @@ function tile(t, p) {
     .items_center()
     .justify_center()
     .when(Boolean(g?.icon), (el) =>
-      el.child(g.tint ? svg(g.icon).size(15).text_color("#009B7C") : image(g.icon).w(15).h(15)),
+      el.child(g.tint ? svg(g.icon).size(15).text_color(C.text) : image(g.icon).w(15).h(15)),
     )
     .when(Boolean(dot), (el) =>
       el.child(div().absolute().top(-4).right(-4).w(11).h(11).rounded_full().border_2().border_color(C.tray).bg(dot)),
@@ -99,7 +99,17 @@ function iconButton(id, icon, onClick) {
     .child(svg(`mods/terminal-acario-bar/${icon}.svg`).size(17));
 }
 
+// "2026-11-03 18:45 UTC"
+function utcNow() {
+  return new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC";
+}
+
 export default class TerminalsBar extends View {
+  init(_props, cx) {
+    // Redraw a few times a minute so the clock never lags by more than a tick.
+    this.clock = cx.timer.every(10000, (c) => c.notify());
+  }
+
   render() {
     const t = theme();
     const space = spaces().find((p) => p.active);
@@ -180,6 +190,22 @@ export default class TerminalsBar extends View {
       .child(div().flex_1())
       .child(iconButton("tm-keys", "command", () => run("app.palette")))
       .child(iconButton("tm-new", "plus", () => run("tab.new", { space: space.id })))
+      .child(
+        h_flex()
+          .flex_none()
+          .h(36)
+          .px(12)
+          .gap(8)
+          .items_center()
+          .rounded(13)
+          .border_1()
+          .border_color(C.tabEdge)
+          .bg(C.tab)
+          .text_size(13)
+          .text_color(C.text)
+          .child(div().flex_none().child("🕒"))
+          .child(div().flex_none().child(utcNow())),
+      )
       .when(Boolean(w.buttons), (el) =>
         el.child(
           h_flex()
