@@ -121,7 +121,7 @@ export default class TerminalsBar extends View {
 
     const tab = (c) => {
       const p = lead(all, c.id);
-      const where = folder(p?.cwd);
+      const where = c.named ? "" : folder(p?.cwd);
       return own(h_flex())
         .id(`tm-${c.id}`)
         .flex_shrink(1)
