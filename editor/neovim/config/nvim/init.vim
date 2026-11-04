@@ -72,6 +72,10 @@ vmap <c-e> $
 imap <c-e> <Esc>A
 imap <c-a> <Esc>I
 imap <c-d> <del>
+" The herdr app on macOS hands Ctrl-d to the terminal as <Del> (verified with getcharstr(),
+" keys.json can't intercept it), so in normal/visual mode map <Del> back to the usual scroll
+nnoremap <Del> <C-d>
+xnoremap <Del> <C-d>
 imap <c-k> <Esc><right>Da
 inoremap <c-f> <right>
 inoremap <c-b> <left>
@@ -85,6 +89,11 @@ cnoremap <C-e> <End>
 nmap <A-s> :wa<cr>
 vmap <A-s> :wa<cr>
 imap <A-s> <Esc>:wa<cr>a
+" Terminals that report Cmd as <D-...> (herdr, via the kitty keyboard protocol) instead
+" of turning it into Alt like Rio does
+nmap <D-s> :wa<cr>
+vmap <D-s> :wa<cr>
+imap <D-s> <Esc>:wa<cr>a
 
 " Tmux navigator
 let g:tmux_navigator_no_mappings = 1
