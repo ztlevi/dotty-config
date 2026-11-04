@@ -38,9 +38,9 @@
       "type": "http",
       "url": "https://knowledge-mcp.global.api.aws"
     },
-    "creds-agent": {
-      "command": "aim",
-      "args": ["mcp", "start-server", "local-creds-agent-mcp"]
+    "slack-mcp": {
+      "command": "slack-mcp",
+      "args": []
     },
     "copy-pasta-mcp": {
       "command": "copy-pasta-mcp",

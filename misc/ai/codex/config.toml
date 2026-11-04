@@ -1,10 +1,4 @@
 model_provider = "amazon-bedrock"
-forced_login_method = "api"
-check_for_update_on_startup = false
-chatgpt_base_url = "http://127.0.0.1:9"
-approvals_reviewer = "auto_review"
-model_reasoning_effort = "high"
-model = "openai.gpt-6.1-sol"
 
 [mcp_servers.builder-mcp]
 command = "builder-mcp"
@@ -47,27 +41,18 @@ command = "hyperpod-resilience-mcp"
 [mcp_servers.copy-pasta-mcp]
 command = "copy-pasta-mcp"
 
-[shell_environment_policy]
-inherit = "all"
-
-[analytics]
-enabled = true
-
-[feedback]
-enabled = false
-
-[otel]
-exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/logs", protocol = "binary" } }
-metrics_exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/metrics", protocol = "binary" } }
-trace_exporter = { otlp-http = { endpoint = "http://127.0.0.1:30756/v1/traces", protocol = "binary" } }
-log_user_prompt = true
-environment = "stable"
-
 [model_providers.amazon-bedrock.aws]
 region = "us-east-1"
 
 [model_providers.amazon-bedrock.aws.credential_export]
-command = "/home/zhot/.toolbox/bin/codex"
+command = "$HOME/.toolbox/bin/codex"
+args = ["amzn", "credential-process"]
+
+[model_providers.amazon-bedrock-runtime.aws]
+region = "us-east-1"
+
+[model_providers.amazon-bedrock-runtime.aws.credential_export]
+command = "$HOME/.toolbox/bin/codex"
 args = ["amzn", "credential-process"]
 
 [marketplaces.frontend-slides]
@@ -84,7 +69,7 @@ source = "https://github.com/aws/agent-toolkit-for-aws.git"
 
 [marketplaces.aim]
 source_type = "local"
-source = "/local/home/zhot/.aim/plugins/codex"
+source = "$HOME/.aim/plugins/codex"
 
 [plugins."AmazonBuilderCoreAIAgents-core@aim"]
 enabled = true
@@ -136,33 +121,3 @@ enabled = true
 
 [plugins."AVMAIToolKit-all@aim"]
 enabled = true
-
-[hooks.state]
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:pre_tool_use:0:0"]
-trusted_hash = "sha256:e3ef179a33b8e5cc4b8ae67c5eed83ef50e8f84c26f241545b4203132a90e7a1"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:permission_request:0:0"]
-trusted_hash = "sha256:f09ff884e3acbd82ad441a8e6c34ac9a6e76537479e19ef9c8ab505cc6732fb6"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:post_tool_use:0:0"]
-trusted_hash = "sha256:78bdf875cca01be2a0925bc8a8a559e174983847b2c38e046e8c6864ae62cb7b"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:pre_compact:0:0"]
-trusted_hash = "sha256:9078130b2286d3d4b5ab764bfbaae6f5f8276aaf428e30e3bbce87b1fe79d1d7"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:session_start:0:0"]
-trusted_hash = "sha256:9b4e815c57e7ade175b7b93b5bd546d292586a426111c279e16d300aa797c638"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:user_prompt_submit:0:0"]
-trusted_hash = "sha256:037f9d6e352bc6c41a1e44d028bfdfaeacadfd7800288e99cce8107add35e111"
-
-[hooks.state."planning-with-files@planning-with-files:hooks/codex-hooks.json:stop:0:0"]
-trusted_hash = "sha256:a719f386d42f5c9f72a53ac05eee5455b3a54ec646bccb00985b960b33ae0e18"
-
-[tui]
-resume_cwd = "session"
-screen_reader_detection_done = true
-
-[features]
-guardian_reuse_parent_compaction = false
