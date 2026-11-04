@@ -59,7 +59,7 @@
               },
               "min": 90,
               "content": {
-                "mod": "spaces"
+                "mod": "terminal-acario-spaces"
               }
             },
             {
@@ -70,7 +70,7 @@
               },
               "min": 90,
               "content": {
-                "mod": "agents"
+                "mod": "terminal-acario-agents"
               }
             }
           ]

@@ -2,7 +2,7 @@
 
 import { View, div, svg, image } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { spaces, panes, run, theme, home, openOverlay, layout, window as win } from "herdr";
+import { spaces, panes, machines, shared, setShared, run, theme, home, openOverlay, layout, window as win } from "herdr";
 
 const C = {
   tray: "#e4e4ed",
@@ -16,6 +16,27 @@ const C = {
   dim: "#4d5060",
 };
 
+
+// Each machine gets its own color, kept in shared("machine.colors") so every mod agrees:
+// this computer is always green; remote machines take the next color from the palette
+// in the order they are first seen (alphabetical when several appear at once), and
+// wrap back to the first (blue) when the palette runs out.
+const MACHINE_PALETTE = ["#1F55A0", "#6B4FA0", "#B5651D", "#0E7C86", "#A63D40", "#7A6A1F", "#9C3D7A"];
+function machineColor(name) {
+  if (!name) return "#009B7C";
+  const map = shared("machine.colors") ?? {};
+  if (map[name] === undefined) {
+    const missing = [...new Set([...machines().map((m) => m.name).filter(Boolean), name])].filter((n) => map[n] === undefined).sort();
+    const next = { ...map };
+    let i = Object.keys(map).length;
+    for (const n of missing) next[n] = i++;
+    setShared("machine.colors", next);
+    return MACHINE_PALETTE[next[name] % MACHINE_PALETTE.length];
+  }
+  return MACHINE_PALETTE[map[name] % MACHINE_PALETTE.length];
+}
+// A darker shade of #rrggbb, for hover.
+const darker = (hex, k = 0.82) => "#" + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * k).toString(16).padStart(2, "0")).join("");
 function find(node, id) {
   if (!node) return null;
   if (node.id === id) return node;
@@ -205,7 +226,7 @@ export default class TerminalsBar extends View {
           .flex_none()
           .h(30)
           .rounded_full()
-          .bg(space.machine ? "#1F55A0" : "#009B7C")
+          .bg(machineColor(space.machine))
           .min_w(150)
           .pl(10)
           .pr(12)
