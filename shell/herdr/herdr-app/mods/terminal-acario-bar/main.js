@@ -122,9 +122,10 @@ function iconButton(id, icon, onClick) {
     .child(svg(`mods/terminal-acario-bar/${icon}.svg`).size(17));
 }
 
-// "2026-11-03 18:45 UTC"
-function utcNow() {
-  return new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC";
+// "2026-11-03 18:45 UTC", or just "18:45 UTC" when the bar is short of room.
+function utcNow(compact = false) {
+  const iso = new Date().toISOString();
+  return compact ? iso.slice(11, 16) + " UTC" : iso.slice(0, 16).replace("T", " ") + " UTC";
 }
 
 export default class TerminalsBar extends View {
@@ -133,6 +134,21 @@ export default class TerminalsBar extends View {
     this.clock = cx.timer.every(10000, (c) => c.notify());
     this.stretch = false; // the lens is mid-glide: a little longer, like a drop of liquid
     this.pressed = false; // a tab is under the pointer: the lens squishes
+    // Measured widths (px) of the bar and its fixed-size parts, to size the tabs from.
+    this.barW = 0;
+    this.hostW = 0;
+    this.btnW = 0;
+    this.clockWFull = 0;
+    this.clockWCompact = 0;
+  }
+
+  // An on_size_change handler that remembers the width in this[key], redrawing only on a real change.
+  measure(key) {
+    return (size, cx) => {
+      if (Math.abs((this[key] ?? 0) - size.width) < 1.5) return;
+      this[key] = size.width;
+      cx.notify();
+    };
   }
 
   // Flash a state flag for `ms`, then let it go.
@@ -152,17 +168,36 @@ export default class TerminalsBar extends View {
     const all = panes();
     const w = win() ?? {};
 
-    // Fixed-width tabs, so the sliding lens knows where each one sits.
+    // Fixed-width tabs, so the sliding lens knows where each one sits. The width is
+    // computed from the room left in the window, never flexed: a narrow window shrinks
+    // the tabs (down to MIN_TAB_W), then drops the palette button, then shortens the
+    // clock, and only then clips the tabs. The clock is never what gets cut off.
     const n = space.tabs.length;
-    const TAB_W = n <= 5 ? 180 : n <= 7 ? 150 : 120;
     const PAD = 3;
     const GAP = 3;
     const TAB_H = 30;
+    const MIN_TAB_W = 84;
+    const base = n <= 5 ? 180 : n <= 7 ? 150 : 120;
+    const trafficPad = w.platform === "macos" && w.titlebar === "none" && !w.fullscreen && (!find(layout(), "sidebar") || Boolean(find(layout(), "sidebar").hidden)) ? 72 : 0;
+    const measured = this.barW > 0;
+    const fitFor = (palette, compact) => {
+      const clockW = compact ? this.clockWCompact || Math.max(0, (this.clockWFull || 205) - 80) : this.clockWFull || 205;
+      const count = 5 + (palette ? 1 : 0) + (w.buttons ? 1 : 0); // host, tray, spacer, +, clock, [palette], [window buttons]
+      const used = trafficPad + (this.hostW || 160) + (palette ? 31 : 0) + 31 + clockW + (w.buttons ? this.btnW || 98 : 0) + (count - 1) * 8 + 2 * PAD + 4;
+      return Math.floor((this.barW - used - (n - 1) * GAP) / n);
+    };
+    let showPalette = true;
+    let compactClock = false;
+    let fit = measured ? fitFor(true, false) : base;
+    if (measured && fit < MIN_TAB_W) { showPalette = false; fit = fitFor(false, false); }
+    if (measured && fit < MIN_TAB_W) { compactClock = true; fit = fitFor(false, true); }
+    const clip = measured && fit < MIN_TAB_W;
+    const TAB_W = Math.max(MIN_TAB_W, Math.min(base, fit));
     const at = Math.max(0, space.tabs.findIndex((c) => c.active));
 
     const tab = (c) => {
       const p = lead(all, c.id);
-      const where = c.named ? "" : folder(p?.cwd);
+      const where = c.named || TAB_W < 100 ? "" : folder(p?.cwd);
       return own(h_flex())
         .id(`tm-${c.id}`)
         .flex_none()
@@ -215,14 +250,17 @@ export default class TerminalsBar extends View {
       .transition("height", { duration: 120, easing: "ease-out" });
 
     return h_flex()
+      .id("tm-root")
       .size_full()
       .gap(8)
       .items_center()
+      .on_size_change(this.measure("barW"))
       // With the sidebar hidden the macOS traffic lights sit over the bar: leave room.
-      .when(w.platform === "macos" && w.titlebar === "none" && !w.fullscreen && (!find(layout(), "sidebar") || Boolean(find(layout(), "sidebar").hidden)), (el) => el.pl(72))
+      .when(trafficPad > 0, (el) => el.pl(trafficPad))
       .child(
         own(h_flex())
           .id("tm-space")
+          .on_size_change(this.measure("hostW"))
           .flex_none()
           .h(30)
           .rounded_full()
@@ -243,7 +281,8 @@ export default class TerminalsBar extends View {
       .child(
         h_flex()
           .relative()
-          .flex_none()
+          .when(!clip, (el) => el.flex_none())
+          .when(clip, (el) => el.flex_shrink(1).min_w(0).overflow_hidden())
           .h(36)
           .p(PAD)
           .gap(GAP)
@@ -254,10 +293,12 @@ export default class TerminalsBar extends View {
           .children(space.tabs.map(tab)),
       )
       .child(div().flex_1())
-      .child(iconButton("tm-keys", "command", () => run("app.palette")))
+      .when(showPalette, (el) => el.child(iconButton("tm-keys", "command", () => run("app.palette"))))
       .child(iconButton("tm-new", "plus", () => run("tab.new", { space: space.id })))
       .child(
         h_flex()
+          .id("tm-clock")
+          .on_size_change(this.measure(compactClock ? "clockWCompact" : "clockWFull"))
           .flex_none()
           .h(36)
           .rounded(13)
@@ -268,11 +309,13 @@ export default class TerminalsBar extends View {
           .text_size(13)
           .text_color(C.text)
           .child(div().flex_none().child("🕒"))
-          .child(div().flex_none().child(utcNow())),
+          .child(div().flex_none().child(utcNow(compactClock))),
       )
       .when(Boolean(w.buttons), (el) =>
         el.child(
           h_flex()
+            .id("tm-winbtns")
+            .on_size_change(this.measure("btnW"))
             .flex_none()
             .pl(6)
             .pr(4)
