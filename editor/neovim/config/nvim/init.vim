@@ -13,14 +13,20 @@ endif
 
 " Use OSC 52 for clipboard when no local display is available (SSH, tmux,
 " bare terminal). Falls back to system tools (xclip/pbcopy/...) when a
-" display exists.
-if empty($DISPLAY) && empty($WAYLAND_DISPLAY)
+" display exists. macOS always uses pbcopy/pbpaste (no $DISPLAY there).
+" Paste does NOT use OSC 52 (most terminals don't answer the read query, which
+" causes a multi-second timeout); it reads from the local register instead.
+" Use the terminal's own paste (cmd-v / ctrl-shift-v) for the system clipboard.
+if !has('mac') && empty($DISPLAY) && empty($WAYLAND_DISPLAY)
 lua << EOF
   local osc52 = require('vim.ui.clipboard.osc52')
+  local function paste()
+    return { vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('') }
+  end
   vim.g.clipboard = {
-    name = 'OSC 52',
+    name = 'OSC 52 (copy only)',
     copy = { ['+'] = osc52.copy('+'), ['*'] = osc52.copy('*') },
-    paste = { ['+'] = osc52.paste('+'), ['*'] = osc52.paste('*') },
+    paste = { ['+'] = paste, ['*'] = paste },
   }
 EOF
 endif
