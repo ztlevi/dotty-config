@@ -145,7 +145,8 @@
     "savvy-progress@claude-kit": true,
     "filetree@claude-code-filetree": true,
     "gloss@gloss": true,
-    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "taste-skill@taste-skill": true
   },
   "extraKnownMarketplaces": {
     "aim": {
@@ -218,6 +219,12 @@
       "source": {
         "source": "github",
         "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
       }
     }
   },
