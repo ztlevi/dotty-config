@@ -2,7 +2,7 @@
 
 import { View, div, svg, image } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { spaces, panes, machines, shared, setShared, run, theme, home, openOverlay, layout, window as win } from "herdr";
+import { spaces, panes, machines, shared, setShared, exec, notify, run, theme, home, openOverlay, layout, window as win } from "herdr";
 
 const C = {
   tray: "#e4e4ed",
@@ -132,6 +132,11 @@ export default class TerminalsBar extends View {
   init(_props, cx) {
     // Redraw a few times a minute so the clock never lags by more than a tick.
     this.clock = cx.timer.every(10000, (c) => c.notify());
+    // Copy feedback: herdr has no copy event, so watch the system clipboard instead.
+    this.clip = null;
+    this.clipWasActive = false;
+    this.clipBusy = false;
+    cx.timer.every(1000, () => this.watchClipboard());
     this.stretch = false; // the lens is mid-glide: a little longer, like a drop of liquid
     this.pressed = false; // a tab is under the pointer: the lens squishes
     // Measured widths (px) of the bar and its fixed-size parts, to size the tabs from.
@@ -140,6 +145,37 @@ export default class TerminalsBar extends View {
     this.btnW = 0;
     this.clockWFull = 0;
     this.clockWCompact = 0;
+  }
+
+  // A quiet "Copied" toast (no sound) when the clipboard changes while herdr is the active
+  // window, e.g. after selecting text with the mouse. It says how much was copied, never
+  // what: a copied password must not end up on screen. Changes made while herdr was in the
+  // background (copied in another app) only update the baseline.
+  async watchClipboard() {
+    if (this.clipBusy) return;
+    this.clipBusy = true;
+    try {
+      const active = Boolean(win()?.active);
+      const r = await exec("pbpaste", []);
+      if (r.code !== 0) return;
+      const text = r.stdout;
+      const changed = this.clip !== null && this.clip !== text;
+      this.clip = text;
+      if (changed && active && this.clipWasActive && text.length > 0) {
+        const lines = text.split("\n").length;
+        notify({
+          title: "Copied",
+          body: `${text.length} character${text.length === 1 ? "" : "s"}${lines > 1 ? ` · ${lines} lines` : ""}`,
+          level: "success",
+          icon: "icons/copied.svg",
+          timeout: 2000,
+        });
+      }
+      this.clipWasActive = active;
+    } catch {
+    } finally {
+      this.clipBusy = false;
+    }
   }
 
   // An on_size_change handler that remembers the width in this[key], redrawing only on a real change.
