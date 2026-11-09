@@ -183,6 +183,24 @@ export default class Agents extends View {
     }
   }
 
+  // herdr plays its done/blocked sounds when you are NOT looking at the agent. Play them
+  // here too when you are, so a finish or a block is never silent. Agents you aren't
+  // looking at are left to herdr, or you would hear every alert twice.
+  soundOn(list) {
+    const before = this.lastSeen;
+    const next = new Map();
+    const looking = Boolean(window()?.active);
+    for (const a of list) {
+      next.set(a.address, a.status);
+      const was = before?.get(a.address);
+      if (!before || was === undefined || was === a.status) continue;
+      if (!(looking && a.focused)) continue;
+      if (a.status === "blocked" || a.status === "error") playSound("blocked");
+      else if (a.status === "idle" && was === "working") playSound("done");
+    }
+    this.lastSeen = next;
+  }
+
   // herdr alerts for the agents it tracks; do the same for sessions it can't see:
   // a sound and a toast when one finishes or needs you, on any machine. A machine's
   // first read only records where things stand.
@@ -214,6 +232,7 @@ export default class Agents extends View {
         title: j.name || j.id,
         body: `${kind === "blocked" ? "Needs you" : "Finished"}${j.machine ? ` · ${j.machine}` : ""}${j.summary ? ` — ${clean(j.summary)}` : ""}`,
         level: kind === "blocked" ? "warning" : "success",
+        icon: kind === "blocked" ? "icons/acario-alert.svg" : "icons/acario-done.svg",
         timeout: 10000,
         action: { name: "terminal-acario-agents.open:" + `cs:${j.machine ?? ""}:${j.id}` },
       });
@@ -284,7 +303,7 @@ export default class Agents extends View {
       const r = await job();
       if (r.code !== 0) throw new Error((r.stderr || r.stdout || `exit ${r.code}`).trim().split("\n")[0]);
     } catch (e) {
-      notify({ title: `${label} failed`, body: `${s.name}: ${e.message ?? e}`, level: "error" });
+      notify({ title: `${label} failed`, body: `${s.name}: ${e.message ?? e}`, level: "error", icon: "icons/acario-error.svg" });
     }
   }
 
@@ -615,6 +634,7 @@ export default class Agents extends View {
     const shown = focused()?.agent;
     const now = Date.now();
     this.track([...list, ...sessions], now);
+    this.soundOn(plain);
     this.hold(list);
     const byPriority = sort.id === "priority";
     const urgency = new Map(list.map((a) => [a.address, Math.max(this.rank(a), ...this.tree(all, a.address).map((s) => RANK[kidStatus(s.t, this.listed)] ?? 0))]));
