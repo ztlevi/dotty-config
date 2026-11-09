@@ -42,6 +42,9 @@
       "mcp__scuderia-control-plane-mcp",
       "mcp__builder-mcp",
       "mcp__aws-knowledge",
+      "mcp__playwright-chrome",
+      "mcp__playwright-firefox",
+      "mcp__plugin_playwright_playwright",
       "mcp__arcc__search_arcc",
       "mcp__arcc-mcp__search_arcc",
       "mcp__plugin_local-ARCCBaselineCapability-all_arcc-mcp__search_arcc"
