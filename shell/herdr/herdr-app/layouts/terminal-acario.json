@@ -17,7 +17,7 @@
     "accent": "#009B7C",
     "foreground": "#0F1019",
     "terminal_foreground": "#0F1019",
-    "muted": "#4d5060",
+    "muted": "#3f6f61",
     "dim": "#80838f",
     "selection": "#DEEAF8"
   },

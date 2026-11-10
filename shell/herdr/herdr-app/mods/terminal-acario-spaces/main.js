@@ -435,7 +435,8 @@ export default class Spaces extends View {
   }
 
   render() {
-    const t = theme();
+    // The layout's muted is a green-gray (it colors the scrollbars); keep this mod's own gray.
+    const t = { ...theme(), muted: "#4d5060" };
     const collapsed = narrow();
     const palette = ["ansi6", "ansi3", "ansi4", "ansi5", "ansi2", "ansi1"];
     const sp = spaces();

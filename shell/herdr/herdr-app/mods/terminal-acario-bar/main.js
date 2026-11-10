@@ -250,7 +250,8 @@ export default class TerminalsBar extends View {
   }
 
   render() {
-    const t = theme();
+    // The layout's muted is a green-gray (it colors the scrollbars); keep this mod's own gray.
+    const t = { ...theme(), muted: "#4d5060" };
     const space = spaces().find((p) => p.active);
     if (!space) return div();
     const all = panes();

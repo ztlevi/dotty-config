@@ -552,7 +552,8 @@ export default class Agents extends View {
   }
 
   render(cx) {
-    const t = theme();
+    // The layout's muted is a green-gray (it colors the scrollbars); keep this mod's own gray.
+    const t = { ...theme(), muted: "#4d5060" };
     if (props()?.sortMenu) return this.sortMenu(t);
     if (props()?.sessionMenu) return this.sessionMenu(t);
     if (props()?.renameSession) return this.renameDialog(t);
