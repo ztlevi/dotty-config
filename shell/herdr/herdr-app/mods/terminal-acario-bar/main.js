@@ -2,7 +2,7 @@
 
 import { View, div, svg, image } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { spaces, panes, machines, shared, setShared, exec, notify, run, theme, home, openOverlay, layout, window as win } from "herdr";
+import { spaces, panes, machines, shared, setShared, exec, hc, notify, focused, nextCommand, readTextFile, writeTextFile, run, theme, home, openOverlay, layout, window as win } from "herdr";
 
 const C = {
   tray: "#e4e4ed",
@@ -137,6 +137,13 @@ export default class TerminalsBar extends View {
     this.clipWasActive = false;
     this.clipBusy = false;
     cx.timer.every(1000, () => this.watchClipboard());
+    // Key commands from keys.json ("terminal-acario-bar.copymode").
+    cx.spawn(async () => {
+      for (;;) {
+        const cmd = await nextCommand();
+        if (cmd === "copymode") this.copyMode();
+      }
+    });
     this.stretch = false; // the lens is mid-glide: a little longer, like a drop of liquid
     this.pressed = false; // a tab is under the pointer: the lens squishes
     // Measured widths (px) of the bar and its fixed-size parts, to size the tabs from.
@@ -145,6 +152,51 @@ export default class TerminalsBar extends View {
     this.btnW = 0;
     this.clockWFull = 0;
     this.clockWCompact = 0;
+  }
+
+  // "Copy mode": the focused terminal's text (screen + 5000 lines of history) in your editor.
+  // It reuses the "copy mode" tab when one is open (reloading the file in the running
+  // vim/nvim), otherwise opens one; quitting the editor closes the tab. The editor tab is
+  // always local, even for a remote terminal: `hc read` fetches the text from there.
+  async copyMode() {
+    const COPY_TAB = "copy mode";
+    const LINES = 5000;
+    const fail = (body) => notify({ title: "Copy mode", body, level: "error", icon: "icons/acario-error.svg", timeout: 5000 });
+    try {
+      const term = focused()?.terminal;
+      if (!term) return fail("No terminal is focused.");
+      const r = await hc(["read", term, "--lines", String(LINES)]);
+      if (r.code !== 0) return fail((r.stderr || r.stdout || "hc read failed").trim().split("\n")[0]);
+      const dir = `${home()}/.cache/herdr-copy-mode`;
+      const file = `${dir}/screen.txt`;
+      await exec("mkdir", ["-p", dir]);
+      const old = await readTextFile(file).catch(() => null);
+      await writeTextFile(file, r.stdout, old);
+
+      const ed = (await exec("sh", ["-lc", 'printf %s "${VISUAL:-${EDITOR:-nvim}}"'])).stdout.trim() || "nvim";
+      const nvim = /(^|\/)nvim$/.test(ed);
+      const sock = `${dir}/nvim.sock`;
+      const all = spaces();
+      const existing = all.filter((s) => !s.machine).flatMap((s) => s.tabs).find((t) => t.name === COPY_TAB);
+      if (existing) {
+        // Reuse the open editor: tell nvim to reload the file. Any other editor, or an
+        // nvim that has gone, is closed and started again below.
+        if (nvim) {
+          const rr = await exec(ed, ["--server", sock, "--remote-send", `<C-\\><C-n>:edit! ${file}<CR>G`]).catch(() => ({ code: 1 }));
+          if (rr.code === 0) return run("tab.select", { id: existing.id });
+        }
+        const old2 = panes().find((p) => p.tab === existing.id && p.terminal);
+        if (old2) await hc(["kill", old2.terminal]);
+      }
+      const cur = all.find((s) => s.active);
+      const local = cur && !cur.machine ? cur : all.find((s) => !s.machine);
+      // Ending the terminal closes its tab; the shell herdr wraps programs in would stay open.
+      const listen = nvim ? `--listen '${sock}' ` : "";
+      const script = `rm -f '${sock}'; ${ed} ${listen}-c 'normal! G' '${file}'; hc kill "$HC_TERMINAL_ID"`;
+      run("tab.new", { name: COPY_TAB, space: local?.id, folder: home(), argv: ["sh", "-c", script] });
+    } catch (e) {
+      fail(String(e?.message ?? e));
+    }
   }
 
   // A quiet "Copied" toast (no sound) when the clipboard changes while herdr is the active
