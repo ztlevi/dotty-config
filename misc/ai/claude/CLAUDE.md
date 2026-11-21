@@ -7,6 +7,14 @@ When using Bash:
 
 Still prioritize built-in tools (Read/Edit/Grep/Glob) over Bash where applicable.
 
+## Git push
+
+`git push` is permitted by settings, but ONLY when I specifically ask you to push in that message.
+
+- Never push automatically — not after committing, not after finishing a task, not to "save progress" or open a PR/CR.
+- Approval to push once does not carry over to later pushes; ask again each time.
+- Never force-push (`--force`, `--force-with-lease`) unless I explicitly say so.
+
 ## Scuderia context
 
 @~/dev/work/context/scuderia-context.md

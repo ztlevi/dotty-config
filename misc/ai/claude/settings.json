@@ -50,8 +50,6 @@
       "mcp__plugin_local-ARCCBaselineCapability-all_arcc-mcp__search_arcc"
     ],
     "deny": [
-      "Bash(git push)",
-      "Bash(git push *)",
       "Bash(git remote add *)",
       "Bash(git remote remove *)",
       "Bash(git remote update *)"
@@ -158,7 +156,8 @@
     "filetree@claude-code-filetree": true,
     "gloss@gloss": true,
     "ui-ux-pro-max@ui-ux-pro-max-skill": true,
-    "taste-skill@taste-skill": true
+    "taste-skill@taste-skill": true,
+    "SageMakerAIConsoleAgents-all@aim": true
   },
   "extraKnownMarketplaces": {
     "aim": {

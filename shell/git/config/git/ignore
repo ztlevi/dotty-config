@@ -128,3 +128,5 @@ annotation-generated-tst
 **/.claude
 **/.regent
 .playwright-mcp
+
+**/.claude/settings.local.json

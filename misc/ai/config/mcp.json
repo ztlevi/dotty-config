@@ -45,6 +45,10 @@
     "copy-pasta-mcp": {
       "command": "copy-pasta-mcp",
       "args": []
+    },
+    "arcc-mcp": {
+      "command": "arcc-mcp",
+      "args": []
     }
   }
 }
