@@ -27,7 +27,6 @@
     "alt-j": "pane.go:down",
     "cmd-shift-r": "tab.rename",
     "shift-f2": "space.rename",
-    "cmd-/": "app.help",
     "cmd-shift-/": "app.help",
     "cmd-b": "layout.toggle:sidebar",
     "cmd-=": "app.zoom_in",
