@@ -44,6 +44,7 @@
     "cmd-left": "send:\u0001",
     "cmd-right": "send:\u0005",
     "cmd-backspace": "send:\u0015",
+    "cmd-/": "send:\u001b/",
     "cmd-shift-f": "terminal.search",
     "cmd-shift-e": "terminal-acario-bar.copymode"
   }
